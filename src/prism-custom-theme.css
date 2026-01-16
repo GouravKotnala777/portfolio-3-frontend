@@ -1,0 +1,105 @@
+/* prism-custom-dracula.css */
+
+
+:root{
+  --keyword-color:#005282;
+  --tag-color:#0182cc;
+  --punctuation-color:rgb(99, 99, 99);
+  --operator-color:black;
+  --attr-value-color:#e69900;
+  --attr-name-color:#41ccec;
+  /*--variable-color:#e69900;*/
+}
+
+:root[class="dark"]{
+  --keyword-color:#298dc7;
+  --tag-color:#2a92ce;
+  --punctuation-color:rgb(185, 185, 185);
+  --operator-color:#fefce8;
+  --attr-value-color:#ffb900;
+  --attr-name-color:#41ccec;
+}
+
+pre[class*="language-"] {
+  color: white;
+}
+pre[class]
+
+/* Comments */
+.token.comment {
+  color: #6272a4;
+  font-style: italic;
+}
+
+/* Keywords (const, return, etc.) */
+.token.keyword {
+  /*color: oklch(58.8% 0.158 241.966);*/
+  color: var(--keyword-color);
+}
+
+/* Strings */
+.token.string {
+  color: #ffb900;
+}
+
+/* Numbers */
+.token.number {
+  color: #fefce8;
+}
+
+/* Functions */
+.token.function {
+  color: #fff085;
+}
+
+/* Variables */
+.token.variable {
+  color: #8be9fd;
+}
+
+/* Operators */
+.token.operator {
+  color: var(--operator-color);
+}
+
+/* JSX TAGS <div> */
+.token.tag {
+  color: var(--tag-color);
+}
+
+/* JSX tag names (div, span, Input) */
+.token.tag-name {
+  color: red;
+}
+
+/* JSX attributes (className, width) */
+.token.attr-name {
+  color: var(--attr-name-color);
+}
+
+/* JSX attribute values */
+.token.attr-value {
+  color: var(--attr-value-color);
+}
+
+/* JSX punctuation: < > / = */
+.token.punctuation {
+  color: var(--punctuation-color);
+}
+
+
+.thin_scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.thin_scrollbar::-webkit-scrollbar-thumb {
+  background: #ccd2da;
+  border-radius: 9999px;
+}
+
+/* Firefox */
+.thin_scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #ccd2da transparent;
+}
