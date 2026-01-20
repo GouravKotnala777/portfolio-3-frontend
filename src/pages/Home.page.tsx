@@ -3,6 +3,7 @@ import "../index.css";
 import { NavLink } from "react-router-dom";
 import { DATA } from "../utils/constants";
 import useTheme from "../hooks/useTheme";
+import TypingGame from "../components/games/TypingGame.component";
 
 const ComponentsSectionLinks = [
     {
@@ -82,12 +83,6 @@ function groupByMonthAndWeek(data:{total:{[key:string]:number}; contributions:Co
   }
 
   data?.contributions.forEach((item, index) => {
-    //const date = new Date(item.date);
-    //const monthKey = date.toLocaleString("en-US", {
-    //  month: "short",
-    ////  year: "numeric",
-    //}); // "Jan 2025"
-
     if ((index)%7 === 0) {
         allContributions[allContributions.length] = [item];
     }
@@ -96,9 +91,6 @@ function groupByMonthAndWeek(data:{total:{[key:string]:number}; contributions:Co
     }
   });
   totalContributions = data.total;
-
-  console.log({allContributions1:allContributions});
-  
 
   return {totalContributions, allContributions};
 }
@@ -129,7 +121,6 @@ export function transformData(data:{total:{[key:string]:number}; contributions:{
     try {
         let allContributions:{date:string; count:number; level:number;}[][] = [];
         let totalContributions:{[key:string]:number}|null = null;
-        console.log({data});
         
         if (!data) {
             throw Error("Github Contribution Chart Data not found");
@@ -144,11 +135,9 @@ export function transformData(data:{total:{[key:string]:number}; contributions:{
         });
 
         totalContributions = data.total;
-        console.log({allContributions});
         return {totalContributions, allContributions};
         
     } catch (error) {
-        console.log(error);
         throw Error("Github Contribution Chart Data not found");
     }
 };
@@ -165,10 +154,10 @@ function Prac() {
 
 
     async function getGitHubContributionsHandler() {
-        //const data = await getGitHubContributions();
+        const data = await getGitHubContributions();
         //if (!data) return;
 
-        const {totalContributions, allContributions} = groupByMonthAndWeek(DATA);
+        const {totalContributions, allContributions} = groupByMonthAndWeek(DATA||data);
         setGitHubChartData(allContributions);
         setTotalContributions(totalContributions);
     }
@@ -203,14 +192,14 @@ function Prac() {
             {/* Profile Section */}
             <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800">
                 <div className="max-w-3xl mx-auto flex relative">
-                    <div className="[box-shadow:0px_0px_1px_0px_#00000020_inset] dark:[box-shadow:0px_0px_1px_0px_#ffffff20_inset] bg-a rounded-full overflow-hidden p-[3px] relative"
+                    <div className="h-40 w-40 [box-shadow:0px_0px_1px_0px_#00000020_inset] dark:[box-shadow:0px_0px_1px_0px_#ffffff20_inset] bg-a rounded-full overflow-hidden p-0.75 relative"
                         onMouseEnter={activeSunGlassesPower}
                         onMouseLeave={disableSunGlassesPower}
                     >
-                        <div className="absolute top-0 left-0 inset-0 -z-1 text-white text-center content-center blur-md">
+                        <div className="z-1 absolute top-0 left-0 h-full w-full text-white text-center content-center blur-md">
                             <div className="w-full h-full"
                                 style={{
-                                    background:`conic-gradient(from 90deg, ${theme==="light"?"#262626":"#f5f5f5"} var(--dp-bg-angle), ${theme==="light"?"#f5f5f5":"#262626"} 0%)`,
+                                    background:`conic-gradient(from 90deg, ${theme==="light"?"var(--color-sky-600)":"var(--color-sky-400)"} var(--dp-bg-angle), ${theme==="light"?"#262626":"#f5f5f5"} 0%)`,
                                     ...(isDPHovering&&{animation:"circular-motion 2s ease-in-out"}),
                                 }}
                             ></div>
@@ -218,11 +207,11 @@ function Prac() {
 
                         {
                             isHighLightActive &&
-                                <img src="download.png" alt="download.png" className="absolute top-[50%] left-[52%] -translate-x-[50%] -translate-y-[95%] w-13 h-6" />
+                                <img src="download.png" alt="download.png" className="z-3 absolute top-[43%] left-[52.1%] -translate-x-[50%] -translate-y-[50%] w-11 h-5" />
                         }
-                        <img src="gourav-kotnala1.png" alt="gourav-kotnala1.png" className="[box-shadow:0px_0px_1px_0px_#00000050] dark:[box-shadow:0px_0px_1px_0px_#ffffff50] h-40 w-40 rounded-full bg-linear-0 from-neutral-500 to-white dark:from-neutral-50 dark:to-neutral-500" />
+                        <img src="gourav-kotnala1.png" alt="gourav-kotnala1.png" className="z-2 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] h-[95%] w-[95%] [box-shadow:0px_0px_1px_0px_#00000050] dark:[box-shadow:0px_0px_1px_0px_#ffffff50] rounded-full bg-linear-0 from-neutral-500 to-white dark:from-neutral-50 dark:to-neutral-500" />
                     </div>
-                    <a href="https://en.wikipedia.org/wiki/India" className="h-9 w-13 absolute">
+                    <a href="https://en.wikipedia.org/wiki/India" className="h-9 w-13 absolute z-4">
                         <img src="indian-flag2.webp" alt="indian-flag2.webp" />
                     </a>
 
@@ -236,7 +225,7 @@ function Prac() {
 
             {/* Para Section */}
             <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800">
-                <div className="max-w-3xl mx-auto text-neutral-800 dark:text-neutral-300 text-[15px] leading-8  text-sm font-sans tracking-wide py-1 px-8">
+                <div className="max-w-3xl mx-auto text-neutral-800 dark:text-neutral-300 text-[15px] leading-8 text-sm font-sans tracking-wide px-3 py-2">
                     <p>
                         My name is <HighLight isHighLightActive={isHighLightActive}>Gourav Kotnala</HighLight>. I am <HighLight isHighLightActive={isHighLightActive}>24 years old</HighLight>. I am <HighLight isHighLightActive={isHighLightActive}>from Old Faridabad</HighLight>. I have completed my batcholar's of computer application <HighLight isHighLightActive={isHighLightActive}>(BCA) from Swami Vivekanand Subharti University in 2023</HighLight>. I am <HighLight isHighLightActive={isHighLightActive}>passionate about web development</HighLight> and I have been <HighLight isHighLightActive={isHighLightActive}>learning & building projects using MERN Stack</HighLight>. I am currently <HighLight isHighLightActive={isHighLightActive}>looking for an opportunity where I can</HighLight> looking for an opportunity where I can contribute to real-world projects and continue to <HighLight isHighLightActive={isHighLightActive}>improve my skills as full stack developer</HighLight>. 
                     </p>
@@ -291,34 +280,36 @@ function Prac() {
 
             {/* Social Media Links Section */}
             <div className="bg-white dark:bg-neutral-900 flex flex-col">
-                <div className="border-y border-neutral-100 dark:border-neutral-800">
-                    <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
-                        <SocialLinks url="/twitter" id="@gouravkotnala" logoURL="x.webp" platform="X (formerly Twitter)" />
-                        <SocialLinks url="https://github.com/gouravkotnala777" id="gouravkotnala777" logoURL="github.webp" platform="GitHub" />
-                    </div>
-                </div>
                 <div className="">
-                    <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
-                        <div className="border-x border-neutral-100 dark:border-neutral-800 h-4 w-full"></div>
-                        <div className="border-x border-neutral-100 dark:border-neutral-800 h-4 w-full"></div>
+                    <div className="border-y border-neutral-100 dark:border-neutral-800">
+                        <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
+                            <SocialLinks url="/twitter" id="@gouravkotnala" logoURL="x.webp" platform="X (formerly Twitter)" />
+                            <SocialLinks url="https://github.com/gouravkotnala777" id="gouravkotnala777" logoURL="github.webp" platform="GitHub" />
+                        </div>
                     </div>
-                </div>
-                <div className="border-y border-neutral-100 dark:border-neutral-800">
-                    <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
-                        <SocialLinks url="https://www.linkedin.com/in/gourav-kotnala-003427295" id="gourav kotnala" logoURL="linkedin.webp" platform="LinkedIn" />
-                        <SocialLinks url="https://www.linkedin.com/in/gourav-kotnala-003427295" id="gourav kotnala" logoURL="linkedin.webp" platform="LinkedIn" />
+                    <div className="">
+                        <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
+                            <div className="border-x border-neutral-100 dark:border-neutral-800 h-4 w-full"></div>
+                            <div className="border-x border-neutral-100 dark:border-neutral-800 h-4 w-full"></div>
+                        </div>
                     </div>
-                </div>
-                <div className="">
-                    <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
-                        <div className="border-x border-neutral-100 dark:border-neutral-800 h-4 w-full"></div>
-                        <div className="border-x border-neutral-100 dark:border-neutral-800 h-4 w-full"></div>
+                    <div className="border-y border-neutral-100 dark:border-neutral-800">
+                        <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
+                            <SocialLinks url="https://www.linkedin.com/in/gourav-kotnala-003427295" id="gourav kotnala" logoURL="linkedin.webp" platform="LinkedIn" />
+                            <SocialLinks url="https://www.linkedin.com/in/gourav-kotnala-003427295" id="gourav kotnala" logoURL="linkedin.webp" platform="LinkedIn" />
+                        </div>
                     </div>
-                </div>
-                <div className="border-y border-neutral-100 dark:border-neutral-800">
-                    <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
-                        <SocialLinks url="https://youtube.com" id="@gouravkotnala" logoURL="vite.svg" platform="YouTube" />
-                        <SocialLinks url="https://youtube.com" id="@gouravkotnala" logoURL="vite.svg" platform="YouTube" />
+                    <div className="">
+                        <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
+                            <div className="border-x border-neutral-100 dark:border-neutral-800 h-4 w-full"></div>
+                            <div className="border-x border-neutral-100 dark:border-neutral-800 h-4 w-full"></div>
+                        </div>
+                    </div>
+                    <div className="border-y border-neutral-100 dark:border-neutral-800">
+                        <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
+                            <SocialLinks url="https://youtube.com" id="@gouravkotnala" logoURL="vite.svg" platform="YouTube" />
+                            <SocialLinks url="https://youtube.com" id="@gouravkotnala" logoURL="vite.svg" platform="YouTube" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -342,6 +333,12 @@ function Prac() {
                 </div>
             </div>
 
+            {/* Typing Game */}
+            <div className="border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 w-full">
+                <div className="max-w-3xl w-full mx-auto">
+                    <TypingGame />
+                </div>
+            </div>
 
             {/* Github Contribution Chart Section */}
             <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 relative">
@@ -368,7 +365,6 @@ function Prac() {
 
 
             {/* Components Section */}
-
             <div className="bg-white dark:bg-neutral-900">
                 <div className="border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto text-3xl text-neutral-950 dark:text-neutral-50 font-medium px-3 py-0">Components</div>
                 <div className="flex flex-col">
@@ -408,16 +404,27 @@ function Prac() {
 
             {/* Footer Section */}
             {/*<div className="flex items-center bg-linear-0 from-neutral-300 to-neutral-50 dark:from-neutral-950 dark:to-neutral-700 max-w-6xl mx-auto text-transparent bg-clip-text">*/}
-            <div className="py-3 mx-auto w-full bg-neutral-900 border-y border-neutral-800">
-                <div className="flex justify-center items-center bg-linear-180 from-neutral-700 to-neutral-950 text-transparent bg-clip-text">
+            <div className="relative h-40 mx-auto w-full bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 overflow-hidden">
+                <div className="flex tracking-tighter justify-center items-start bg-linear-180 from-neutral-300 to-90% to-white dark:from-neutral-700 dark:to-neutral-900 text-transparent bg-clip-text">
                     {
                         ["G","O","U","R","A","V"," ","K","O","T","N","A","L","A"].map((s) => (
                             s.trim() === "" ?
-                            <span className="text-9xl font-bold">&nbsp;&nbsp;</span>
+                            <span className="text-9xl h-min font-bold">&nbsp;</span>
                             :
-                            <span className="text-9xl font-bold">{s}</span>
+                            <span className="text-[10rem]  h-39 tracking-tighter font-extrabold">{s}</span>
                         ))
                     }
+                </div>
+                <div className="absolute top-0 left-0 inset-0 content-end">
+                    <div className="h-full 
+                        bg-[radial-gradient(ellipse_at_top,var(--color-sky-500),transparent_10%)]
+                        bg-size-[100%_0%]
+                        bg-top
+                        bg-no-repeat
+                        hover:bg-size-[600%_10%]
+                        transition-all ease-in-out duration-400
+                    "></div>
+
                 </div>
             </div>
 
@@ -469,44 +476,18 @@ function IconSpan({iconPathD, para}:{iconPathD:string; para:string;}) {
 
 function SocialLinks({logoURL, id, url, platform}:{logoURL:string; id:string; url:string; platform:string;}) {
     return(
-        <a href={url} className="group border-x border-neutral-100 dark:border-neutral-800 flex justify-start items-center flex-1 gap-4 hover:bg-neutral-100 dark:hover:bg-neutral-900 p-3"
-            onMouseOver={(e) => {
-                const socialAppName = (e.currentTarget.children[1].children[0] as HTMLElement);
-                socialAppName.style.animation = "circular-motionb 0.3s ease-in-out";
-                socialAppName.style.scale = "1.1";
-                socialAppName.style.translate = ("5% 0");
-                
-            }}
-            onMouseOut={(e) => {
-                const socialAppName = (e.currentTarget.children[1].children[0] as HTMLElement);
-                socialAppName.style.animation = "";
-                socialAppName.style.scale = "1";
-                socialAppName.style.translate = ("0 0");
-            }}
-        >
+        <a href={url} className="group border-x border-neutral-100 dark:border-neutral-800 flex justify-start items-center flex-1 gap-4 hover:bg-neutral-100 dark:hover:bg-neutral-900 z-1 px-3 py-2">
             <div className="">
-                <img src={logoURL} alt={logoURL} className="h-12 w-12 rounded-xl" />
+                <img src={logoURL} alt={logoURL} className="h-12 w-12 rounded-xl group-hover:scale-110 transition-transform ease-in-out duration-300" />
             </div>
             <div className="flex flex-col">
-                <span className="text-transparent text-md font-semibold"
-                    style={{
-                        
-                        background:`linear-gradient(
-                            90deg,
-                            #171717 calc(var(--dp-bg-anglea) - 90%),
-                            #cacaca 0% var(--dp-bg-anglea),
-                            #171717 0%)
-                            `,
-                        transition:"0.3s",
-                        backgroundClip:"text",
-                        WebkitBackgroundClip:"text"
-                    }}
+                <span className="text-neutral-800 dark:text-neutral-200 text-md font-semibold transition-all ease-in-out duration-300 group-hover:scale-110 group-hover:translate-x-2"
                 >{platform}</span>
-                <span className="border w-full scale-x-0 group-hover:scale-x-100 origin-left transition-transform ease-out duration-300 delay-300"></span>
+                <span className="border border-neutral-900 dark:border-neutral-200 w-full scale-x-0 group-hover:scale-x-100 origin-left transition-transform ease-out duration-300 delay-100"></span>
                 <span className="text-neutral-600 dark:text-neutral-400 font-normal text-sm">{id}</span>
             </div>
 
-                        <style>
+            <style>
                 {`
                     @property --dp-bg-anglea{
                         syntax:'<percentage>';
@@ -532,7 +513,7 @@ function SocialLinks({logoURL, id, url, platform}:{logoURL:string; id:string; ur
 
 function ComponentLinks({componentIconPathD, url, componentName, about, isNew}:{componentIconPathD:string; url:string; componentName:string; about?:string; isNew?:boolean;}) {
     return(
-        <NavLink to={url} className="group border-x border-neutral-100 dark:border-neutral-800 flex justify-start items-center flex-1 gap-4 hover:bg-neutral-100 dark:hover:bg-neutral-900 p-3">
+        <NavLink to={url} className="group border-x border-neutral-100 dark:border-neutral-800 flex justify-start items-center flex-1 gap-4 hover:bg-neutral-100 dark:hover:bg-neutral-900 z-1 px-3 py-2">
             <div className="[box-shadow:0px_0px_1px_0px_#00000050_inset] dark:[box-shadow:0px_0px_1px_0px_#ffffff50_inset] rounded-[10px] relative size-7">
                 <div className="text-neutral-500 dark:text-neutral-200 [box-shadow:0px_0px_1px_0px_#00000050] dark:[box-shadow:0px_0px_1px_0px_#ffffff50] bg-neutral-100 dark:bg-neutral-800 rounded-lg absolute -translate-x-[50%] -translate-y-[50%] left-[50%] top-[50%] p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="size-4">
@@ -553,7 +534,7 @@ function ComponentLinks({componentIconPathD, url, componentName, about, isNew}:{
             }
         </NavLink>
     )
-}
+};
 
 function Strong({children, hasUnderLine}:{children:ReactNode; hasUnderLine?:boolean;}) {
 
@@ -561,6 +542,7 @@ function Strong({children, hasUnderLine}:{children:ReactNode; hasUnderLine?:bool
         <strong className={`${hasUnderLine&&"underline underline-offset-4"} font-medium text-neutral-950 dark:text-neutral-50`}>{children}</strong>
     )
 };
+
 function HighLight({children, isHighLightActive}:{children:ReactNode; isHighLightActive?:boolean;}) {
 
     return(
@@ -570,7 +552,7 @@ function HighLight({children, isHighLightActive}:{children:ReactNode; isHighLigh
 
 function GithubContributionChart({totalContributions, gitHubChartData, gitHubYear, setGitHubYear}:{totalContributions:{[key:string]:number}|null; gitHubChartData:MonthMap; gitHubYear:GitHubYearTypes; setGitHubYear:Dispatch<SetStateAction<GitHubYearTypes>>}) {
     return(
-        <div className="max-w-3xl mx-auto text-sm text-neutral-500 dark:text-neutral-400">
+        <div className="border-x border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto text-sm text-neutral-500 dark:text-neutral-400">
             <div className="flex items-center">
                 <div className="flex px-4 overflow-x-scroll thin_scrollbar">
                     {
