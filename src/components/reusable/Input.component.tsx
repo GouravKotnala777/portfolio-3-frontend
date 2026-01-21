@@ -6,7 +6,7 @@ interface InputPropTypes{
     fontWeight?:"font-thin"|"font-normal"|"font-semibold"|"font-bold"|"font-extrabold";
     className?:string;
     height?:string;
-    themeToggler?:boolean;
+    theme:"light"|"dark";
     btnIconPathD?:string;
     wave?:{
         amplitude:number;
@@ -27,7 +27,7 @@ interface InputPropTypes{
 };
 
 let timer = 0;
-function Input({btnIconPathD="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z", fontSize="text-lg", fontWeight="font-normal", manuallyStartAnimation, placeHolder="", setData, height="40px", themeToggler=false, wave={amplitude:4, cycles:10, numOfParticles:800, particleSize:0.6, smokeEffect:false},
+function Input({btnIconPathD="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z", fontSize="text-lg", fontWeight="font-normal", manuallyStartAnimation, placeHolder="", setData, height="40px", theme="light", wave={amplitude:4, cycles:10, numOfParticles:800, particleSize:0.6, smokeEffect:false},
     onClick, onChange, onFocus, onBlur, onKeyUp, onKeyDown
 }:InputPropTypes) {
     const canvasRef = useRef<HTMLCanvasElement|null>(null);
@@ -47,10 +47,18 @@ function Input({btnIconPathD="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7
         for (const c of placeHolder){
             const spanElem = document.createElement("span");
             spanElem.textContent = c;
-            spanElem.style.color = "#cccccc";
+            spanElem.style.color = theme==="dark"?"#d4d4d4":"#404040";
             placeHolderElem.appendChild(spanElem);
         };        
     };
+    function removePlaceHolder() {
+        const placeHolderElem = placeHolderRef.current;
+
+        if (!placeHolderElem) return;
+
+        placeHolderElem.replaceChildren("");
+        
+    }
     function showPlaceHolder() {
         setIsPlaceHolderVisible(true);
     };
@@ -146,7 +154,7 @@ function Input({btnIconPathD="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7
                     p.potential -= 0.01;
                 }
                 
-                ctx.fillStyle = themeToggler?`rgba(255, 255, 255, ${1-Math.abs(p.opacity)})`:`rgba(0, 0, 0, ${1-Math.abs(p.opacity)})`;
+                ctx.fillStyle = theme==="light"?`rgba(255, 255, 255, ${1-Math.abs(p.opacity)})`:`rgba(0, 0, 0, ${1-Math.abs(p.opacity)})`;
                 ctx.beginPath();
                 ctx.arc(
                     p.x,
@@ -278,7 +286,8 @@ function Input({btnIconPathD="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7
 
     useEffect(() => {
         createPlaceHolder();
-    }, []);
+        return removePlaceHolder;
+    }, [theme]);
     
 
     function clickInputHandler(e:MouseEvent<HTMLInputElement>){
@@ -316,7 +325,7 @@ function Input({btnIconPathD="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7
     }, [manuallyStartAnimation]);
     
     return(
-        <div className="border border-gray-800 w-full flex text-gray-600 dark:border-gray-700 dark:text-gray-100 rounded-sm overflow-hidden pl-1">
+        <div className="border border-neutral-100 dark:border-neutral-800 w-full flex text-neutral-600 dark:text-neutral-100 rounded-sm overflow-hidden pl-1">
             <div className="relative w-full"
                 style={{
                     height
@@ -367,7 +376,7 @@ function Input({btnIconPathD="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7
                 />
 
             </div>
-            <button className="relative p-2 bg-gray-800 text-gray-600 hover:text-gray-400 cursor-pointer transition duration-300"
+            <button className="relative p-2  bg-neutral-800 text-neutral-600 hover:text-neutral-400 cursor-pointer transition duration-300"
                 onClick={() => {
                     if (inputRef.current?.value) {
                         setIsLoading(true);
@@ -379,7 +388,7 @@ function Input({btnIconPathD="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"
                     className={`size-4 ${isLoading&&"animate-pulse"}`}
                 >
-                            <path className="animate-spin origin-center text-gray-200" strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
+                            <path className="animate-spin origin-center text-neutral-200" strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
                                 style={{
                                     opacity:isLoading?1:0,
                                     transition:"0.5s ease-in-out"

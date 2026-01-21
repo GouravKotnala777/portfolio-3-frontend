@@ -16,7 +16,7 @@ function Tab({panels}:TabPropTypes) {
     const {theme} = useTheme();
     return(
         <div className={`bg-white dark:bg-neutral-900 rounded-md overflow-hidden p-3`}>
-            <div className="bg-neutral-200 dark:bg-neutral-800 flex justify-between pb-2 pt-2 pl-2 rounded-tl-md rounded-tr-md">
+            <div className=" bg-neutral-200 dark:bg-neutral-800 flex justify-between pb-2 pt-2 pl-2 rounded-tl-md rounded-tr-md">
                 <div className="flex gap-3">
                     {
                         panels.map(({tabIconPath, tabName}, index) => (
@@ -43,7 +43,7 @@ function Tab({panels}:TabPropTypes) {
                     </button>
                 </div>
             </div>
-            <div className={`bg-neutral-50 dark:bg-neutral-900 rounded-bl-md rounded-br-md
+            <div className={`border border-neutral-200 dark:border-none bg-white dark:bg-neutral-950 rounded-bl-md rounded-br-md
                 `}>
                 {
                     panels.map(({content}, index) => (
