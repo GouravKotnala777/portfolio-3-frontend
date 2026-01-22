@@ -1836,3 +1836,44 @@ export const DATA = {
     }
   ]
 };
+
+export const INPUT1_CODE = `
+    <div className="relative">
+        <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
+        <div className="h-80 w-60 mx-auto flex justify-center items-center">
+            <Input theme={theme} setData={setData} />
+        </div>
+    </div>
+`;
+
+export const NAVBAR1_CODE = `
+    <div className="relative">
+        <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
+        <div className="h-80 w-60 mx-auto flex justify-center items-center">
+            <Navbar1 navItems={NAVITEMS} padding="6px 12px" fontSize="18px" borderRadius="10px" previewGap="-60px" />
+        </div>
+    </div>
+`;
+export const NAVBAR2_CODE = `
+    <div className="h-80 flex justify-center items-center">
+        <Navbar navItems={NAVITEMS} padding="6px 12px" fontSize="18px" borderRadius="8px" previewGap="-60px" />
+    </div>
+`;
+export const NAVBAR3_CODE = `
+    <div className="h-80 flex justify-center items-center">
+        <Navbar3 navItems={NAVITEMS} blobTop="-10px" />
+    </div>
+`;
+export const NAVBAR4_CODE = `
+    <div className="h-80 flex justify-center items-center">
+        <Navbar4 navItems={NAVITEMS} marginTop="320px" />
+    </div>
+`;
+export const TEXT_STAGGERED = `
+    <>
+        <div className="h-80 flex flex-col justify-around items-center">
+            <TextStaggered text="Staggered Text" fontWeight="bold" />
+        </div>
+        <p className="text-center text-gray-500 dark:text-gray-400">Hover me</p>
+    </>
+`;
