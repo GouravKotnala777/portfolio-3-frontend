@@ -20,6 +20,7 @@
 @theme {
   --font-roboto: "Roboto", sans-serif;
   --font-poppins: "Poppins", sans-serif;
+  --font-coral-pixels: "Londrina Outline", sans-serif;
 }
 .apply_goo_effect{
     /*filter: url(#goo) blur(55px);*/
