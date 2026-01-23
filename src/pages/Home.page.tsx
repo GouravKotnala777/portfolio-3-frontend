@@ -402,32 +402,6 @@ function Prac() {
             </div>
 
 
-            {/* Footer Section */}
-            {/*<div className="flex items-center bg-linear-0 from-neutral-300 to-neutral-50 dark:from-neutral-950 dark:to-neutral-700 max-w-6xl mx-auto text-transparent bg-clip-text">*/}
-            <div className="relative h-40 mx-auto w-full bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 overflow-hidden">
-                <div className="flex tracking-tighter justify-center items-start bg-linear-180 from-neutral-300 to-90% to-white dark:from-neutral-700 dark:to-neutral-900 text-transparent bg-clip-text">
-                    {
-                        ["G","O","U","R","A","V"," ","K","O","T","N","A","L","A"].map((s) => (
-                            s.trim() === "" ?
-                            <span className="text-9xl h-min font-bold">&nbsp;</span>
-                            :
-                            <span className="text-[10rem]  h-39 tracking-tighter font-extrabold">{s}</span>
-                        ))
-                    }
-                </div>
-                <div className="absolute top-0 left-0 inset-0 content-end">
-                    <div className="h-full 
-                        bg-[radial-gradient(ellipse_at_top,var(--color-sky-500),transparent_10%)]
-                        bg-size-[100%_0%]
-                        bg-top
-                        bg-no-repeat
-                        hover:bg-size-[600%_10%]
-                        transition-all ease-in-out duration-400
-                    "></div>
-
-                </div>
-            </div>
-
 
             
             <style>

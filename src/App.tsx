@@ -4,6 +4,7 @@ import Header from "./components/primary/Header.component";
 import Prac from "./pages/Prac";
 import Components from "./pages/Components.page";
 import Projects from "./pages/Projects.page";
+import Footer from "./components/primary/Footer.component";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="/prac" element={<Prac />} />
         </Routes>
       </main>
+      <Footer />
     </BrowserRouter>
   )
 }
