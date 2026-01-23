@@ -1,4 +1,4 @@
-import { useRef, useState, type MouseEvent } from "react";
+import { useRef, useState } from "react";
 
 const particles:{pX:number; pY:number; vX:number; vY:number; pSize:number; potential:number;}[] = []
 
@@ -8,9 +8,8 @@ function Prac() {
     const parentRef = useRef<HTMLDivElement|null>(null);
     const [text, setText] = useState<string>("Full Stack Web Developer");
 
-    function onClickHandler(e:MouseEvent<HTMLButtonElement>) {
+    function onClickHandler() {
         textAnimation();
-        
     };
 
     function textAnimation() {
