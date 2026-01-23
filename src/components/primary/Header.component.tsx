@@ -3,11 +3,11 @@ import useTheme from "../../hooks/useTheme";
 import { useEffect, useState } from "react";
 
 
-function Header() {
+function Header({screenWidth}:{screenWidth:number}) {
     const {theme, toggleTheme} = useTheme();
     const [isHeaderRaised, setIsHeaderRaised] = useState<boolean>(false);
     const [logoYPosition, setLogoYPosition] = useState<number>(0);
-
+    
 
     function raiseHeaderHandler() {
         const currentScrollY = window.scrollY;
@@ -30,13 +30,16 @@ function Header() {
 
     useEffect(() => {
         window.addEventListener("scroll", raiseHeaderHandler);
-
         return() => window.removeEventListener("scroll", raiseHeaderHandler);
     }, []);
+
+    if (!screenWidth) {
+        return;   
+    }
         
     return(
         <header className="bg-white dark:bg-neutral-900 fixed top-0 left-0 w-full pt-2 z-20">
-            <div className="border-y border-neutral-100 dark:border-neutral-800">
+            <div className="border-y border-neutral-100 dark:border-neutral-800 mx-2">
                 <div className={`border-x border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto transition-all ease-in-out duration-500
                     ${isHeaderRaised&&"[box-shadow:0px_3px_20px_0.2px_var(--color-neutral-300)] dark:[box-shadow:0px_3px_20px_0.2px_var(--color-neutral-700)]"}
                 `}>
@@ -51,7 +54,7 @@ function Header() {
                             </div>
                         </div>
                         <div className="flex items-center gap-6 text-neutral-700 dark:text-neutral-200">
-                            {
+                            {   screenWidth > 640 &&
                                 [{name:"Portfolio", url:"/"}, {name:"Components", url:"/components"}, {name:"Projects", url:"/projects"}].map(({name, url}) => (
                                     <NavLink to={url}>{name}</NavLink>
                                 ))
@@ -90,6 +93,15 @@ function Header() {
                                         </svg>
                                 }
                             </button>
+
+                            {   screenWidth <= 640 &&
+                                <button className="flex flex-col gap-1 p-3"
+                                    onClick={() => {}}
+                                >
+                                    <span className="w-4 h-0.5 rounded-px bg-neutral-700 dark:bg-neutral-200"></span>
+                                    <span className="w-4 h-0.5 rounded-px bg-neutral-700 dark:bg-neutral-200"></span>
+                                </button>
+                            }
                         </div>
                     </div>
                 </div>

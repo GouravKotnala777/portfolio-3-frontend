@@ -144,7 +144,7 @@ export function transformData(data:{total:{[key:string]:number}; contributions:{
 
 
 let sunGlassesTimer = 0;
-function Prac() {
+function Prac({screenWidth}:{screenWidth:number;}) {
     const {theme} = useTheme();
     const [isDPHovering, setIsDPHovering] = useState<boolean>(false);
     const [isHighLightActive, setIsHighLightActive] = useState<boolean>(false);
@@ -179,7 +179,7 @@ function Prac() {
     }, []);
 
     return(
-        <section className="flex flex-col gap-10 relative min-h-screen font-roboto selection:bg-neutral-300 dark:selection:bg-neutral-600">
+        <section className="flex mx-2 flex-col gap-10 relative min-h-screen font-roboto selection:bg-neutral-300 dark:selection:bg-neutral-600">
             <div className="absolute top-0 left-0 inset-0 border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto"></div>
 
             {/* Hero Section */}
@@ -192,12 +192,12 @@ function Prac() {
             {/* Profile Section */}
             <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800">
                 <div className="max-w-3xl mx-auto flex relative">
-                    <div className="h-40 w-40 [box-shadow:0px_0px_1px_0px_#00000020_inset] dark:[box-shadow:0px_0px_1px_0px_#ffffff20_inset] bg-a rounded-full overflow-hidden p-0.75 relative"
+                    <div className="max-h-25 max-w-25 h-40 w-40  [box-shadow:0px_0px_1px_0px_#00000020_inset] dark:[box-shadow:0px_0px_1px_0px_#ffffff20_inset] bg-a rounded-full overflow-hidden p-0.75 relative"
                         onMouseEnter={activeSunGlassesPower}
                         onMouseLeave={disableSunGlassesPower}
                     >
-                        <div className="z-1 absolute top-0 left-0 h-full w-full text-white text-center content-center blur-md">
-                            <div className="w-full h-full"
+                        <div className="z-1 absolute top-0 left-0 max-h-25 max-w-25 h-full w-full text-white text-center content-center blur-md">
+                            <div className="max-h-25 max-w-25  w-full h-full"
                                 style={{
                                     background:`conic-gradient(from 90deg, ${theme==="light"?"var(--color-sky-600)":"var(--color-sky-400)"} var(--dp-bg-angle), ${theme==="light"?"#262626":"#f5f5f5"} 0%)`,
                                     ...(isDPHovering&&{animation:"circular-motion 2s ease-in-out"}),
@@ -209,14 +209,14 @@ function Prac() {
                             isHighLightActive &&
                                 <img src="download.png" alt="download.png" className="z-3 absolute top-[43%] left-[52.1%] -translate-x-[50%] -translate-y-[50%] w-11 h-5" />
                         }
-                        <img src="gourav-kotnala1.png" alt="gourav-kotnala1.png" className="z-2 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] h-[95%] w-[95%] [box-shadow:0px_0px_1px_0px_#00000050] dark:[box-shadow:0px_0px_1px_0px_#ffffff50] rounded-full bg-linear-0 from-neutral-500 to-white dark:from-neutral-50 dark:to-neutral-500" />
+                        <img src="gourav-kotnala1.png" alt="gourav-kotnala1.png" className="z-2 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] max-h-25 max-w-25 h-[95%] w-[95%] [box-shadow:0px_0px_1px_0px_#00000050] dark:[box-shadow:0px_0px_1px_0px_#ffffff50] rounded-full bg-linear-0 from-neutral-500 to-white dark:from-neutral-50 dark:to-neutral-500" />
                     </div>
                     <a href="https://en.wikipedia.org/wiki/India" className="h-9 w-13 absolute z-4">
                         <img src="indian-flag2.webp" alt="indian-flag2.webp" />
                     </a>
 
                     <div className="border-x border-neutral-100 dark:border-neutral-800 content-end">
-                        <div className="border border-neutral-100 dark:border-neutral-800 text-sm text-neutral-200 dark:text-neutral-700 font-mono px-3 py-0">text-3xl text-neutral-950 dark:text-neutral-800 font-medium</div>
+                        <div className="border border-neutral-100 dark:border-neutral-800 text-sm text-neutral-200 dark:text-neutral-700 font-mono px-3 py-0">{theme === "light"?"text-3xl text-neutral-950 font-mono":"text-3xl text-neutral-800 font-medium"}</div>
                         <div className="border border-neutral-100 dark:border-neutral-800 text-3xl text-neutral-950 dark:text-neutral-50 font-medium px-3 py-0">Gourav Kotnala</div>
                         <div className="border border-neutral-100 dark:border-neutral-800 text-md text-neutral-600 dark:text-neutral-200 font-normal px-3 py-1">Full Stack Web Developer</div>
                     </div>
@@ -248,7 +248,7 @@ function Prac() {
                             para="4 years of hands on practice on MERN projects"
                         />
                     </div>
-                    <div className="grid grid-cols-2">
+                    <div className={`grid ${screenWidth > 720?"grid-cols-2":"grid-cols-1"}`}>
                         <IconSpan
                             iconPathD="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
                             para="Old Faridabad, Haryana, India"
@@ -282,9 +282,9 @@ function Prac() {
             <div className="bg-white dark:bg-neutral-900 flex flex-col">
                 <div className="">
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
-                        <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
-                            <SocialLinks url="/twitter" id="@gouravkotnala" logoURL="x.webp" platform="X (formerly Twitter)" />
-                            <SocialLinks url="https://github.com/gouravkotnala777" id="gouravkotnala777" logoURL="github.webp" platform="GitHub" />
+                        <div className={`max-w-3xl mx-auto flex ${screenWidth > 520?"flex-row justify-between items-center":"flex-col w-full"} gap-4`}>
+                            <SocialLinks screenWidth={screenWidth} url="/twitter" id="@gouravkotnala" logoURL="x.webp" platform="X (formerly Twitter)" />
+                            <SocialLinks screenWidth={screenWidth} url="https://github.com/gouravkotnala777" id="gouravkotnala777" logoURL="github.webp" platform="GitHub" />
                         </div>
                     </div>
                     <div className="">
@@ -294,9 +294,9 @@ function Prac() {
                         </div>
                     </div>
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
-                        <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
-                            <SocialLinks url="https://www.linkedin.com/in/gourav-kotnala-003427295" id="gourav kotnala" logoURL="linkedin.webp" platform="LinkedIn" />
-                            <SocialLinks url="https://www.linkedin.com/in/gourav-kotnala-003427295" id="gourav kotnala" logoURL="linkedin.webp" platform="LinkedIn" />
+                        <div className={`max-w-3xl mx-auto flex ${screenWidth > 520?"flex-row justify-between items-center":"flex-col w-full"} gap-4`}>
+                            <SocialLinks screenWidth={screenWidth} url="https://www.linkedin.com/in/gourav-kotnala-003427295" id="gourav kotnala" logoURL="linkedin.webp" platform="LinkedIn" />
+                            <SocialLinks screenWidth={screenWidth} url="https://www.linkedin.com/in/gourav-kotnala-003427295" id="gourav kotnala" logoURL="linkedin.webp" platform="LinkedIn" />
                         </div>
                     </div>
                     <div className="">
@@ -306,9 +306,9 @@ function Prac() {
                         </div>
                     </div>
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
-                        <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
-                            <SocialLinks url="https://youtube.com" id="@gouravkotnala" logoURL="vite.svg" platform="YouTube" />
-                            <SocialLinks url="https://youtube.com" id="@gouravkotnala" logoURL="vite.svg" platform="YouTube" />
+                        <div className={`max-w-3xl mx-auto flex ${screenWidth > 520?"flex-row justify-between items-center":"flex-col w-full"} gap-4`}>
+                            <SocialLinks screenWidth={screenWidth} url="https://youtube.com" id="@gouravkotnala" logoURL="vite.svg" platform="YouTube" />
+                            <SocialLinks screenWidth={screenWidth} url="https://youtube.com" id="@gouravkotnala" logoURL="vite.svg" platform="YouTube" />
                         </div>
                     </div>
                 </div>
@@ -351,7 +351,7 @@ function Prac() {
             <div className="bg-white dark:bg-neutral-900">
                 <div className="max-w-3xl mx-auto">
                   <div className="border border-neutral-100 dark:border-neutral-800 text-3xl text-neutral-950 dark:text-neutral-50 font-medium px-3 py-0">Stack</div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-start items-center flex-wrap">
                       {
                           StackLogo.map((logo) => (
                               <div className="px-3 py-3">
@@ -369,7 +369,7 @@ function Prac() {
                 <div className="border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto text-3xl text-neutral-950 dark:text-neutral-50 font-medium px-3 py-0">Components</div>
                 <div className="flex flex-col">
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
-                        <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
+                        <div className={`max-w-3xl mx-auto flex ${screenWidth > 520 ? "flex-row justify-between items-center":"flex-col"} gap-4`}>
                             <ComponentLinks url={ComponentsSectionLinks[0].url} componentIconPathD={ComponentsSectionLinks[0].componentIconPathD} componentName={ComponentsSectionLinks[0].componentName} about={ComponentsSectionLinks[0].about} isNew={true} />
                             <ComponentLinks url={ComponentsSectionLinks[1].url} componentIconPathD={ComponentsSectionLinks[1].componentIconPathD} componentName={ComponentsSectionLinks[1].componentName} about={ComponentsSectionLinks[1].about} />
                         </div>
@@ -381,7 +381,7 @@ function Prac() {
                         </div>
                     </div>
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
-                        <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
+                        <div className={`max-w-3xl mx-auto flex ${screenWidth > 520 ? "flex-row justify-between items-center":"flex-col"} gap-4`}>
                             <ComponentLinks url={ComponentsSectionLinks[2].url} componentIconPathD={ComponentsSectionLinks[2].componentIconPathD} componentName={ComponentsSectionLinks[2].componentName} about={ComponentsSectionLinks[2].about} />
                             <ComponentLinks url={ComponentsSectionLinks[3].url} componentIconPathD={ComponentsSectionLinks[3].componentIconPathD} componentName={ComponentsSectionLinks[3].componentName} about={ComponentsSectionLinks[3].about} isNew={true} />
                         </div>
@@ -393,7 +393,7 @@ function Prac() {
                         </div>
                     </div>
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
-                        <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
+                        <div className={`max-w-3xl mx-auto flex ${screenWidth > 520 ? "flex-row justify-between items-center":"flex-col"} gap-4`}>
                             <ComponentLinks url={ComponentsSectionLinks[4].url} componentIconPathD={ComponentsSectionLinks[4].componentIconPathD} componentName={ComponentsSectionLinks[4].componentName} about={ComponentsSectionLinks[4].about} />
                             <ComponentLinks url={ComponentsSectionLinks[5].url} componentIconPathD={ComponentsSectionLinks[5].componentIconPathD} componentName={ComponentsSectionLinks[5].componentName} about={ComponentsSectionLinks[5].about} />
                         </div>
@@ -448,17 +448,17 @@ function IconSpan({iconPathD, para}:{iconPathD:string; para:string;}) {
     )
 };
 
-function SocialLinks({logoURL, id, url, platform}:{logoURL:string; id:string; url:string; platform:string;}) {
+function SocialLinks({screenWidth, logoURL, id, url, platform}:{screenWidth:number; logoURL:string; id:string; url:string; platform:string;}) {
     return(
         <a href={url} className="group border-x border-neutral-100 dark:border-neutral-800 flex justify-start items-center flex-1 gap-4 hover:bg-neutral-100 dark:hover:bg-neutral-900 z-1 px-3 py-2">
             <div className="">
                 <img src={logoURL} alt={logoURL} className="h-12 w-12 rounded-xl group-hover:scale-110 transition-transform ease-in-out duration-300" />
             </div>
             <div className="flex flex-col">
-                <span className="text-neutral-800 dark:text-neutral-200 text-md font-semibold transition-all ease-in-out duration-300 group-hover:scale-110 group-hover:translate-x-2"
+                <span className={`text-neutral-800 dark:text-neutral-200 ${screenWidth > 380?"[font-size:var(--text-md)]":"[font-size:var(--text-sm)]"} font-semibold transition-all ease-in-out duration-300 group-hover:scale-110 group-hover:translate-x-2`}
                 >{platform}</span>
                 <span className="border border-neutral-900 dark:border-neutral-200 w-full scale-x-0 group-hover:scale-x-100 origin-left transition-transform ease-out duration-300 delay-100"></span>
-                <span className="text-neutral-600 dark:text-neutral-400 font-normal text-sm">{id}</span>
+                <span className={`text-neutral-600 dark:text-neutral-400 font-normal ${screenWidth > 380?"[font-size:var(--text-sm)]":"[font-size:var(--text-xs)]"}`}>{id}</span>
             </div>
 
             <style>
