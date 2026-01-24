@@ -28,7 +28,7 @@ function Projects() {
                         </div>
                         <div className="border-x w-[60%] border-neutral-100 dark:border-neutral-800 flex flex-col">
                             <div className="border-y border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 font-medium text-3xl px-3">Ecommerce Web App</div>
-                            <p className="border-y border-neutral-100 dark:border-neutral-800 text-neutral-600 dark:text-neutral-200 font-sans tracking-wider leading-relaxed text-md px-3 py-2 min-h-30">An Ecommerce website with few features like authentication/authorization, cart management, wishlist, user activities management, coupons/gifts management, user reference system, order management, admin chat support, product management, payment gateway and few more.</p>
+                            <p className="border-y border-neutral-100 dark:border-neutral-800 text-neutral-600 dark:text-neutral-200 font-sans tracking-wider leading-relaxed [font-size:var(--text-md)] px-3 py-2 min-h-30">An Ecommerce website with few features like authentication/authorization, cart management, wishlist, user activities management, coupons/gifts management, user reference system, order management, admin chat support, product management, payment gateway and few more.</p>
                             <div className="border-y border-neutral-100 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 flex px-3 py-2 gap-6">
                                 <NavLink to={`https://github.com/GouravKotnala777/Ecommerce-1-frontend`}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="size-5 hover:scale-110 hover:opacity-50 transition-all ease-in-out duration-300">
@@ -88,7 +88,7 @@ function Projects() {
                         </div>
                         <div className="border-x w-[60%] border-neutral-100 dark:border-neutral-800 flex flex-col">
                             <div className="border-y border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 font-medium text-3xl px-3">Real-Estate Management</div>
-                            <p className="border-y border-neutral-100 dark:border-neutral-800 text-neutral-600 dark:text-neutral-200 font-sans tracking-wider leading-relaxed text-md px-3 py-2 min-h-30">Manage your real estate sales and payments smoothly.</p>
+                            <p className="border-y border-neutral-100 dark:border-neutral-800 text-neutral-600 dark:text-neutral-200 font-sans tracking-wider leading-relaxed [font-size:var(--text-md)] px-3 py-2 min-h-30">Manage your real estate sales and payments smoothly.</p>
                             <div className="border-y border-neutral-100 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 flex px-3 py-2 gap-6">
                                 <NavLink to={`https://github.com/GouravKotnala777/Ecommerce-1-frontend`}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="size-5 hover:scale-110 hover:opacity-50 transition-all ease-in-out duration-300">

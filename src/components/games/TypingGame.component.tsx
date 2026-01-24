@@ -160,10 +160,10 @@ function TypingGame() {
                     <div className="relative mt-5">
                         <img src={CAT_IMAGES[returnNumber0To2(frameIndex)]} alt={CAT_IMAGES[returnNumber0To2(frameIndex)]} className="w-30 absolute right-2 md:right-20 sm:right-2 -bottom-4.75" />
                     </div>
-                    <Input fontSize="text-md" fontWeight="font-semibold" placeHolder="Start typing here..." setData={setTypedSentance} onKeyDown={func} onFocus={func2} onBlur={resetHandler} manuallyStartAnimation={isCompleted} theme={theme} btnIconPathD="M12 9.75 14.25 12m0 0 2.25 2.25M14.25 12l2.25-2.25M14.25 12 12 14.25m-2.58 4.92-6.374-6.375a1.125 1.125 0 0 1 0-1.59L9.42 4.83c.21-.211.497-.33.795-.33H19.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25h-9.284c-.298 0-.585-.119-.795-.33Z" />
+                    <Input fontSize="[font-size:var(--text-md)]" fontWeight="font-semibold" placeHolder="Start typing here..." setData={setTypedSentance} onKeyDown={func} onFocus={func2} onBlur={resetHandler} manuallyStartAnimation={isCompleted} theme={theme} btnIconPathD="M12 9.75 14.25 12m0 0 2.25 2.25M14.25 12l2.25-2.25M14.25 12 12 14.25m-2.58 4.92-6.374-6.375a1.125 1.125 0 0 1 0-1.59L9.42 4.83c.21-.211.497-.33.795-.33H19.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25h-9.284c-.298 0-.585-.119-.795-.33Z" />
                 </div>
             </div>
-            <div className={`text-orange-300 dark:text-orange-200 text-xs font-semibold flex justify-between items-center mt-4 ${isFocused?"opacity-100 blur-0":"opacity-0 blur-xs"} transition-all ease-in-out duration-300`}>
+            <div className={`text-orange-300 dark:text-orange-200 [font-size:var(--text-xs)] font-semibold flex justify-between items-center mt-4 ${isFocused?"opacity-100 blur-0":"opacity-0 blur-xs"} transition-all ease-in-out duration-300`}>
                 <div className="w-25 flex justify-between items-center">
                     <span className="bg-orange-50 [box-shadow:-1px_-1px_2px_0.1px_#00000010_inset] dark:[box-shadow:-1px_-1px_2px_0.1px_#ffffff10_inset] dark:bg-neutral-800 font-bold px-3 py-1 rounded-sm">TAB</span>
                     <span>-</span>
@@ -179,13 +179,13 @@ function TypingGame() {
         <div className={`absolute ${result === "win"?"top-0 blur-none":"-top-full blur-md"} transition-all ease-in-out duration-1000 delay-300 left-0 h-full w-full bg-white dark:bg-neutral-900 content-center`}>
             <div className="">
                 <div className="text-5xl font-extrabold text-neutral-800 dark:text-neutral-100 text-center pb-3 animate-pulse">You Win🎉</div>
-                <div className="text-md text-neutral-400 dark:text-neutral-500 text-center">your typing speed is next of the chart 🫡.</div>
+                <div className="[font-size:var(--text-md)] text-neutral-400 dark:text-neutral-500 text-center">your typing speed is next of the chart 🫡.</div>
             </div>
         </div>
         <div className={`absolute ${result === "loss"?"top-0 blur-none":"-top-full blur-md"} transition-all ease-in-out duration-1000 delay-300 left-0 h-full w-full bg-white dark:bg-neutral-900 content-center`}>
             <div className="">
                 <div className="text-5xl font-extrabold text-neutral-800 dark:text-neutral-100 text-center pb-3 animate-pulse">You Loss☠️</div>
-                <div className="text-md text-neutral-400 dark:text-neutral-500 text-center">try later next time 🫠.</div>
+                <div className="[font-size:var(--text-md)] text-neutral-400 dark:text-neutral-500 text-center">try later next time 🫠.</div>
             </div>
         </div>
         </div>

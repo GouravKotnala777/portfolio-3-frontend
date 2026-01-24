@@ -32,7 +32,7 @@ function CodeBlock({code, language}:CodeBlockPropTypes) {
     }, [code]);
 
     return(
-        <div className="flex max-h-75 text-sm overflow-auto rounded-bl-md thin_scrollbar">
+        <div className="flex max-h-75 [font-size:var(--text-sm)] overflow-auto rounded-bl-md thin_scrollbar">
   
             {/* Line numbers */}
             <div className="h-full select-none sticky top-0 left-0 text-right pr-4 pl-3 pb-4 bg-neutral-200 text-neutral-500 dark:bg-neutral-800">

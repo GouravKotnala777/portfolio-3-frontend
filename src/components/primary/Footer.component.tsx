@@ -14,7 +14,7 @@ function Footer() {
                             s.trim() === "" ?
                             <div className="text-9xl inline-block">&nbsp;</div>
                             :
-                            <div className="text-neutral-100 dark:text-neutral-800 group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-all ease-in-out duration-1000 text-[12rem] h-20 w-20 font-coral-pixels relative">
+                            <div className="text-neutral-100 dark:text-neutral-800 group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-all ease-in-out duration-1000 text-[12rem] h-20 w-20 font-londrina-outline relative">
                                 <div className="absolute -top-20 left-0 h-full w-full">{s}</div>
                             </div>
                         ))

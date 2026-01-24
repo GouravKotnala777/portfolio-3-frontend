@@ -47,7 +47,7 @@ function Tab({panels}:TabPropTypes) {
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="size-4">
                                     {tabIconPath}
                                 </svg>
-                                <span className="text-sm">{tabName}</span>
+                                <span className="[font-size:var(--text-sm)]">{tabName}</span>
                             </button>
                         ))
                     }
@@ -55,7 +55,7 @@ function Tab({panels}:TabPropTypes) {
                 {
                     activeTab === 1 &&
                     <div className="">
-                        <button className="text-sm text-neutral-700 dark:text-neutral-200 hover:bg-neutral-300 dark:hover:bg-neutral-700 px-3 py-2 rounded-sm cursor-pointer relative transition-colors ease-in-out duration-300"
+                        <button className="[font-size:var(--text-sm)] text-neutral-700 dark:text-neutral-200 hover:bg-neutral-300 dark:hover:bg-neutral-700 px-3 py-2 rounded-sm cursor-pointer relative transition-colors ease-in-out duration-300"
                             onClick={(e) => CopyButtonHandler(e, panels[1].code)}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"

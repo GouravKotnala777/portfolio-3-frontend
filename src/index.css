@@ -7,6 +7,21 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 30px;
+  --heading-weight:500;
+
+  --name-size: 36px;
+  --name-weight: 700;
+
+  --dp-size:160px;
+  --flag-w:52px;
+  --flag-h:36px;
+  --leaky-text-display:"block";
 }
 
 @property --move{
@@ -19,9 +34,64 @@
 
 @theme {
   --font-roboto: "Roboto", sans-serif;
-  --font-poppins: "Poppins", sans-serif;
-  --font-coral-pixels: "Londrina Outline", sans-serif;
+  --font-londrina-outline: "Londrina Outline", sans-serif;
+
 }
+
+
+
+@media (max-width: 720px) {
+  :root {
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-md: 16px;
+    --text-lg: 18px;
+    --text-xl: 30px;
+    --heading-weight:500;
+    --name-size: 36px;
+    --name-weight: 700;
+    --dp-size:160px;
+    --flag-w:42px;
+    --flag-h:26px;
+    --leaky-text-display:"block";
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --text-xs: 11px;
+    --text-sm: 13px;
+    --text-md: 15px;
+    --text-lg: 17px;
+    --text-xl: 24px;
+    --heading-weight:700;
+    --name-size: 30px;
+    --name-weight: 700;
+    --dp-size:150px;
+    --flag-w:32px;
+    --flag-h:16px;
+    --leaky-text-display:none;
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --text-xs: 8px;
+    --text-sm: 12px;
+    --text-md: 14px;
+    --text-lg: 16px;
+    --text-xl: 20px;
+    --heading-weight:700;
+    --name-size: 24px;
+    --name-weight: 600;
+    --dp-size:100px;
+    --flag-w:30px;
+    --flag-h:14px;
+    --leaky-text-display:none;
+  }
+}
+
+
 .apply_goo_effect{
     /*filter: url(#goo) blur(55px);*/
     filter: url(#goo);

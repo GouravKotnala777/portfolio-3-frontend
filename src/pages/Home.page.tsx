@@ -192,40 +192,37 @@ function Prac({screenWidth}:{screenWidth:number;}) {
             {/* Profile Section */}
             <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800">
                 <div className="max-w-3xl mx-auto flex relative">
-                    <div className="max-h-25 max-w-25 h-40 w-40  [box-shadow:0px_0px_1px_0px_#00000020_inset] dark:[box-shadow:0px_0px_1px_0px_#ffffff20_inset] bg-a rounded-full overflow-hidden p-0.75 relative"
+                    <div className="w-(--dp-size) h-(--dp-size) [box-shadow:0px_0px_1px_0px_#00000020_inset] dark:[box-shadow:0px_0px_1px_0px_#ffffff20_inset] bg-a rounded-full overflow-hidden p-0.75 relative"
                         onMouseEnter={activeSunGlassesPower}
                         onMouseLeave={disableSunGlassesPower}
                     >
-                        <div className="z-1 absolute top-0 left-0 max-h-25 max-w-25 h-full w-full text-white text-center content-center blur-md">
-                            <div className="max-h-25 max-w-25  w-full h-full"
+                        <div className="z-1 absolute top-0 left-0 h-full w-full text-white text-center content-center blur-md">
+                            <div className="w-full h-full"
                                 style={{
                                     background:`conic-gradient(from 90deg, ${theme==="light"?"var(--color-sky-600)":"var(--color-sky-400)"} var(--dp-bg-angle), ${theme==="light"?"#262626":"#f5f5f5"} 0%)`,
-                                    ...(isDPHovering&&{animation:"circular-motion 2s ease-in-out"}),
+                                    ...(isDPHovering&&{animation:"circular-motion 2s ease-out"}),
                                 }}
                             ></div>
                         </div>
 
-                        {
-                            isHighLightActive &&
-                                <img src="download.png" alt="download.png" className="z-3 absolute top-[43%] left-[52.1%] -translate-x-[50%] -translate-y-[50%] w-11 h-5" />
-                        }
-                        <img src="gourav-kotnala1.png" alt="gourav-kotnala1.png" className="z-2 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] max-h-25 max-w-25 h-[95%] w-[95%] [box-shadow:0px_0px_1px_0px_#00000050] dark:[box-shadow:0px_0px_1px_0px_#ffffff50] rounded-full bg-linear-0 from-neutral-500 to-white dark:from-neutral-50 dark:to-neutral-500" />
+                        <img src="download.png" alt="download.png" className={`z-3 absolute border-2 border-red-500 top-[43%] left-[52.1%] -translate-x-[50%] -translate-y-[50%] w-11 h-5 ${isHighLightActive?"opacity-100":"opacity-0"} transition-all ease-in-out duration-300`} />
+                        <img src="gourav-kotnala1.png" alt="gourav-kotnala1.png" className="z-2 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] h-[95%] w-[95%] [box-shadow:0px_0px_1px_0px_#00000050] dark:[box-shadow:0px_0px_1px_0px_#ffffff50] rounded-full bg-linear-0 from-neutral-500 to-white dark:from-neutral-50 dark:to-neutral-500" />
                     </div>
-                    <a href="https://en.wikipedia.org/wiki/India" className="h-9 w-13 absolute z-4">
+                    <a href="https://en.wikipedia.org/wiki/India" className="w-(--flag-w) h-(--flag-h) absolute z-4">
                         <img src="indian-flag2.webp" alt="indian-flag2.webp" />
                     </a>
 
                     <div className="border-x border-neutral-100 dark:border-neutral-800 content-end">
-                        <div className="border border-neutral-100 dark:border-neutral-800 text-sm text-neutral-200 dark:text-neutral-700 font-mono px-3 py-0">{theme === "light"?"text-3xl text-neutral-950 font-mono":"text-3xl text-neutral-800 font-medium"}</div>
-                        <div className="border border-neutral-100 dark:border-neutral-800 text-3xl text-neutral-950 dark:text-neutral-50 font-medium px-3 py-0">Gourav Kotnala</div>
-                        <div className="border border-neutral-100 dark:border-neutral-800 text-md text-neutral-600 dark:text-neutral-200 font-normal px-3 py-1">Full Stack Web Developer</div>
+                        <div className="border border-neutral-100 dark:border-neutral-800 [font-size:var(--text-sm)] text-neutral-200 dark:text-neutral-700 font-mono px-3 py-0 [display:var(--leaky-text-display)]">{theme === "light"?"text-3xl text-neutral-950 font-mono":"text-3xl text-neutral-800 font-medium"}</div>
+                        <div className="border border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 [font-size:var(--name-size)] font-(--name-weight) px-3 py-0">Gourav Kotnala</div>
+                        <div className="border border-neutral-100 dark:border-neutral-800 text-lg text-neutral-600 dark:text-neutral-200 font-normal px-3 py-1">Full Stack Web Developer</div>
                     </div>
                 </div>
             </div>
 
             {/* Para Section */}
-            <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800">
-                <div className="max-w-3xl mx-auto text-neutral-800 dark:text-neutral-300 text-[15px] leading-8 text-sm font-sans tracking-wide px-3 py-2">
+            <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 z-1">
+                <div className={`max-w-3xl mx-auto ${isHighLightActive?"text-neutral-300 dark:text-neutral-700":"text-neutral-800 dark:text-neutral-300"} transition-all ease-in-out duration-300 [font-size:var(--text-md)] font-mono leading-8 tracking-wide px-3 py-2`}>
                     <p>
                         My name is <HighLight isHighLightActive={isHighLightActive}>Gourav Kotnala</HighLight>. I am <HighLight isHighLightActive={isHighLightActive}>24 years old</HighLight>. I am <HighLight isHighLightActive={isHighLightActive}>from Old Faridabad</HighLight>. I have completed my batcholar's of computer application <HighLight isHighLightActive={isHighLightActive}>(BCA) from Swami Vivekanand Subharti University in 2023</HighLight>. I am <HighLight isHighLightActive={isHighLightActive}>passionate about web development</HighLight> and I have been <HighLight isHighLightActive={isHighLightActive}>learning & building projects using MERN Stack</HighLight>. I am currently <HighLight isHighLightActive={isHighLightActive}>looking for an opportunity where I can</HighLight> looking for an opportunity where I can contribute to real-world projects and continue to <HighLight isHighLightActive={isHighLightActive}>improve my skills as full stack developer</HighLight>. 
                     </p>
@@ -234,43 +231,47 @@ function Prac({screenWidth}:{screenWidth:number;}) {
             </div>
 
             {/* Address and Contacts */}
-            <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800">
+            <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 z-1">
                 <div className="max-w-3xl mx-auto px-3 py-2">
                     <div>
                         <IconSpan
-                            iconPathD="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                            iconPathDArray={["m18 16 4-4-4-4", "m6 8-4 4 4 4", "m14.5 4-5 16"]}
                             para="Junior Full Stack Developer"
                         />
                     </div>
                     <div>
                         <IconSpan
-                            iconPathD="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                            iconPathDArray={["M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5", "M9 18h6", "M10 22h4"]}
                             para="4 years of hands on practice on MERN projects"
                         />
                     </div>
                     <div className={`grid ${screenWidth > 720?"grid-cols-2":"grid-cols-1"}`}>
                         <IconSpan
-                            iconPathD="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                            iconPathDArray={["M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"]}
+                            circles={[{cx:12, cy:10, r:3}]}
                             para="Old Faridabad, Haryana, India"
                         />
                         <IconSpan
-                            iconPathD="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                            iconPathDArray={["M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"]}
                             para="+91 8882732859"
                         />
                         <IconSpan
-                            iconPathD="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                            iconPathDArray={["M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71", "M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"]}
                             para="gouravkotnala777.github.io/portfolio-1"
                         />
                         <IconSpan
-                            iconPathD="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                            iconPathDArray={["M12 6v6l2-4"]}
+                            circles={[{cx:12, cy:12, r:10}]}
                             para="18:19"
                         />
                         <IconSpan
-                            iconPathD="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                            iconPathDArray={["m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"]}
+                            rect={[{x:2, y:4, width:20, height:16, rx:2}]}
                             para="gouravkotnala777@gmail.com"
                         />
                         <IconSpan
-                            iconPathD="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                            iconPathDArray={["M16 3h5v5", "m21 3-6.75 6.75"]}
+                            circles={[{cx:10, cy:14, r:6}]}
                             para="he/him"
                         />
                     </div>
@@ -281,10 +282,11 @@ function Prac({screenWidth}:{screenWidth:number;}) {
             {/* Social Media Links Section */}
             <div className="bg-white dark:bg-neutral-900 flex flex-col">
                 <div className="">
+                <div className="border border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 px-3 py-0 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)] max-w-3xl mx-auto">Connections</div>
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
                         <div className={`max-w-3xl mx-auto flex ${screenWidth > 520?"flex-row justify-between items-center":"flex-col w-full"} gap-4`}>
-                            <SocialLinks screenWidth={screenWidth} url="/twitter" id="@gouravkotnala" logoURL="x.webp" platform="X (formerly Twitter)" />
-                            <SocialLinks screenWidth={screenWidth} url="https://github.com/gouravkotnala777" id="gouravkotnala777" logoURL="github.webp" platform="GitHub" />
+                            <SocialLinks url="/twitter" id="@gouravkotnala" logoURL="x.webp" platform="X (formerly Twitter)" />
+                            <SocialLinks url="https://github.com/gouravkotnala777" id="gouravkotnala777" logoURL="github.webp" platform="GitHub" />
                         </div>
                     </div>
                     <div className="">
@@ -295,8 +297,8 @@ function Prac({screenWidth}:{screenWidth:number;}) {
                     </div>
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
                         <div className={`max-w-3xl mx-auto flex ${screenWidth > 520?"flex-row justify-between items-center":"flex-col w-full"} gap-4`}>
-                            <SocialLinks screenWidth={screenWidth} url="https://www.linkedin.com/in/gourav-kotnala-003427295" id="gourav kotnala" logoURL="linkedin.webp" platform="LinkedIn" />
-                            <SocialLinks screenWidth={screenWidth} url="https://www.linkedin.com/in/gourav-kotnala-003427295" id="gourav kotnala" logoURL="linkedin.webp" platform="LinkedIn" />
+                            <SocialLinks url="https://www.linkedin.com/in/gourav-kotnala-003427295" id="gourav kotnala" logoURL="linkedin.webp" platform="LinkedIn" />
+                            <SocialLinks url="https://www.linkedin.com/in/gourav-kotnala-003427295" id="gourav kotnala" logoURL="linkedin.webp" platform="LinkedIn" />
                         </div>
                     </div>
                     <div className="">
@@ -307,8 +309,8 @@ function Prac({screenWidth}:{screenWidth:number;}) {
                     </div>
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
                         <div className={`max-w-3xl mx-auto flex ${screenWidth > 520?"flex-row justify-between items-center":"flex-col w-full"} gap-4`}>
-                            <SocialLinks screenWidth={screenWidth} url="https://youtube.com" id="@gouravkotnala" logoURL="vite.svg" platform="YouTube" />
-                            <SocialLinks screenWidth={screenWidth} url="https://youtube.com" id="@gouravkotnala" logoURL="vite.svg" platform="YouTube" />
+                            <SocialLinks url="https://youtube.com" id="@gouravkotnala" logoURL="vite.svg" platform="YouTube" />
+                            <SocialLinks url="https://youtube.com" id="@gouravkotnala" logoURL="vite.svg" platform="YouTube" />
                         </div>
                     </div>
                 </div>
@@ -316,10 +318,10 @@ function Prac({screenWidth}:{screenWidth:number;}) {
 
 
             {/* About Section */}
-            <div className="bg-white dark:bg-neutral-900">
+            <div className="bg-white dark:bg-neutral-900 z-1">
                 <div className="max-w-3xl mx-auto">
-                    <div className="border border-neutral-100 dark:border-neutral-800 text-3xl text-neutral-950 dark:text-neutral-50 font-medium px-3 py-0">About</div>
-                    <ul className="text-neutral-800 dark:text-neutral-300 tracking-wider text-[15px] leading-8 list-disc marker:text-neutral-300 px-8 py-4">
+                    <div className="border border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 px-3 py-0 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)]">About</div>
+                    <ul className="text-neutral-800 dark:text-neutral-300 tracking-wider [font-size:var(--text-md)] leading-8 list-disc marker:text-neutral-300 px-8 py-4">
                         <li><Strong>Design Engineer</Strong> with 3+ years of hands-on experience, with for pixel-perfect execution and Strong attention to small details.</li>
                         <li>Skilled in <Strong>React</Strong>, <Strong>TypeScript</Strong>, <Strong>MongoDB</Strong>, <Strong>ExpressJS</Strong> and micro interactions building high-quality, user-centric web applications.</li>
                         <li>Passionate about exploring new technologies and turning ideas into reality through polished, thoughtfully crafted personal projects.</li>
@@ -342,7 +344,7 @@ function Prac({screenWidth}:{screenWidth:number;}) {
 
             {/* Github Contribution Chart Section */}
             <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 relative">
-                <div className="border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto text-3xl text-neutral-950 dark:text-neutral-50 font-medium px-3 py-0">GitHub Contributions</div>
+                <div className="border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto text-neutral-950 dark:text-neutral-50 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)] px-3 py-0">GitHub Contributions</div>
                 <GithubContributionChart totalContributions={totalContributions} gitHubChartData={gitHubChartData} gitHubYear={gitHubYear} setGitHubYear={setGitHubYear} />
             </div>
 
@@ -350,7 +352,7 @@ function Prac({screenWidth}:{screenWidth:number;}) {
             {/* Stack Section */}
             <div className="bg-white dark:bg-neutral-900">
                 <div className="max-w-3xl mx-auto">
-                  <div className="border border-neutral-100 dark:border-neutral-800 text-3xl text-neutral-950 dark:text-neutral-50 font-medium px-3 py-0">Stack</div>
+                  <div className="border border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)] px-3 py-0">Stack</div>
                   <div className="flex justify-start items-center flex-wrap">
                       {
                           StackLogo.map((logo) => (
@@ -366,7 +368,7 @@ function Prac({screenWidth}:{screenWidth:number;}) {
 
             {/* Components Section */}
             <div className="bg-white dark:bg-neutral-900">
-                <div className="border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto text-3xl text-neutral-950 dark:text-neutral-50 font-medium px-3 py-0">Components</div>
+                <div className="border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto text-neutral-950 dark:text-neutral-50 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)] px-3 py-0">Components</div>
                 <div className="flex flex-col">
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
                         <div className={`max-w-3xl mx-auto flex ${screenWidth > 520 ? "flex-row justify-between items-center":"flex-col"} gap-4`}>
@@ -431,15 +433,31 @@ function Prac({screenWidth}:{screenWidth:number;}) {
 export default Prac;
 
 
-function IconSpan({iconPathD, para}:{iconPathD:string; para:string;}) {
+function IconSpan({iconPathDArray, circles=[], rect=[], para}:{iconPathDArray:string[]; circles?:{cx:number; cy:number; r:number;}[]; rect?:{x:number; y:number; width:number; height:number; rx:number;}[]; para:string;}) {
     return(
-        <div className="flex gap-2 items-center text-neutral-800 dark:text-neutral-50 text-sm font-sans tracking-wide py-1">
+        <div className="flex gap-2 items-center text-neutral-800 dark:text-neutral-200 [font-size:var(--text-md)] font-sans tracking-wide py-1">
             <div className="[box-shadow:0px_0px_1px_0px_#00000050_inset] dark:[box-shadow:0px_0px_1px_0px_#ffffff50_inset] rounded-[10px] relative size-7">
                 <div className="text-neutral-500 dark:text-neutral-300 [box-shadow:0px_0px_1px_0px_#00000050] bg-neutral-100 dark:bg-neutral-800 rounded-lg absolute -translate-x-[50%] -translate-y-[50%] left-[50%] top-[50%] p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"
                         className="size-4"
                     >
-                        <path strokeLinecap="round" strokeLinejoin="round" d={iconPathD} />
+                        {
+                            iconPathDArray.map((iconPathD) => (
+                                <path strokeLinecap="round" strokeLinejoin="round" d={iconPathD} />
+                            ))
+                        }
+
+                        {
+                            circles.map(({cx, cy, r}) => (
+                                <circle cx={cx} cy={cy} r={r}></circle>
+                            ))
+                        }
+
+                        {
+                            rect.map(({x, y, width, height, rx}) => (
+                                <rect x={x} y={y} width={width} height={height} rx={rx}></rect>
+                            ))
+                        }
                     </svg>
                 </div>
             </div>
@@ -448,17 +466,17 @@ function IconSpan({iconPathD, para}:{iconPathD:string; para:string;}) {
     )
 };
 
-function SocialLinks({screenWidth, logoURL, id, url, platform}:{screenWidth:number; logoURL:string; id:string; url:string; platform:string;}) {
+function SocialLinks({logoURL, id, url, platform}:{logoURL:string; id:string; url:string; platform:string;}) {
     return(
         <a href={url} className="group border-x border-neutral-100 dark:border-neutral-800 flex justify-start items-center flex-1 gap-4 hover:bg-neutral-100 dark:hover:bg-neutral-900 z-1 px-3 py-2">
             <div className="">
                 <img src={logoURL} alt={logoURL} className="h-12 w-12 rounded-xl group-hover:scale-110 transition-transform ease-in-out duration-300" />
             </div>
             <div className="flex flex-col">
-                <span className={`text-neutral-800 dark:text-neutral-200 ${screenWidth > 380?"[font-size:var(--text-md)]":"[font-size:var(--text-sm)]"} font-semibold transition-all ease-in-out duration-300 group-hover:scale-110 group-hover:translate-x-2`}
+                <span className={`text-neutral-800 dark:text-neutral-200 [font-size:var(--text-md)] font-semibold transition-all ease-in-out duration-300 group-hover:scale-110 group-hover:translate-x-2`}
                 >{platform}</span>
                 <span className="border border-neutral-900 dark:border-neutral-200 w-full scale-x-0 group-hover:scale-x-100 origin-left transition-transform ease-out duration-300 delay-100"></span>
-                <span className={`text-neutral-600 dark:text-neutral-400 font-normal ${screenWidth > 380?"[font-size:var(--text-sm)]":"[font-size:var(--text-xs)]"}`}>{id}</span>
+                <span className={`text-neutral-600 dark:text-neutral-400 font-normal [font-size:var(--text-sm)]`}>{id}</span>
             </div>
 
             <style>
@@ -496,8 +514,8 @@ function ComponentLinks({componentIconPathD, url, componentName, about, isNew}:{
                 </div>
             </div>
             <div className="flex flex-col">
-                <span className="text-neutral-800 dark:text-neutral-50 text-md font-medium underline-offset-4 group-hover:underline">{componentName}</span>
-                <span className="text-neutral-500 dark:text-neutral-300 font-normal text-sm">{about}</span>
+                <span className="text-neutral-800 dark:text-neutral-200 [font-size:var(--text-md)] font-roboto font-semibold underline-offset-4 group-hover:underline">{componentName}</span>
+                <span className="text-neutral-500 dark:text-neutral-300 font-normal [font-size:var(--text-sm)]">{about}</span>
             </div>
             {
                 isNew&&
@@ -520,13 +538,13 @@ function Strong({children, hasUnderLine}:{children:ReactNode; hasUnderLine?:bool
 function HighLight({children, isHighLightActive}:{children:ReactNode; isHighLightActive?:boolean;}) {
 
     return(
-        <span className={`${isHighLightActive&&"bg-neutral-400 dark:bg-neutral-500"} text-neutral-800 dark:text-neutral-300`}>{children}</span>
+        <span className={`${isHighLightActive&&"bg-neutral-400 dark:bg-neutral-500"} text-neutral-800 dark:text-neutral-300 transition-all ease-in-out duration-300`}>{children}</span>
     )
 };
 
 function GithubContributionChart({totalContributions, gitHubChartData, gitHubYear, setGitHubYear}:{totalContributions:{[key:string]:number}|null; gitHubChartData:MonthMap; gitHubYear:GitHubYearTypes; setGitHubYear:Dispatch<SetStateAction<GitHubYearTypes>>}) {
     return(
-        <div className="border-x border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto text-sm text-neutral-500 dark:text-neutral-400">
+        <div className="border-x border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto [font-size:var(--text-xs)] text-neutral-500 dark:text-neutral-400">
             <div className="flex items-center">
                 <div className="flex px-4 overflow-x-scroll thin_scrollbar">
                     {
