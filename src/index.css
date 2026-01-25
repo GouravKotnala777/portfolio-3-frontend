@@ -21,7 +21,7 @@
   --dp-size:160px;
   --flag-w:52px;
   --flag-h:36px;
-  --leaky-text-display:"block";
+  --leaky-text-display:block;
 }
 
 @property --move{
@@ -36,6 +36,9 @@
   --font-roboto: "Roboto", sans-serif;
   --font-londrina-outline: "Londrina Outline", sans-serif;
 
+  --color-neutral-900:#0a0a0a;
+  --color-neutral-800:#191919;
+  --color-neutral-750:#292929;
 }
 
 
@@ -53,7 +56,7 @@
     --dp-size:160px;
     --flag-w:42px;
     --flag-h:26px;
-    --leaky-text-display:"block";
+    --leaky-text-display:block;
   }
 }
 
@@ -102,6 +105,9 @@
 .thin_scrollbar::-webkit-scrollbar {
   width: 4px;
   height: 4px;
+  /*color:#171717;
+  color:#212121;
+  color:#262626;*/
 }
 
 .thin_scrollbar::-webkit-scrollbar-thumb {

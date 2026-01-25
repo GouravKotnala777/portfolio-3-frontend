@@ -213,7 +213,7 @@ function Prac({screenWidth}:{screenWidth:number;}) {
                     </a>
 
                     <div className="border-x border-neutral-100 dark:border-neutral-800 content-end">
-                        <div className="border border-neutral-100 dark:border-neutral-800 [font-size:var(--text-sm)] text-neutral-200 dark:text-neutral-700 font-mono px-3 py-0 [display:var(--leaky-text-display)]">{theme === "light"?"text-3xl text-neutral-950 font-mono":"text-3xl text-neutral-800 font-medium"}</div>
+                        <div className="border border-neutral-100 dark:border-neutral-800 [font-size:var(--text-sm)] text-neutral-200 dark:text-neutral-750 font-mono px-3 py-0 [display:var(--leaky-text-display)]">{theme === "light"?"text-3xl text-neutral-950 font-mono":"text-3xl text-neutral-800 font-medium"}</div>
                         <div className="border border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 [font-size:var(--name-size)] font-(--name-weight) px-3 py-0">Gourav Kotnala</div>
                         <div className="border border-neutral-100 dark:border-neutral-800 text-lg text-neutral-600 dark:text-neutral-200 font-normal px-3 py-1">Full Stack Web Developer</div>
                     </div>
@@ -221,8 +221,8 @@ function Prac({screenWidth}:{screenWidth:number;}) {
             </div>
 
             {/* Para Section */}
-            <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 z-1">
-                <div className={`max-w-3xl mx-auto ${isHighLightActive?"text-neutral-300 dark:text-neutral-700":"text-neutral-800 dark:text-neutral-300"} transition-all ease-in-out duration-300 [font-size:var(--text-md)] font-mono leading-8 tracking-wide px-3 py-2`}>
+            <div className="border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1">
+                <div className={`border-x border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto ${isHighLightActive?"text-neutral-300 dark:text-neutral-700":"text-neutral-800 dark:text-neutral-300"} transition-all ease-in-out duration-300 [font-size:var(--text-md)] font-mono leading-8 tracking-wide px-3 py-2`}>
                     <p>
                         My name is <HighLight isHighLightActive={isHighLightActive}>Gourav Kotnala</HighLight>. I am <HighLight isHighLightActive={isHighLightActive}>24 years old</HighLight>. I am <HighLight isHighLightActive={isHighLightActive}>from Old Faridabad</HighLight>. I have completed my batcholar's of computer application <HighLight isHighLightActive={isHighLightActive}>(BCA) from Swami Vivekanand Subharti University in 2023</HighLight>. I am <HighLight isHighLightActive={isHighLightActive}>passionate about web development</HighLight> and I have been <HighLight isHighLightActive={isHighLightActive}>learning & building projects using MERN Stack</HighLight>. I am currently <HighLight isHighLightActive={isHighLightActive}>looking for an opportunity where I can</HighLight> looking for an opportunity where I can contribute to real-world projects and continue to <HighLight isHighLightActive={isHighLightActive}>improve my skills as full stack developer</HighLight>. 
                     </p>
@@ -232,7 +232,7 @@ function Prac({screenWidth}:{screenWidth:number;}) {
 
             {/* Address and Contacts */}
             <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 z-1">
-                <div className="max-w-3xl mx-auto px-3 py-2">
+                <div className="border-x border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto px-3 py-2">
                     <div>
                         <IconSpan
                             iconPathDArray={["m18 16 4-4-4-4", "m6 8-4 4 4 4", "m14.5 4-5 16"]}
@@ -318,8 +318,8 @@ function Prac({screenWidth}:{screenWidth:number;}) {
 
 
             {/* About Section */}
-            <div className="bg-white dark:bg-neutral-900 z-1">
-                <div className="max-w-3xl mx-auto">
+            <div className="border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1">
+                <div className="border-x border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto">
                     <div className="border border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 px-3 py-0 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)]">About</div>
                     <ul className="text-neutral-800 dark:text-neutral-300 tracking-wider [font-size:var(--text-md)] leading-8 list-disc marker:text-neutral-300 px-8 py-4">
                         <li><Strong>Design Engineer</Strong> with 3+ years of hands-on experience, with for pixel-perfect execution and Strong attention to small details.</li>
@@ -350,7 +350,7 @@ function Prac({screenWidth}:{screenWidth:number;}) {
 
 
             {/* Stack Section */}
-            <div className="bg-white dark:bg-neutral-900">
+            <div className="border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
                 <div className="max-w-3xl mx-auto">
                   <div className="border border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)] px-3 py-0">Stack</div>
                   <div className="flex justify-start items-center flex-wrap">
@@ -367,7 +367,7 @@ function Prac({screenWidth}:{screenWidth:number;}) {
 
 
             {/* Components Section */}
-            <div className="bg-white dark:bg-neutral-900">
+            <div className="border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
                 <div className="border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto text-neutral-950 dark:text-neutral-50 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)] px-3 py-0">Components</div>
                 <div className="flex flex-col">
                     <div className="border-y border-neutral-100 dark:border-neutral-800">

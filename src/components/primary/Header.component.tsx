@@ -59,7 +59,7 @@ function Header({screenWidth}:{screenWidth:number}) {
                                     <NavLink to={url}>{name}</NavLink>
                                 ))
                             }
-                            <button className="border border-neutral-100 dark:border-neutral-800 [box-shadow:0px_0px_2px_0.1px_var(--color-neutral-200)_inset] dark:[box-shadow:0px_0px_2px_0.1px_var(--color-neutral-700)_inset] py-1 my-2 px-3 rounded-2xl flex justify-between items-center gap-1">
+                            <button className="border border-neutral-100 dark:border-neutral-900 [box-shadow:0px_0px_2px_0.1px_var(--color-neutral-200)_inset] dark:[box-shadow:0px_0px_2px_0.1px_var(--color-neutral-700)_inset] py-1 my-2 px-3 rounded-2xl flex justify-between items-center gap-1">
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor"
                                         className="size-4 text-neutral-500 dark:text-neutral-400"
@@ -67,8 +67,8 @@ function Header({screenWidth}:{screenWidth:number}) {
                                         <path strokeLinecap="round" strokeLinejoin="round" d={"m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"} />
                                     </svg>
                                 </span>
-                                <span className="bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-300 [box-shadow:-2px_-2px_1px_0.1px_#00000010_inset] dark:[box-shadow:-2px_-2px_1px_0.1px_#ffffff10_inset] font-roboto rounded-sm p-1 [font-size:var(--text-xs)]">Ctrl</span>
-                                <span className="bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-300 [box-shadow:-2px_-2px_1px_0.1px_#00000010_inset] dark:[box-shadow:-2px_-2px_1px_0.1px_#ffffff10_inset] font-roboto rounded-sm p-1 [font-size:var(--text-xs)]">K</span>
+                                <span className="bg-neutral-100 dark:bg-neutral-800 opacity-80 text-neutral-500 dark:text-neutral-300 [box-shadow:-2px_-2px_1px_0.1px_#00000010_inset] dark:[box-shadow:-2px_-2px_1px_0.1px_#ffffff10_inset] font-roboto rounded-sm p-1 [font-size:var(--text-xs)]">Ctrl</span>
+                                <span className="bg-neutral-100 dark:bg-neutral-800 opacity-80 text-neutral-500 dark:text-neutral-300 [box-shadow:-2px_-2px_1px_0.1px_#00000010_inset] dark:[box-shadow:-2px_-2px_1px_0.1px_#ffffff10_inset] font-roboto rounded-sm p-1 [font-size:var(--text-xs)]">K</span>
                             </button>
 
                             <button

@@ -29,7 +29,7 @@ function App() {
       <Header screenWidth={screenWidth} />
       <main className="
         [background:fixed_repeating-linear-gradient(135deg,#f5f5f5,#f5f5f5_1px,transparent_1px,transparent_10px),#fafafa]
-        dark:[background:fixed_repeating-linear-gradient(135deg,#262626,#262626_1px,transparent_1px,transparent_10px),#171717]
+        dark:[background:fixed_repeating-linear-gradient(135deg,var(--color-neutral-800),var(--color-neutral-800)_1px,transparent_1px,transparent_10px),black]
       ">
         {/*<div className="absolute top-0 left-0 inset-0 border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto -z-1"></div>*/}
         <Routes>
