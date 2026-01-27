@@ -39,7 +39,7 @@ function TypingGame() {
     const [gameLevel, setGameLeve] = useState<number>(1);
     const [result, setResult] = useState<"win"|"loss"|null>(null);
     const {theme} = useTheme();
-    const inputRef = useRef<HTMLDivElement|null>(null);
+    const inputRef = useRef<HTMLInputElement|null>(null);
 
     function animateTypingCat(input:string) {
         if(input === SENTANCE[gameLevel-1][typedSentance.length]){
@@ -51,7 +51,7 @@ function TypingGame() {
         }
     };
 
-    function func(e:KeyboardEvent<HTMLInputElement>) {
+    function onKeyDownHandler(e:KeyboardEvent<HTMLInputElement>) {
         const key = e.key;
 
         if (!inputRef.current) {
@@ -72,7 +72,7 @@ function TypingGame() {
         };
     };
 
-    function func2(){
+    function onFocusHandler(){
         setIsFocused(true);
     };
 
@@ -88,6 +88,7 @@ function TypingGame() {
         setTypedSentance("");
         setIsFocused(false);
         setIsCompleted(false);
+        inputRef.current.value = "";
         if (gameLevel === 1) {
             setTimer(1500);
         }
@@ -160,7 +161,7 @@ function TypingGame() {
                     <div className="relative mt-5">
                         <img src={CAT_IMAGES[returnNumber0To2(frameIndex)]} alt={CAT_IMAGES[returnNumber0To2(frameIndex)]} className="w-30 absolute right-2 md:right-20 sm:right-2 -bottom-4.75" />
                     </div>
-                    <Input fontSize="text-md" fontWeight="font-semibold" placeHolder="Start typing here..." setData={setTypedSentance} onKeyDown={func} onFocus={func2} onBlur={resetHandler} manuallyStartAnimation={isCompleted} theme={theme} btnIconPathD="M12 9.75 14.25 12m0 0 2.25 2.25M14.25 12l2.25-2.25M14.25 12 12 14.25m-2.58 4.92-6.374-6.375a1.125 1.125 0 0 1 0-1.59L9.42 4.83c.21-.211.497-.33.795-.33H19.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25h-9.284c-.298 0-.585-.119-.795-.33Z" />
+                    <Input fontSize="text-md" fontWeight="font-semibold" placeHolder="Start typing here..." setData={setTypedSentance} onKeyDown={onKeyDownHandler} onFocus={onFocusHandler} onBlur={resetHandler} manuallyStartAnimation={isCompleted} theme={theme} btnIconPathD="M12 9.75 14.25 12m0 0 2.25 2.25M14.25 12l2.25-2.25M14.25 12 12 14.25m-2.58 4.92-6.374-6.375a1.125 1.125 0 0 1 0-1.59L9.42 4.83c.21-.211.497-.33.795-.33H19.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25h-9.284c-.298 0-.585-.119-.795-.33Z" />
                 </div>
             </div>
             <div className={`text-orange-300 dark:text-orange-200 text-xs font-semibold flex justify-between items-center mt-4 ${isFocused?"opacity-100 blur-0":"opacity-0 blur-xs"} transition-all ease-in-out duration-300`}>
