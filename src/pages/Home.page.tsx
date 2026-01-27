@@ -206,7 +206,7 @@ function Prac({screenWidth}:{screenWidth:number;}) {
                             ></div>
                         </div>
 
-                        <img src="download.png" alt="download.png" className={`z-3 absolute border-2 border-red-500 top-[43%] left-[52.1%] -translate-x-[50%] -translate-y-[50%] w-11 h-5 ${isHighLightActive?"opacity-100":"opacity-0"} transition-all ease-in-out duration-300`} />
+                        <img src="download.png" alt="download.png" className={`z-3 absolute top-[43%] left-[52.1%] -translate-x-[50%] -translate-y-[50%] w-11 h-5 ${isHighLightActive?"opacity-100":"opacity-0"} transition-all ease-in-out duration-300`} />
                         <img src="gourav-kotnala1.png" alt="gourav-kotnala1.png" className="z-2 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] h-[95%] w-[95%] [box-shadow:0px_0px_1px_0px_#00000050] dark:[box-shadow:0px_0px_1px_0px_#ffffff50] rounded-full bg-linear-0 from-neutral-500 to-white dark:from-neutral-50 dark:to-neutral-500" />
                     </div>
                     <a href="https://en.wikipedia.org/wiki/India" className="w-(--flag-w) h-(--flag-h) absolute z-4">
@@ -227,7 +227,6 @@ function Prac({screenWidth}:{screenWidth:number;}) {
                     <p>
                         My name is <HighLight isHighLightActive={isHighLightActive}>Gourav Kotnala</HighLight>. I am <HighLight isHighLightActive={isHighLightActive}>24 years old</HighLight>. I am <HighLight isHighLightActive={isHighLightActive}>from Old Faridabad</HighLight>. I have completed my batcholar's of computer application <HighLight isHighLightActive={isHighLightActive}>(BCA) from Swami Vivekanand Subharti University in 2023</HighLight>. I am <HighLight isHighLightActive={isHighLightActive}>passionate about web development</HighLight> and I have been <HighLight isHighLightActive={isHighLightActive}>learning & building projects using MERN Stack</HighLight>. I am currently <HighLight isHighLightActive={isHighLightActive}>looking for an opportunity where I can</HighLight> looking for an opportunity where I can contribute to real-world projects and continue to <HighLight isHighLightActive={isHighLightActive}>improve my skills as full stack developer</HighLight>. 
                     </p>
-
                 </div>
             </div>
 
@@ -456,11 +455,11 @@ const StackLogo = [
         <path className="fill-neutral-800 dark:fill-neutral-100" d="m316.939 407.424v50.061c8.138 4.172 17.763 7.3 28.875 9.386s22.823 3.129 35.135 3.129c11.999 0 23.397-1.147 34.196-3.442 10.799-2.294 20.268-6.075 28.406-11.342 8.138-5.266 14.581-12.15 19.328-20.65s7.121-19.007 7.121-31.522c0-9.074-1.356-17.026-4.069-23.857s-6.625-12.906-11.738-18.225c-5.112-5.319-11.242-10.091-18.389-14.315s-15.207-8.213-24.18-11.967c-6.573-2.712-12.468-5.345-17.685-7.9-5.217-2.556-9.651-5.163-13.303-7.822-3.652-2.66-6.469-5.476-8.451-8.448-1.982-2.973-2.974-6.336-2.974-10.091 0-3.441.887-6.544 2.661-9.308s4.278-5.136 7.512-7.118c3.235-1.981 7.199-3.52 11.894-4.615 4.696-1.095 9.912-1.642 15.651-1.642 4.173 0 8.581.313 13.224.938 4.643.626 9.312 1.591 14.008 2.894 4.695 1.304 9.259 2.947 13.694 4.928 4.434 1.982 8.529 4.276 12.285 6.884v-46.776c-7.616-2.92-15.937-5.084-24.962-6.492s-19.381-2.112-31.066-2.112c-11.895 0-23.163 1.278-33.805 3.833s-20.006 6.544-28.093 11.967c-8.086 5.424-14.476 12.333-19.171 20.729-4.695 8.395-7.043 18.433-7.043 30.114 0 14.914 4.304 27.638 12.912 38.172 8.607 10.533 21.675 19.45 39.204 26.751 6.886 2.816 13.303 5.579 19.25 8.291s11.086 5.528 15.415 8.448c4.33 2.92 7.747 6.101 10.252 9.543 2.504 3.441 3.756 7.352 3.756 11.733 0 3.233-.783 6.231-2.348 8.995s-3.939 5.162-7.121 7.196-7.147 3.624-11.894 4.771c-4.748 1.148-10.303 1.721-16.668 1.721-10.851 0-21.597-1.903-32.24-5.71-10.642-3.806-20.502-9.516-29.579-17.13zm-84.159-123.342h64.22v-41.082h-179v41.082h63.906v182.918h50.874z"></path>
     </svg>,
 
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 26 26" className="">
         <path className="fill-neutral-800 dark:fill-neutral-100" d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"></path>
     </svg>,
 
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="text-neutral-800 dark:text-neutral-200">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0.7 0.4 22 22" className="text-neutral-800 dark:text-neutral-200">
         <circle cx="12" cy="11.245" r="1.785" className="fill-neutral-800 dark:fill-neutral-100"></circle>
         <path className="fill-neutral-800 dark:fill-neutral-100" d="m7.002 14.794-.395-.101c-2.934-.741-4.617-2.001-4.617-3.452 0-1.452 1.684-2.711 4.617-3.452l.395-.1.111.391a19.507 19.507 0 0 0 1.136 2.983l.085.178-.085.178c-.46.963-.841 1.961-1.136 2.985l-.111.39zm-.577-6.095c-2.229.628-3.598 1.586-3.598 2.542 0 .954 1.368 1.913 3.598 2.54.273-.868.603-1.717.985-2.54a20.356 20.356 0 0 1-.985-2.542zm10.572 6.095-.11-.392a19.628 19.628 0 0 0-1.137-2.984l-.085-.177.085-.179c.46-.961.839-1.96 1.137-2.984l.11-.39.395.1c2.935.741 4.617 2 4.617 3.453 0 1.452-1.683 2.711-4.617 3.452l-.395.101zm-.41-3.553c.4.866.733 1.718.987 2.54 2.23-.627 3.599-1.586 3.599-2.54 0-.956-1.368-1.913-3.599-2.542a20.683 20.683 0 0 1-.987 2.542z"></path>
         <path className="fill-neutral-800 dark:fill-neutral-100" d="m6.419 8.695-.11-.39c-.826-2.908-.576-4.991.687-5.717 1.235-.715 3.222.13 5.303 2.265l.284.292-.284.291a19.718 19.718 0 0 0-2.02 2.474l-.113.162-.196.016a19.646 19.646 0 0 0-3.157.509l-.394.098zm1.582-5.529c-.224 0-.422.049-.589.145-.828.477-.974 2.138-.404 4.38.891-.197 1.79-.338 2.696-.417a21.058 21.058 0 0 1 1.713-2.123c-1.303-1.267-2.533-1.985-3.416-1.985zm7.997 16.984c-1.188 0-2.714-.896-4.298-2.522l-.283-.291.283-.29a19.827 19.827 0 0 0 2.021-2.477l.112-.16.194-.019a19.473 19.473 0 0 0 3.158-.507l.395-.1.111.391c.822 2.906.573 4.992-.688 5.718a1.978 1.978 0 0 1-1.005.257zm-3.415-2.82c1.302 1.267 2.533 1.986 3.415 1.986.225 0 .423-.05.589-.145.829-.478.976-2.142.404-4.384-.89.198-1.79.34-2.698.419a20.526 20.526 0 0 1-1.71 2.124z"></path>
@@ -470,19 +469,19 @@ const StackLogo = [
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="">
         <path className="fill-neutral-800 dark:fill-neutral-100" d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"></path>
     </svg>,
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="1 1 22 22" className="">
         <path className="fill-neutral-800 dark:fill-neutral-100" d="M12 21.985c-.275 0-.532-.074-.772-.202l-2.439-1.448c-.365-.203-.182-.277-.072-.314.496-.165.588-.201 1.101-.493.056-.037.129-.02.185.017l1.87 1.12c.074.036.166.036.221 0l7.319-4.237c.074-.036.11-.11.11-.202V7.768c0-.091-.036-.165-.11-.201l-7.319-4.219c-.073-.037-.165-.037-.221 0L4.552 7.566c-.073.036-.11.129-.11.201v8.457c0 .073.037.166.11.202l2 1.157c1.082.548 1.762-.095 1.762-.735V8.502c0-.11.091-.221.22-.221h.936c.108 0 .22.092.22.221v8.347c0 1.449-.788 2.294-2.164 2.294-.422 0-.752 0-1.688-.46l-1.925-1.099a1.55 1.55 0 0 1-.771-1.34V7.786c0-.55.293-1.064.771-1.339l7.316-4.237a1.637 1.637 0 0 1 1.544 0l7.317 4.237c.479.274.771.789.771 1.339v8.458c0 .549-.293 1.063-.771 1.34l-7.317 4.236c-.241.11-.516.165-.773.165zm2.256-5.816c-3.21 0-3.87-1.468-3.87-2.714 0-.11.092-.221.22-.221h.954c.11 0 .201.073.201.184.147.971.568 1.449 2.514 1.449 1.54 0 2.202-.35 2.202-1.175 0-.477-.185-.825-2.587-1.063-1.999-.2-3.246-.643-3.246-2.238 0-1.485 1.247-2.366 3.339-2.366 2.347 0 3.503.809 3.649 2.568a.297.297 0 0 1-.056.165c-.037.036-.091.073-.146.073h-.953a.212.212 0 0 1-.202-.164c-.221-1.012-.789-1.34-2.292-1.34-1.689 0-1.891.587-1.891 1.027 0 .531.237.696 2.514.99 2.256.293 3.32.715 3.32 2.294-.02 1.615-1.339 2.531-3.67 2.531z"></path>
     </svg>,
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -1 27 27" className="">
         <path className="fill-neutral-800 dark:fill-neutral-100" d="M16.634 16.504c.87-.075 1.543-.84 1.5-1.754-.047-.914-.796-1.648-1.709-1.648h-.061a1.71 1.71 0 00-1.648 1.769c.03.479.226.869.494 1.153-1.048 2.038-2.621 3.536-5.005 4.795-1.603.838-3.296 1.154-4.944.93-1.378-.195-2.456-.81-3.116-1.799-.988-1.499-1.078-3.116-.255-4.734.6-1.17 1.499-2.023 2.099-2.443a9.96 9.96 0 01-.42-1.543C-.868 14.408-.416 18.752.932 20.805c1.004 1.498 3.057 2.456 5.304 2.456.6 0 1.23-.044 1.843-.194 3.897-.749 6.848-3.086 8.541-6.532zm5.348-3.746c-2.32-2.728-5.738-4.226-9.634-4.226h-.51c-.253-.554-.837-.899-1.498-.899h-.045c-.943 0-1.678.81-1.647 1.753.03.898.794 1.648 1.708 1.648h.074a1.69 1.69 0 001.499-1.049h.555c2.309 0 4.495.674 6.488 1.992 1.527 1.005 2.622 2.323 3.237 3.897.538 1.288.509 2.547-.045 3.597-.855 1.647-2.294 2.517-4.196 2.517-1.199 0-2.367-.375-2.967-.644-.36.298-.96.793-1.394 1.093 1.318.598 2.652.943 3.94.943 2.922 0 5.094-1.647 5.919-3.236.898-1.798.824-4.824-1.47-7.416zM6.49 17.042c.03.899.793 1.648 1.708 1.648h.06a1.688 1.688 0 001.648-1.768c0-.9-.779-1.647-1.693-1.647h-.06c-.06 0-.15 0-.226.029-1.243-2.098-1.768-4.347-1.572-6.772.12-1.828.72-3.417 1.797-4.735.9-1.124 2.593-1.68 3.747-1.708 3.236-.061 4.585 3.971 4.689 5.574l1.498.45C17.741 3.197 14.686.62 11.764.62 9.02.62 6.49 2.613 5.47 5.535 4.077 9.43 4.991 13.177 6.7 16.174c-.15.195-.24.539-.21.868z"></path>
     </svg>,
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -1.4 27 27" className="">
         <path className="fill-neutral-800 dark:fill-neutral-100" d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0zM9.615 15.998c.175.645.156 1.248-.024 1.792l-.065.18c-.024.061-.052.12-.078.176-.14.29-.326.56-.555.81-.698.759-1.672 1.047-2.09.805-.45-.262-.226-1.335.584-2.19.871-.918 2.12-1.509 2.12-1.509v-.003l.108-.061zm9.911-10.861c-.542-2.133-4.077-2.834-7.422-1.645-1.989.707-4.144 1.818-5.693 3.267C4.568 8.48 4.275 9.98 4.396 10.607c.427 2.211 3.457 3.657 4.703 4.73v.006c-.367.18-3.056 1.529-3.686 2.925-.675 1.47.105 2.521.615 2.655 1.575.436 3.195-.36 4.065-1.649.84-1.261.766-2.881.404-3.676.496-.135 1.08-.195 1.83-.104 2.101.24 2.521 1.56 2.43 2.1-.09.539-.523.854-.674.944-.15.091-.195.12-.181.181.015.09.091.09.21.075.165-.03 1.096-.45 1.141-1.471.045-1.29-1.186-2.729-3.375-2.7-.9.016-1.471.091-1.875.256-.03-.045-.061-.075-.105-.105-1.35-1.455-3.855-2.475-3.75-4.41.03-.705.285-2.564 4.8-4.814 3.705-1.846 6.661-1.335 7.171-.21.733 1.604-1.576 4.59-5.431 5.024-1.47.165-2.235-.404-2.431-.615-.209-.225-.239-.24-.314-.194-.12.06-.045.255 0 .375.12.3.585.825 1.396 1.095.704.225 2.43.359 4.5-.45 2.324-.899 4.139-3.405 3.614-5.505l.073.067z"></path>
     </svg>,
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 27 27" className="">
         <path className="fill-neutral-800 dark:fill-neutral-100" d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"></path>
     </svg>,
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000" className="">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-150 -200 1455 1300" className="">
         <path className="fill-neutral-800 dark:fill-neutral-100" d="M577.344 0L1154.69 1000H0L577.344 0Z"></path>
     </svg>
 
@@ -522,21 +521,21 @@ function IconSpan({iconPathDArray, circles=[], rect=[], para}:{iconPathDArray:st
 };
 
 const connections = [
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" strokeWidth="6" stroke-linecap="round" stroke-linejoin="round" className="fill-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -20 140 130" strokeWidth="6" stroke-linecap="round" stroke-linejoin="round" className="fill-none">
         <path className="stroke-neutral-800 dark:stroke-neutral-200" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"></path>
     </svg>,
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.2" stroke-linecap="round" stroke-linejoin="round" className="fill-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="0.9" stroke-linecap="round" stroke-linejoin="round" className="fill-none">
         <path className="stroke-neutral-800 dark:stroke-neutral-200" d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
     </svg>,
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.3" stroke-linecap="round" stroke-linejoin="round" className="fill-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.1" stroke-linecap="round" stroke-linejoin="round" className="fill-none">
         <rect className="stroke-neutral-800 dark:stroke-neutral-200" width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
         <path className="stroke-neutral-800 dark:stroke-neutral-200" d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
         <line className="stroke-neutral-800 dark:stroke-neutral-200" x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
     </svg>,
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.3" stroke-linecap="round" stroke-linejoin="round" className="fill-none">
-        <path className="stroke-neutral-800 dark:stroke-neutral-200" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="0.9" stroke-linecap="round" stroke-linejoin="round" className="fill-none">
+        <path className="stroke-neutral-800 dark:stroke-neutral-200" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225z"></path>
     </svg>,
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.3" stroke-linecap="round" stroke-linejoin="round" className="fill-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.8 -1 26 26" strokeWidth="1" stroke-linecap="round" stroke-linejoin="round" className="fill-none">
         <path className="stroke-neutral-800 dark:stroke-neutral-200" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
     </svg>
 
@@ -544,13 +543,18 @@ const connections = [
 
 function SocialLinks({logoURL, id, url, platform}:{logoURL:ReactNode; id:string; url:string; platform:string;}) {
     return(
-        <a href={url} className="group border-x border-neutral-100 dark:border-neutral-800 flex justify-start items-center flex-1 gap-4 hover:bg-neutral-100 dark:hover:bg-neutral-900 z-1 px-3 py-2">
+        <a href={url} className="group border border-neutral-100 dark:border-neutral-800 flex justify-start items-center flex-1 gap-4 hover:bg-neutral-100 dark:hover:bg-neutral-900 z-1 px-3 py-2">
             <div className="">
-                <div className="border border-neutral-800 w-10 h-10 p-1">
-                    {logoURL}
+                <div className="relative w-10 h-10 m-3 [box-shadow:0px_0px_1px_0px_var(--color-neutral-200)_inset] dark:[box-shadow:0px_0px_1px_0px_var(--color-neutral-700)_inset] rounded-lg group-hover:scale-110 transition-transform ease-in-out duration-300">
+                    <div className="absolute top-[50%] left-[50%] p-0.5 -translate-x-[50%] -translate-y-[50%] w-[90%] h-[90%] [box-shadow:0px_0px_1px_0px_var(--color-neutral-400)] dark:[box-shadow:0px_0px_1px_0px_var(--color-neutral-500)] rounded-md">
+                        {logoURL}
+                    </div>
                 </div>
+                {/*<div className="border border-neutral-800 w-10 h-10 p-1">
+                    {logoURL}
+                </div>*/}
                 
-                {/*<img src={logoURL} alt={logoURL} className="h-12 w-12 rounded-xl group-hover:scale-110 transition-transform ease-in-out duration-300" />*/}
+                {/*<img src={logoURL} alt={logoURL} className="h-12 w-12 rounded-xl " />*/}
             </div>
             <div className="flex flex-col">
                 <span className={`text-neutral-800 dark:text-neutral-200 [font-size:var(--text-md)] font-semibold transition-all ease-in-out duration-300 group-hover:scale-110 group-hover:translate-x-2`}
