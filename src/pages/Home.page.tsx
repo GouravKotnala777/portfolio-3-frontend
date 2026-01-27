@@ -62,7 +62,23 @@ const TileBGDark = [
 //const MonthsName = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
 //const StackLogo = ["typescript.svg", "js.svg", "react.svg", "mongodb.svg", "git.svg", "motion.svg", "redux.svg", "tailwindcss.svg", "nodejs.svg"];
 
+type CommitSummary = {
+  sha: string;
+  message: string;
+  date: string;
+  url: string;
+};
 
+type CommitDetails = {
+  additions: number;
+  deletions: number;
+  total: number;
+  files: {
+    filename: string;
+    additions: number;
+    deletions: number;
+  }[];
+};
 type Contribution = {
   date: string;
   count: number;
@@ -109,6 +125,44 @@ async function getGitHubContributions() {
         console.log(error);        
     }
 };
+async function getRecentGitHubCommits():Promise<CommitSummary[]|undefined> {
+    try {
+        const commitsRes = await fetch("https://api.github.com/repos/GouravKotnala777/portfolio-3-frontend/commits?per_page=4", {
+            method:"GET"
+        });
+        const commits:CommitSummary[] = await commitsRes.json();
+        console.log({commits});
+
+        return commits.map((c:any) => ({
+            sha: c.sha,
+            message: c.commit.message,
+            date: c.commit.author.date,
+            url: c.url,
+        }));
+    } catch (error) {
+        console.log("recent commits get nahi ho rahe");
+        console.log(error);        
+    }
+};
+
+export async function fetchCommitDetails(url: string):Promise<CommitDetails> {
+  const res = await fetch(url, {
+    method:"GET"
+  });
+  const data = await res.json();
+
+  return {
+    additions: data.stats.additions,
+    deletions: data.stats.deletions,
+    total: data.stats.total,
+    files: data.files.map((f: any) => ({
+      filename: f.filename,
+      additions: f.additions,
+      deletions: f.deletions,
+    })),
+  };
+}
+
 export function transformData(data:{total:{[key:string]:number}; contributions:{date:string; count:number; level:number;}[];}|null):{
     totalContributions: {
         [key: string]: number;
@@ -152,6 +206,19 @@ function Prac({screenWidth}:{screenWidth:number;}) {
     const [gitHubChartData, setGitHubChartData] = useState<MonthMap>([]);
     const [totalContributions, setTotalContributions] = useState<{[key:string]:number}|null>(DATA.total);
     const [gitHubYear, setGitHubYear] = useState<GitHubYearTypes>("2026");
+    const [commits, setCommits] = useState<CommitSummary[]>([
+        {date:"01-01-2025", message:"Lorem ipsum dolor sit amet.", sha:"sha1", url:"dasdhasjdhakdj"},
+        {date:"02-01-2025", message:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti?", sha:"sha2", url:"dasdhasjdhakdj"},
+        {date:"03-01-2025", message:"Lorem ipsum dolor sit.", sha:"sha3", url:"dasdhasjdhakdj"},
+        {date:"04-01-2025", message:"Lorem, ipsum dolor sit amet consectetur adipisicing.", sha:"sha4", url:"dasdhasjdhakdj"}
+    ]);
+    const [details, setDetails] = useState<Record<string, CommitDetails>>({
+        "sha1":{additions:1,deletions:4, files:[{additions:1,deletions:4,filename:"sadasdasd"}],total:5},
+        "sha2":{additions:8,deletions:3, files:[{additions:8,deletions:3,filename:"sadasdasd"}],total:8},
+        "sha3":{additions:2,deletions:1, files:[{additions:2,deletions:1,filename:"sadasdasd"}],total:3},
+        "sha4":{additions:2,deletions:4, files:[{additions:2,deletions:4,filename:"sadasdasd"}],total:6},
+    });
+
 
 
     async function getGitHubContributionsHandler() {
@@ -179,10 +246,36 @@ function Prac({screenWidth}:{screenWidth:number;}) {
         getGitHubContributionsHandler();
     }, []);
 
+
+    useEffect(() => {
+        getRecentGitHubCommits().then((data) => {
+            if(data){
+                setCommits(data);
+
+                data.forEach((c) => {
+                    fetchCommitDetails(c.url)
+                    .then((d) => {
+                        setDetails((prev) => ({ ...prev, [c.sha]: d }));
+                    });
+                })
+            }
+        });
+    }, []);
+
+    //const loadDetails = async (commit: CommitSummary) => {
+    //    if (details[commit.sha]) return;
+
+    //    setLoadingSha(commit.sha);
+    //    const data = await fetchCommitDetails(commit.url);
+        
+    //    setLoadingSha(null);
+    //};
+
+    // loadDetails nahi call kar rahe hai call karna padega
+
     return(
         <section className="flex mx-2 flex-col gap-10 relative min-h-screen font-roboto selection:bg-neutral-300 dark:selection:bg-neutral-600">
             <div className="absolute top-0 left-0 inset-0 border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto"></div>
-
             {/* Hero Section */}
             <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 h-70">
               <div className="max-w-3xl mx-auto h-full">
@@ -351,6 +444,45 @@ function Prac({screenWidth}:{screenWidth:number;}) {
             <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 relative">
                 <div className="border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto text-neutral-950 dark:text-neutral-50 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)] px-3 py-0">GitHub Contributions</div>
                 <GithubContributionChart totalContributions={totalContributions} gitHubChartData={gitHubChartData} gitHubYear={gitHubYear} setGitHubYear={setGitHubYear} />
+            </div>
+
+            {/* Github Commit Details */}
+            <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 z-1">
+                <div className="border-x border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto flex justify-between p-3">
+                    <div className="border-r border-neutral-100 dark:border-neutral-800 w-[70%]">
+                        <div className="text-neutral-700 dark:text-neutral-200 text-md font-medium flex items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="tabler-icon tabler-icon-activity text-accent">
+                                <path d="M3 12h4l3 8l4 -16l3 8h4"></path>
+                            </svg>
+                            <span>Recent Commits</span>
+                        </div>
+                        <div className="text-neutral-600 dark:text-neutral-300 font-mono text-sm my-1 flex flex-col">
+                            {
+                                commits.map((c) => (
+                                    <span className="text-nowrap truncate">{c.message}</span>
+                                ))
+                            }
+                        </div>
+                        <a href="https://github.com/GouravKotnala777" className="text-neutral-600 dark:text-neutral-300 text-xs font-light my-2 underline hover:no-underline underline-offset-2">View on GitHub</a>
+                    </div>
+                    <div className="w-[30%] text-right font-mono">
+                        <div className="text-neutral-700 dark:text-neutral-200 text-md font-medium">
+                            <div>[info]</div>
+                        </div>
+                        <div className="text-neutral-600 dark:text-neutral-300 flex flex-col text-sm my-2">
+                            {
+                                commits.map((c) => (
+                                    <div className="grid grid-cols-3">
+                                        <span className="text-green-500 dark:text-green-700">+{details[c.sha]?.additions}</span>
+                                        <span className="">/</span>
+                                        <span className="text-red-500 dark:text-red-700">-{details[c.sha]?.deletions}</span>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                        <div className="text-neutral-600 dark:text-neutral-300 font-sans text-xs font-light my-1">000000</div>
+                    </div>
+                </div>
             </div>
 
 
