@@ -113,12 +113,13 @@ function groupByMonthAndWeek(data:{total:{[key:string]:number}; contributions:Co
 }
 
 
-async function getGitHubContributions() {
+async function getGitHubContributions({year}:{year:GitHubYearTypes}) {
     try {
-        const res = await fetch("https://github-contributions-api.jogruber.de/v4/gouravkotnala777?y=2025", {
+        const res = await fetch(`https://github-contributions-api.jogruber.de/v4/gouravkotnala777?y=${year}`, {
             method:"GET"
         });
         const data:{total:{[key:string]:number}; contributions:{date:string; count:number; level:number;}[];} = await res.json();
+        console.log({data1:data});
         return data;
     } catch (error) {
         console.log("contributions get nahi ho raha");
@@ -205,7 +206,7 @@ function Prac({screenWidth}:{screenWidth:number;}) {
     const [isHighLightActive, setIsHighLightActive] = useState<boolean>(false);
     const [gitHubChartData, setGitHubChartData] = useState<MonthMap>([]);
     const [totalContributions, setTotalContributions] = useState<{[key:string]:number}|null>(DATA.total);
-    const [gitHubYear, setGitHubYear] = useState<GitHubYearTypes>("2026");
+    const [gitHubYear, setGitHubYear] = useState<GitHubYearTypes>("2025");
     const [commits, setCommits] = useState<CommitSummary[]>([
         {date:"01-01-2025", message:"Lorem ipsum dolor sit amet.", sha:"sha1", url:"dasdhasjdhakdj"},
         {date:"02-01-2025", message:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti?", sha:"sha2", url:"dasdhasjdhakdj"},
@@ -221,14 +222,6 @@ function Prac({screenWidth}:{screenWidth:number;}) {
 
 
 
-    async function getGitHubContributionsHandler() {
-        const data = await getGitHubContributions();
-        //if (!data) return;
-
-        const {totalContributions, allContributions} = groupByMonthAndWeek(DATA||data);
-        setGitHubChartData(allContributions);
-        setTotalContributions(totalContributions);
-    }
 
     function activeSunGlassesPower() {
         clearTimeout(sunGlassesTimer);
@@ -243,8 +236,19 @@ function Prac({screenWidth}:{screenWidth:number;}) {
     };
 
     useEffect(() => {
-        getGitHubContributionsHandler();
-    }, []);
+        getGitHubContributions({year:gitHubYear}).then((data) => {
+            if (!data) {
+                console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                throw Error("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+            }
+            const {totalContributions, allContributions} = groupByMonthAndWeek(data);
+            setGitHubChartData(allContributions);
+            setTotalContributions(totalContributions);
+        }).catch((err) => {
+            console.log(err);
+        });
+
+    }, [gitHubYear]);
 
 
     useEffect(() => {
@@ -255,6 +259,8 @@ function Prac({screenWidth}:{screenWidth:number;}) {
                 data.forEach((c) => {
                     fetchCommitDetails(c.url)
                     .then((d) => {
+                        console.log({d});
+                        
                         setDetails((prev) => ({ ...prev, [c.sha]: d }));
                     });
                 })
@@ -448,8 +454,8 @@ function Prac({screenWidth}:{screenWidth:number;}) {
 
             {/* Github Commit Details */}
             <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 z-1">
-                <div className="border-x border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto flex justify-between p-3">
-                    <div className="border-r border-neutral-100 dark:border-neutral-800 w-[70%]">
+                <div className="border-x border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto flex justify-between">
+                    <div className="border-r border-neutral-100 dark:border-neutral-800 w-[70%] p-3 mr-2">
                         <div className="text-neutral-700 dark:text-neutral-200 text-md font-medium flex items-center gap-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="tabler-icon tabler-icon-activity text-accent">
                                 <path d="M3 12h4l3 8l4 -16l3 8h4"></path>
@@ -459,23 +465,23 @@ function Prac({screenWidth}:{screenWidth:number;}) {
                         <div className="text-neutral-600 dark:text-neutral-300 font-mono text-sm my-1 flex flex-col">
                             {
                                 commits.map((c) => (
-                                    <span className="text-nowrap truncate">{c.message}</span>
+                                    <span className="text-nowrap truncate mt-0.5">{c.message}</span>
                                 ))
                             }
                         </div>
                         <a href="https://github.com/GouravKotnala777" className="text-neutral-600 dark:text-neutral-300 text-xs font-light my-2 underline hover:no-underline underline-offset-2">View on GitHub</a>
                     </div>
-                    <div className="w-[30%] text-right font-mono">
+                    <div className="border-l border-neutral-100 dark:border-neutral-800 w-[30%] text-right font-mono p-3 ml-2">
                         <div className="text-neutral-700 dark:text-neutral-200 text-md font-medium">
                             <div>[info]</div>
                         </div>
                         <div className="text-neutral-600 dark:text-neutral-300 flex flex-col text-sm my-2">
                             {
                                 commits.map((c) => (
-                                    <div className="grid grid-cols-3">
-                                        <span className="text-green-500 dark:text-green-700">+{details[c.sha]?.additions}</span>
-                                        <span className="">/</span>
-                                        <span className="text-red-500 dark:text-red-700">-{details[c.sha]?.deletions}</span>
+                                    <div className="flex justify-end items-center gap-1 mt-0.5">
+                                        <span className="w-10 text-green-500 dark:text-green-700">+{details[c.sha]?.additions}</span>
+                                        <span className="shrink-0">/</span>
+                                        <span className="w-10 text-red-500 dark:text-red-700 text-left">-{details[c.sha]?.deletions}</span>
                                     </div>
                                 ))
                             }
@@ -740,61 +746,66 @@ function HighLight({children, isHighLightActive}:{children:ReactNode; isHighLigh
 function GithubContributionChart({totalContributions, gitHubChartData, gitHubYear, setGitHubYear}:{totalContributions:{[key:string]:number}|null; gitHubChartData:MonthMap; gitHubYear:GitHubYearTypes; setGitHubYear:Dispatch<SetStateAction<GitHubYearTypes>>}) {
     return(
         <div className="border-x border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto [font-size:var(--text-xs)] text-neutral-500 dark:text-neutral-400">
-            <div className="flex items-center">
-                <div className="flex px-4 overflow-x-scroll thin_scrollbar">
-                    {
-                        
-                        gitHubChartData.map((arr, index) => (
-                            <div className="relative">
-                                <div className="absolute -left-3 top-1">
-                                    {
-                                        (index-1)%4 === 0 &&
-                                            <div className="">{new Date(arr[3]?.date).toLocaleString("en-US", {month:"short"})}</div>
-                                    }
+            <div className="h-50 flex justify-between">
+                <div className="border-r border-neutral-100 dark:border-neutral-800 mr-2 w-[88%]">
+                    <div className="min-h-max flex px-4 overflow-x-scroll thin_scrollbar">
+                        {
+                            
+                            gitHubChartData.map((arr, index) => (
+                                <div className="relative">
+                                    <div className="absolute -left-3 top-1">
+                                        {
+                                            (index-1)%4 === 0 &&
+                                                <div className="">{new Date(arr[3]?.date).toLocaleString("en-US", {month:"short"})}</div>
+                                        }
+                                    </div>
+                                    <div className="mt-7">
+                                        {
+                                            arr.map((day) => (
+                                                <div data-tooltip={`${day.count} contributions on ${day.date}`} className={`[width:var(--size-git-tile)] [height:var(--size-git-tile)] p-1 m-0.5 rounded-xs [box-shadow:0px_0px_1px_1px_#00000020_inset] dark:[box-shadow:0px_0px_1px_1px_#ffffff20_inset]
+                                                    ${TileBG[day.level]
+                                                    }
+                                                    ${TileBGDark[day.level]
+                                                    }
+                                                    `}></div>
+                                            ))
+                                        }
+                                    </div>
                                 </div>
-                                <div className="mt-7">
-                                    {
-                                        arr.map((day) => (
-                                            <div data-tooltip={`${day.count} contributions on ${day.date}`} className={`w-3 h-3 p-1 m-0.5 rounded-xs [box-shadow:0px_0px_1px_1px_#00000020_inset] dark:[box-shadow:0px_0px_1px_1px_#ffffff20_inset]
-                                                ${TileBG[day.level]
-                                                }
-                                                ${TileBGDark[day.level]
-                                                }
-                                                `}></div>
-                                        ))
-                                    }
-                                </div>
+                            ))
+                        }
+                    </div>
+                    <div className="flex justify-between items-center px-3 py-1">
+                        <div className="">
+                            {totalContributions?.[gitHubYear]||0} contributions in {gitHubYear} on <Strong hasUnderLine><NavLink to="https://github.com/gouravkotnala777">GitHub</NavLink></Strong>.
+                        </div>
+                        <div className="flex justify-between items-center gap-1">
+                            <div>Less</div>
+                            <div className="flex gap-1">
+                                {
+                                    [0,1,2,3,4].map((level) => (
+                                        <span className={`[width:var(--size-git-tile)] [height:var(--size-git-tile)] p-1 m-0.5 rounded-xs [box-shadow:0px_0px_1px_1px_#00000020_inset] dark:[box-shadow:0px_0px_1px_1px_#ffffff20_inset]
+                                                ${TileBG[level]}
+                                                ${TileBGDark[level]}
+                                            `}></span>
+                                    ))
+                                }
                             </div>
-                        ))
-                    }
+                            <div>More</div>
+                        </div>
+                    </div>
                 </div>
-                <div className="border-l border-b border-neutral-100 dark:border-neutral-800 overflow-x-hidden overflow-y-scroll h-34.5 w-22 thin_scrollbar">
-                    <div className="flex flex-col py-4">
+                
+                <div className="border-l border-b border-neutral-100 dark:border-neutral-800 overflow-x-hidden overflow-y-scroll max-w-24 w-[24%] thin_scrollbar relative">
+                    <div className="w-full h-13 sticky -top-4 left-0 z-1 blur-sm bg-white dark:bg-neutral-900"></div>
+                    <div className="flex flex-col py-4 z-0">
                         {
                             gitHubYears.map((year) => (
                                 <div className={`w-full text-center mx-auto py-1 ${gitHubYear === year ? "bg-neutral-200 dark:bg-neutral-700 scale-120":"bg-white dark:bg-neutral-950 scale-100"} cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-transform ease-in-out duration-300`} onClick={() => {setGitHubYear(year)}}>{year}</div>
                             ))
                         }
                     </div>
-                </div>
-            </div>
-            <div className="flex justify-between items-center px-3 py-1">
-                <div className="">
-                    {totalContributions?.[gitHubYear]||0} contributions in {gitHubYear} on <Strong hasUnderLine><NavLink to="https://github.com/gouravkotnala777">GitHub</NavLink></Strong>.
-                </div>
-                <div className="flex justify-between items-center gap-1">
-                    <div>Less</div>
-                    <div className="flex gap-1">
-                        {
-                            [0,1,2,3,4].map((level) => (
-                                <span className={`w-3 h-3 p-1 m-0.5 rounded-xs [box-shadow:0px_0px_1px_1px_#00000020_inset] dark:[box-shadow:0px_0px_1px_1px_#ffffff20_inset]
-                                        ${TileBG[level]}
-                                        ${TileBGDark[level]}
-                                    `}></span>
-                            ))
-                        }
-                    </div>
-                    <div>More</div>
+                    <div className="w-full h-13 sticky -bottom-4 left-0 z-1 blur-sm white-500 dark:bg-neutral-900"></div>
                 </div>
             </div>
         </div>

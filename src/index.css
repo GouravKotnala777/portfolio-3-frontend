@@ -23,6 +23,8 @@
   --flag-h:36px;
   --leaky-text-display:block;
   --responsive-flex:row;
+
+  --size-git-tile:12px;
 }
 
 @property --move{
@@ -40,6 +42,7 @@
   --color-neutral-900:#0a0a0a;
   --color-neutral-800:#191919;
   --color-neutral-750:#292929;
+
 }
 
 
@@ -59,6 +62,7 @@
     --flag-h:26px;
     --leaky-text-display:block;
     --responsive-flex:row;
+    --size-git-tile:12px;
   }
 }
 
@@ -77,6 +81,7 @@
     --flag-h:16px;
     --leaky-text-display:none;
     --responsive-flex:column;
+    --size-git-tile:8px;
   }
 }
 
@@ -95,6 +100,7 @@
     --flag-h:14px;
     --leaky-text-display:none;
     --responsive-flex:column;
+    --size-git-tile:8px;
     /*--flex-direction:flex-col;*/
   }
 }
