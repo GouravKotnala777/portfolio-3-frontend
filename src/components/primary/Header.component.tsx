@@ -378,7 +378,7 @@ function Header({screenWidth}:{screenWidth:number}) {
 
                             {   screenWidth <= 640 &&
                                 <button className="flex flex-col gap-1 p-3"
-                                    onClick={() => {}}
+                                    onClick={openSettingHandler}
                                 >
                                     <span className="w-4 h-0.5 rounded-px bg-neutral-700 dark:bg-neutral-200"></span>
                                     <span className="w-4 h-0.5 rounded-px bg-neutral-700 dark:bg-neutral-200"></span>
