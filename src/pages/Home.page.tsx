@@ -268,23 +268,32 @@ function Prac({screenWidth}:{screenWidth:number;}) {
         });
     }, []);
 
-    //const loadDetails = async (commit: CommitSummary) => {
-    //    if (details[commit.sha]) return;
-
-    //    setLoadingSha(commit.sha);
-    //    const data = await fetchCommitDetails(commit.url);
-        
-    //    setLoadingSha(null);
-    //};
-
-    // loadDetails nahi call kar rahe hai call karna padega
-
     return(
         <section className="flex mx-2 flex-col gap-10 relative min-h-screen font-roboto selection:bg-neutral-300 dark:selection:bg-neutral-600">
             <div className="absolute top-0 left-0 inset-0 border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto"></div>
             {/* Hero Section */}
-            <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 h-70">
-              <div className="max-w-3xl mx-auto h-full">
+            <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 h-70 mt-15">
+              <div className="max-w-3xl mx-auto h-full flex justify-center items-center bg-[radial-gradient(var(--color-neutral-100)_1.5px,transparent_1.5px)] bg-size-[20px_20px] dark:bg-[radial-gradient(var(--color-neutral-750)_1.5px,transparent_1.5px)]">
+
+                <div className="flex w-30 h-30">
+                    <svg
+                        width="30"
+                        height="35"
+                        viewBox="0 0 65 35"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-full h-full stroke-none"
+                    >
+                        <polygon points="30,0 5,0 5,5 30,5" className="fill-neutral-800 dark:fill-neutral-100" ></polygon>
+                        <polygon points="5,5 0,5 0,30 5,30" className="fill-neutral-800 dark:fill-neutral-100" ></polygon>
+                        <polygon points="5,30 5,35 25,35 25,30" className="fill-neutral-800 dark:fill-neutral-100" ></polygon>
+                        <polygon points="25,20 25,30 30,30 30,20" className="fill-neutral-800 dark:fill-neutral-100" ></polygon>
+                        <polygon points="15,15 15,20 25,20 25,15" className="fill-neutral-800 dark:fill-neutral-100" ></polygon>
+
+                        <polygon points="65,0 60,0 40,15 40,0 35,0 35,35 40,35 40,20 60,35 65,35" className="fill-neutral-800 dark:fill-neutral-100" />
+                    </svg>
+
+
+                </div>
 
               </div>
             </div>
@@ -455,7 +464,7 @@ function Prac({screenWidth}:{screenWidth:number;}) {
             {/* Github Commit Details */}
             <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 z-1">
                 <div className="border-x border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto flex justify-between">
-                    <div className="border-r border-neutral-100 dark:border-neutral-800 w-[70%] p-3 mr-2">
+                    <div className="border-r border-neutral-100 dark:border-neutral-800 w-[70%] p-3 mr-1">
                         <div className="text-neutral-700 dark:text-neutral-200 text-md font-medium flex items-center gap-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="tabler-icon tabler-icon-activity text-accent">
                                 <path d="M3 12h4l3 8l4 -16l3 8h4"></path>
@@ -471,7 +480,7 @@ function Prac({screenWidth}:{screenWidth:number;}) {
                         </div>
                         <a href="https://github.com/GouravKotnala777" className="text-neutral-600 dark:text-neutral-300 text-xs font-light my-2 underline hover:no-underline underline-offset-2">View on GitHub</a>
                     </div>
-                    <div className="border-l border-neutral-100 dark:border-neutral-800 w-[30%] text-right font-mono p-3 ml-2">
+                    <div className="border-l border-neutral-100 dark:border-neutral-800 w-[30%] text-right font-mono p-3 ml-1">
                         <div className="text-neutral-700 dark:text-neutral-200 text-md font-medium">
                             <div>[info]</div>
                         </div>
@@ -505,11 +514,6 @@ function Prac({screenWidth}:{screenWidth:number;}) {
                                 </div>
                               </div>
                           ))
-                        //  StackLogo.map((logo) => (
-                        //      <div className="px-3 py-3">
-                        //          <img data-tooltip={logo.split(".")[0]} src={logo} alt={logo} className="w-10 h-10" />
-                        //      </div>
-                        //  ))
                       }
                   </div>
                 </div>
