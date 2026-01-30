@@ -273,7 +273,7 @@ function Prac({screenWidth}:{screenWidth:number;}) {
             <div className="absolute top-0 left-0 inset-0 border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto"></div>
             {/* Hero Section */}
             <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 h-70 mt-15">
-              <div className="max-w-3xl mx-auto h-full flex justify-center items-center bg-[radial-gradient(var(--color-neutral-100)_1.5px,transparent_1.5px)] bg-size-[20px_20px] dark:bg-[radial-gradient(var(--color-neutral-750)_1.5px,transparent_1.5px)]">
+              <div className="max-w-3xl mx-auto h-full flex justify-center items-center bg-[radial-gradient(var(--color-neutral-100)_1.5px,transparent_1.5px)] bg-size-[8px_8px] dark:bg-[radial-gradient(var(--color-neutral-750)_1.5px,transparent_1.5px)]">
 
                 <div className="flex w-30 h-30">
                     <svg
@@ -330,7 +330,7 @@ function Prac({screenWidth}:{screenWidth:number;}) {
             </div>
 
             {/* Para Section */}
-            <div className="border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1">
+            <div id="experience" className="border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1 scroll-mt-25">
                 <div className={`border-x border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto ${isHighLightActive?"text-neutral-300 dark:text-neutral-700":"text-neutral-800 dark:text-neutral-300"} transition-all ease-in-out duration-300 [font-size:var(--text-md)] font-mono leading-8 tracking-wide px-3 py-2`}>
                     <p>
                         My name is <HighLight isHighLightActive={isHighLightActive}>Gourav Kotnala</HighLight>. I am <HighLight isHighLightActive={isHighLightActive}>24 years old</HighLight>. I am <HighLight isHighLightActive={isHighLightActive}>from Old Faridabad</HighLight>. I have completed my batcholar's of computer application <HighLight isHighLightActive={isHighLightActive}>(BCA) from Swami Vivekanand Subharti University in 2023</HighLight>. I am <HighLight isHighLightActive={isHighLightActive}>passionate about web development</HighLight> and I have been <HighLight isHighLightActive={isHighLightActive}>learning & building projects using MERN Stack</HighLight>. I am currently <HighLight isHighLightActive={isHighLightActive}>looking for an opportunity where I can</HighLight> looking for an opportunity where I can contribute to real-world projects and continue to <HighLight isHighLightActive={isHighLightActive}>improve my skills as full stack developer</HighLight>. 
@@ -431,7 +431,7 @@ function Prac({screenWidth}:{screenWidth:number;}) {
 
 
             {/* About Section */}
-            <div className="border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1">
+            <div id="about" className="border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1 scroll-mt-25">
                 <div className="border-x border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto">
                     <div className="border border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 px-3 py-0 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)]">About</div>
                     <ul className="text-neutral-800 dark:text-neutral-300 tracking-wider [font-size:var(--text-md)] leading-8 list-disc marker:text-neutral-300 px-8 py-4">
@@ -449,20 +449,20 @@ function Prac({screenWidth}:{screenWidth:number;}) {
             </div>
 
             {/* Typing Game */}
-            <div className="border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 w-full">
+            <div id="typing_game" className="border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 w-full scroll-mt-25">
                 <div className="max-w-3xl w-full mx-auto">
                     <TypingGame />
                 </div>
             </div>
 
             {/* Github Contribution Chart Section */}
-            <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 relative">
+            <div id="guthub_contributions" className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 relative scroll-mt-25">
                 <div className="border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto text-neutral-950 dark:text-neutral-50 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)] px-3 py-0">GitHub Contributions</div>
                 <GithubContributionChart totalContributions={totalContributions} gitHubChartData={gitHubChartData} gitHubYear={gitHubYear} setGitHubYear={setGitHubYear} />
             </div>
 
             {/* Github Commit Details */}
-            <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 z-1">
+            <div id="recent_commits" className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 z-1 scroll-mt-25">
                 <div className="border-x border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto flex justify-between">
                     <div className="border-r border-neutral-100 dark:border-neutral-800 w-[70%] p-3 mr-1">
                         <div className="text-neutral-700 dark:text-neutral-200 text-md font-medium flex items-center gap-1">
@@ -502,7 +502,7 @@ function Prac({screenWidth}:{screenWidth:number;}) {
 
 
             {/* Stack Section */}
-            <div className="border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+            <div id="tech_stack" className="border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 scroll-mt-25">
                 <div className="max-w-3xl mx-auto">
                   <div className="border border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)] px-3 py-0">Stack</div>
                   <div className="flex justify-start items-center flex-wrap">
