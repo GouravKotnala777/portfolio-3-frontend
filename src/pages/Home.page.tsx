@@ -8,7 +8,7 @@ import TypingGame from "../components/games/TypingGame.component";
 const ComponentsSectionLinks = [
     {
         componentIconPathD:"M12 2.182a1.636 1.636 0 1 0 0 3.273 1.636 1.636 0 0 0 0-3.273ZM8.182 3.818a3.818 3.818 0 1 1 2.002 3.36l-3.006 3.006c.125.23.226.474.3.725h9.044A3.82 3.82 0 0 1 24 12a3.818 3.818 0 0 1-7.478 1.092H7.478c-.098.33-.241.647-.425.939l2.917 2.917a3.818 3.818 0 1 1-1.442 1.644L5.41 15.47a3.818 3.818 0 1 1 .225-6.831l3.007-3.005a3.801 3.801 0 0 1-.46-1.817ZM18.546 12v.004a1.636 1.636 0 1 0 0-.008V12ZM3.818 10.364a1.636 1.636 0 1 0 0 3.272 1.636 1.636 0 0 0 0-3.272Zm6.546 9.818a1.636 1.636 0 1 1 3.272 0 1.636 1.636 0 0 1-3.272 0Z",
-        url:"/#########",
+        url:"/components",
         componentName:"Particles Vanishing Input",
         about:""
     },
@@ -393,8 +393,8 @@ function Prac({screenWidth}:{screenWidth:number;}) {
                 <div className="border border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 px-3 py-0 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)] max-w-3xl mx-auto">Connections</div>
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
                         <div className={`max-w-3xl mx-auto flex ${screenWidth > 520?"flex-row justify-between items-center":"flex-col w-full"} gap-4`}>
-                            <SocialLinks url="/twitter" id="@gouravkotnala" logoURL={connections[0]} platform="X (formerly Twitter)" />
-                            <SocialLinks url="https://github.com/gouravkotnala777" id="gouravkotnala777" logoURL={connections[1]} platform="GitHub" />
+                            <SocialLinks url="https://github.com/gouravkotnala777" id="gouravkotnala777" logoURL={connections[4]} platform="GitHub" />
+                            <SocialLinks url="https://www.linkedin.com/in/gourav-kotnala-003427295" id="gourav kotnala" logoURL={connections[3]} platform="LinkedIn" />
                         </div>
                     </div>
                     <div className="">
@@ -405,8 +405,8 @@ function Prac({screenWidth}:{screenWidth:number;}) {
                     </div>
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
                         <div className={`max-w-3xl mx-auto flex ${screenWidth > 520?"flex-row justify-between items-center":"flex-col w-full"} gap-4`}>
-                            <SocialLinks url="https://www.linkedin.com/in/gourav-kotnala-003427295" id="gourav kotnala" logoURL={connections[2]} platform="LinkedIn" />
-                            <SocialLinks url="https://youtube.com" id="@gouravkotnala" logoURL={connections[3]} platform="YouTube" />
+                            <SocialLinks url="/twitter" id="@gouravkotnala" logoURL={connections[1]} platform="X (formerly Twitter)" />
+                            <SocialLinks url="https://youtube.com" id="@gouravkotnala" logoURL={connections[2]} platform="Instagram" />
                         </div>
                     </div>
                     <div className="">
@@ -420,8 +420,8 @@ function Prac({screenWidth}:{screenWidth:number;}) {
 
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
                         <div className={`max-w-3xl mx-auto flex ${screenWidth > 520?"flex-row justify-between items-center":"flex-col w-full"} gap-4`}>
-                            <SocialLinks url="https://youtube.com" id="@gouravkotnala" logoURL={connections[4]} platform="YouTube" />
-                            <SocialLinks url="https://youtube.com" id="@gouravkotnala" logoURL={connections[5]} platform="YouTube" />
+                            <SocialLinks url="https://youtube.com" id="@gouravkotnala" logoURL={connections[0]} platform="Discord" />
+                            <SocialLinks url="https://youtube.com" id="@gouravkotnala" logoURL={connections[5]} platform="Dribble" />
                         </div>
                     </div>
 
@@ -625,6 +625,10 @@ const StackLogo = [
     </svg>,
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-150 -200 1455 1300" className="">
         <path className="fill-neutral-800 dark:fill-neutral-100" d="M577.344 0L1154.69 1000H0L577.344 0Z"></path>
+    </svg>,
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+        <path className="fill-neutral-800 dark:fill-neutral-100" d="M23.697,37.56h1.18c0.84,0,1.631-0.392,2.139-1.061l7.485-9.847l7.485,9.847	c0.508,0.668,1.299,1.061,2.139,1.061h1.18L35.756,25l9.121-12h-1.18c-0.84,0-1.631,0.392-2.139,1.061L34.5,23.347l-7.059-9.287	C26.933,13.392,26.142,13,25.302,13h-1.18l9.121,12L23.697,37.56z"></path>
+        <path className="fill-neutral-800 dark:fill-neutral-100" d="M24,26v-3c0-6.675-5.945-11.961-12.829-10.852C5.812,13.011,2,17.857,2,23.284L2,24v2v0.142	c0,6.553,4.777,11.786,10.868,11.858c5.092,0.06,9.389-3.344,10.707-7.999h-1.028c-0.62,0-1.182,0.355-1.451,0.913	c-1.739,3.595-5.789,5.862-10.228,4.842C6.776,34.815,4,30.981,4,26.783V26H24z M4,23.71c0-4.708,2.804-8.557,6.924-9.478	C16.798,12.92,22,17.352,22,23v1H4V23.71z"></path>
     </svg>
 
 ];
