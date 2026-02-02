@@ -3,13 +3,17 @@
 //interface ComponentsPropTypes{
 //};
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Input from "../components/reusable/Input.component";
 import Tab from "../components/reusable/Tab.component";
-import { INPUT1_CODE, NAVBAR1_CODE } from "../utils/constants";
+import { INPUT1_CODE, NAVBAR1_CODE, NAVBAR2_CODE, NAVBAR3_CODE, NAVBAR4_CODE } from "../utils/constants";
 import useTheme from "../hooks/useTheme";
 import CodeBlock from "../components/reusable/CodeBlock.component";
 import Navbar1 from "../components/reusable/Navbar1.component";
+import Navbar2 from "../components/reusable/Navbar2.component";
+import Navbar3 from "../components/reusable/Navbar3.component";
+import Navbar4 from "../components/reusable/Navbar4.component";
+import { useLocation } from "react-router-dom";
 
 
 const CODE_ICON = () => {
@@ -46,12 +50,28 @@ const NAVITEMS:{
 function Components() {
     const {theme} = useTheme();
     const [_, setData] = useState("");
+    const {hash} = useLocation();
+
+
+    useEffect(() => {
+        if (!hash) return;
+        
+        const section = document.querySelector(hash);
+        
+        if (!section) return;
+
+        const y = section.getBoundingClientRect().top+window.scrollY-50;
+
+        window.scrollTo({top:y, behavior:"smooth"});
+
+    }, [hash]);
     
     return(
-        <section className=" flex flex-col gap-4 border-2 border-red-500 relative min-h-screen font-roboto selection:bg-neutral-300 dark:selection:bg-neutral-600 pt-30">
+        <section className=" flex flex-col gap-4 relative min-h-screen font-roboto selection:bg-neutral-300 dark:selection:bg-neutral-600 pt-30">
             <div className="absolute top-0 left-0 inset-0 border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto"></div>
 
-            <div className="border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1">
+            {/* Particle Vanishing Input */}
+            <div id="particle_vanishing_input" className="border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1">
                 <div className="w-full bg-white dark:bg-neutral-800 max-w-3xl mx-auto">
                     <Tab
                         panels={[
@@ -80,8 +100,8 @@ function Components() {
             </div>
 
             
-           
-            <div className="border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1">
+           {/* Dia Scroller Navbar */}
+            <div id="dia_scroller_navbar" className="border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1">
                 <div className="w-full bg-white dark:bg-neutral-800 max-w-3xl mx-auto">
                     <Tab
                         panels={[
@@ -109,8 +129,96 @@ function Components() {
                 </div>
             </div>
 
+
+           {/* Popup Navabr */}
+            <div id="popup_navabr" className="border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1">
+                <div className="w-full bg-white dark:bg-neutral-800 max-w-3xl mx-auto">
+                    <Tab
+                        panels={[
+                            {
+                                tabIconPath:PREVIEW_ICON(),
+                                tabName:"Preview",
+                                content:(
+                                    <div className="relative">
+                                        <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
+                                        <div className="h-80 w-60 mx-auto flex justify-center items-center">
+                                            <Navbar2 navItems={NAVITEMS} />
+                                        </div>
+                                    </div>
+                                ),
+                                code:""
+                            },
+                            {
+                                tabIconPath:CODE_ICON(),
+                                tabName:"Code",
+                                content:<CodeBlock code={NAVBAR2_CODE} language="jsx" />,
+                                code:NAVBAR2_CODE
+                            }
+                        ]}
+                    />
+                </div>
+            </div>
+
             
-           
+           {/* Fluid Navbar */}
+            <div id="fluid_navbar" className="border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1">
+                <div className="w-full bg-white dark:bg-neutral-800 max-w-3xl mx-auto">
+                    <Tab
+                        panels={[
+                            {
+                                tabIconPath:PREVIEW_ICON(),
+                                tabName:"Preview",
+                                content:(
+                                    <div className="relative">
+                                        <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
+                                        <div className="h-80 w-60 mx-auto flex justify-center items-center">
+                                            <Navbar3 navItems={NAVITEMS} blobTop="20px" />
+                                        </div>
+                                    </div>
+                                ),
+                                code:""
+                            },
+                            {
+                                tabIconPath:CODE_ICON(),
+                                tabName:"Code",
+                                content:<CodeBlock code={NAVBAR3_CODE} language="jsx" />,
+                                code:NAVBAR3_CODE
+                            }
+                        ]}
+                    />
+                </div>
+            </div>
+
+
+           {/* Gooey Navbar */}
+            <div id="gooey_navbar" className="border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1">
+                <div className="w-full bg-white dark:bg-neutral-800 max-w-3xl mx-auto">
+                    <Tab
+                        panels={[
+                            {
+                                tabIconPath:PREVIEW_ICON(),
+                                tabName:"Preview",
+                                content:(
+                                    <div className="relative">
+                                        <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
+                                        <div className="h-80 w-60 mx-auto flex justify-center items-center">
+                                            <Navbar4 navItems={NAVITEMS} marginTop="300px" />
+                                        </div>
+                                    </div>
+                                ),
+                                code:""
+                            },
+                            {
+                                tabIconPath:CODE_ICON(),
+                                tabName:"Code",
+                                content:<CodeBlock code={NAVBAR4_CODE} language="jsx" />,
+                                code:NAVBAR4_CODE
+                            }
+                        ]}
+                    />
+                </div>
+            </div>
+
 
 
         </section>

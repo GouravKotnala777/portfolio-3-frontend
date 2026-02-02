@@ -1855,18 +1855,27 @@ export const NAVBAR1_CODE = `
     </div>
 `;
 export const NAVBAR2_CODE = `
-    <div className="h-80 flex justify-center items-center">
-        <Navbar navItems={NAVITEMS} padding="6px 12px" fontSize="18px" borderRadius="8px" previewGap="-60px" />
+    <div className="relative">
+        <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
+        <div className="h-80 w-60 mx-auto flex justify-center items-center">
+            <Navbar2 navItems={NAVITEMS} />
+        </div>
     </div>
 `;
 export const NAVBAR3_CODE = `
-    <div className="h-80 flex justify-center items-center">
-        <Navbar3 navItems={NAVITEMS} blobTop="-10px" />
+    <div className="relative">
+        <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
+        <div className="h-80 w-60 mx-auto flex justify-center items-center">
+            <Navbar3 navItems={NAVITEMS} blobTop="20px" />
+        </div>
     </div>
 `;
 export const NAVBAR4_CODE = `
-    <div className="h-80 flex justify-center items-center">
-        <Navbar4 navItems={NAVITEMS} marginTop="320px" />
+    <div className="relative">
+        <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
+        <div className="h-80 w-60 mx-auto flex justify-center items-center">
+            <Navbar4 navItems={NAVITEMS} marginTop="300px" />
+        </div>
     </div>
 `;
 export const TEXT_STAGGERED = `

@@ -1,44 +1,52 @@
 import { useEffect, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
 import "../index.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { DATA } from "../utils/constants";
 import useTheme from "../hooks/useTheme";
 import TypingGame from "../components/games/TypingGame.component";
 
 const ComponentsSectionLinks = [
     {
-        componentIconPathD:"M12 2.182a1.636 1.636 0 1 0 0 3.273 1.636 1.636 0 0 0 0-3.273ZM8.182 3.818a3.818 3.818 0 1 1 2.002 3.36l-3.006 3.006c.125.23.226.474.3.725h9.044A3.82 3.82 0 0 1 24 12a3.818 3.818 0 0 1-7.478 1.092H7.478c-.098.33-.241.647-.425.939l2.917 2.917a3.818 3.818 0 1 1-1.442 1.644L5.41 15.47a3.818 3.818 0 1 1 .225-6.831l3.007-3.005a3.801 3.801 0 0 1-.46-1.817ZM18.546 12v.004a1.636 1.636 0 1 0 0-.008V12ZM3.818 10.364a1.636 1.636 0 1 0 0 3.272 1.636 1.636 0 0 0 0-3.272Zm6.546 9.818a1.636 1.636 0 1 1 3.272 0 1.636 1.636 0 0 1-3.272 0Z",
+        //componentIconPathD:"M12 2.182a1.636 1.636 0 1 0 0 3.273 1.636 1.636 0 0 0 0-3.273ZM8.182 3.818a3.818 3.818 0 1 1 2.002 3.36l-3.006 3.006c.125.23.226.474.3.725h9.044A3.82 3.82 0 0 1 24 12a3.818 3.818 0 0 1-7.478 1.092H7.478c-.098.33-.241.647-.425.939l2.917 2.917a3.818 3.818 0 1 1-1.442 1.644L5.41 15.47a3.818 3.818 0 1 1 .225-6.831l3.007-3.005a3.801 3.801 0 0 1-.46-1.817ZM18.546 12v.004a1.636 1.636 0 1 0 0-.008V12ZM3.818 10.364a1.636 1.636 0 1 0 0 3.272 1.636 1.636 0 0 0 0-3.272Zm6.546 9.818a1.636 1.636 0 1 1 3.272 0 1.636 1.636 0 0 1-3.272 0Z",
+        componentIconPathD:`M6 7a1.5 1.5 0 1 0 0.01 0
+M12 5a1.3 1.3 0 1 0 0.01 0
+M18 8a1.6 1.6 0 1 0 0.01 0
+M9 12a1.4 1.4 0 1 0 0.01 0
+M15 13a1.5 1.5 0 1 0 0.01 0
+M6 16a1.6 1.6 0 1 0 0.01 0
+M12 18a1.4 1.4 0 1 0 0.01 0
+M18 16a1.3 1.3 0 1 0 0.01 0`,
         url:"/components",
         componentName:"Particles Vanishing Input",
         about:""
     },
     {
-        componentIconPathD:"M12 2.182a1.636 1.636 0 1 0 0 3.273 1.636 1.636 0 0 0 0-3.273ZM8.182 3.818a3.818 3.818 0 1 1 2.002 3.36l-3.006 3.006c.125.23.226.474.3.725h9.044A3.82 3.82 0 0 1 24 12a3.818 3.818 0 0 1-7.478 1.092H7.478c-.098.33-.241.647-.425.939l2.917 2.917a3.818 3.818 0 1 1-1.442 1.644L5.41 15.47a3.818 3.818 0 1 1 .225-6.831l3.007-3.005a3.801 3.801 0 0 1-.46-1.817ZM18.546 12v.004a1.636 1.636 0 1 0 0-.008V12ZM3.818 10.364a1.636 1.636 0 1 0 0 3.272 1.636 1.636 0 0 0 0-3.272Zm6.546 9.818a1.636 1.636 0 1 1 3.272 0 1.636 1.636 0 0 1-3.272 0Z",
-        url:"/#########",
+        componentIconPathD:"M 1 9 L 5 9 L 5 15 L 1 15 Z M 13 18 L 19 18 L 19 16 L 24 20 L 19 24 L 19 22 L 13 22 L 13 18 M 12 6 L 6 6 L 6 8 L 1 4 L 6 0 L 6 2 L 12 2 L 12 6 M 7 9 L 7 15 L 11 15 L 11 9 L 7 9 M 13 9 L 13 15 L 17 15 L 17 9 L 13 9 M 20 9 L 20 15 L 24 15 L 24 9 L 20 9",
+        url:"/components#dia_scroller_navbar",
         componentName:"Dia Scroller Navbar",
         about:""
     },
     {
-        componentIconPathD:"M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12",
-        url:"/#########",
+        componentIconPathD:"M 2 10 C 3 -2 19 -2 20 10 L 20 17 C 20 19 17 19 17 17 L 17 13 C 17 11 15 11 15 13 L 15 14 C 15 16 12 16 12 14 C 12 12 10 12 10 14 L 10 15 C 10 18 7 18 7 15 L 7 14 C 7 12 5 12 5 14 C 5 16 2 16 2 14 L 2 10",
+        url:"/components#gooey_navbar",
         componentName:"Gooey Navbar",
         about:""
     },
     {
         componentIconPathD:"M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z",
-        url:"/#########",
+        url:"/components#",
         componentName:"Staggered String",
         about:""
     },
     {
-        componentIconPathD:"M12 2.182a1.636 1.636 0 1 0 0 3.273 1.636 1.636 0 0 0 0-3.273ZM8.182 3.818a3.818 3.818 0 1 1 2.002 3.36l-3.006 3.006c.125.23.226.474.3.725h9.044A3.82 3.82 0 0 1 24 12a3.818 3.818 0 0 1-7.478 1.092H7.478c-.098.33-.241.647-.425.939l2.917 2.917a3.818 3.818 0 1 1-1.442 1.644L5.41 15.47a3.818 3.818 0 1 1 .225-6.831l3.007-3.005a3.801 3.801 0 0 1-.46-1.817ZM18.546 12v.004a1.636 1.636 0 1 0 0-.008V12ZM3.818 10.364a1.636 1.636 0 1 0 0 3.272 1.636 1.636 0 0 0 0-3.272Zm6.546 9.818a1.636 1.636 0 1 1 3.272 0 1.636 1.636 0 0 1-3.272 0Z",
-        url:"/#########",
+        componentIconPathD:"M 3 10 L 8 10 C 11 7 14 7 17 10 L 22 10 L 22 14 L 17 14 M 17 14 C 14 17 11 17 8 14 L 3 14 L 3 10 M 13 18 L 19 18 L 19 16 L 24 20 L 19 24 L 19 22 L 13 22 L 13 18 M 12 6 L 6 6 L 6 8 L 1 4 L 6 0 L 6 2 L 12 2 L 12 6",
+        url:"/components#fluid_navbar",
         componentName:"Fluid Navbar",
         about:""
     },
     {
-        componentIconPathD:"M237.66,133.66l-96,96A8,8,0,0,1,128,224V184H48a16,16,0,0,1-16-16V88A16,16,0,0,1,48,72h80V32a8,8,0,0,1,13.66-5.66l96,96A8,8,0,0,1,237.66,133.66Z",
-        url:"/#########",
+        componentIconPathD:"M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 0 1 1.06 0Z",
+        url:"/components#popup_navabr",
         componentName:"Popup Navabr",
         about:""
     },
@@ -714,10 +722,10 @@ function SocialLinks({logoURL, id, url, platform}:{logoURL:ReactNode; id:string;
 
 function ComponentLinks({componentIconPathD, url, componentName, about, isNew}:{componentIconPathD:string; url:string; componentName:string; about?:string; isNew?:boolean;}) {
     return(
-        <NavLink to={url} className="group border-x border-neutral-100 dark:border-neutral-800 flex justify-start items-center flex-1 gap-4 hover:bg-neutral-100 dark:hover:bg-neutral-900 z-1 px-3 py-2">
+        <Link to={url} className="group border-x border-neutral-100 dark:border-neutral-800 flex justify-start items-center flex-1 gap-4 hover:bg-neutral-100 dark:hover:bg-neutral-900 z-1 px-3 py-2">
             <div className="[box-shadow:0px_0px_1px_0px_var(--color-neutral-200)_inset] dark:[box-shadow:0px_0px_1px_0px_var(--color-neutral-700)_inset] rounded-[10px] relative size-7">
                 <div className="text-neutral-500 dark:text-neutral-200 [box-shadow:0px_0px_1px_0px_var(--color-neutral-400)] dark:[box-shadow:0px_0px_1px_0px_var(--color-neutral-500)] bg-neutral-100 dark:bg-neutral-800 rounded-lg absolute -translate-x-[50%] -translate-y-[50%] left-[50%] top-[50%] p-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="size-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="size-4 filter-[drop-shadow(0_0_0.5px_currentColor)]">
                         <path d={componentIconPathD} fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
                     </svg>
                 </div>
@@ -733,7 +741,7 @@ function ComponentLinks({componentIconPathD, url, componentName, about, isNew}:{
                         <div className="rounded-full absolute top-0 left-0 bg-sky-500 animate-pulse inset-0"></div>
                     </div>
             }
-        </NavLink>
+        </Link>
     )
 };
 
