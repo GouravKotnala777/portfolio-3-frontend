@@ -1837,6 +1837,60 @@ export const DATA = {
   ]
 };
 
+export const COMPONENT_LINKS = [
+    {
+        componentIconPathD:`M6 7a1.5 1.5 0 1 0 0.01 0 M12 5a1.3 1.3 0 1 0 0.01 0 M18 8a1.6 1.6 0 1 0 0.01 0 M9 12a1.4 1.4 0 1 0 0.01 0 M15 13a1.5 1.5 0 1 0 0.01 0 M6 16a1.6 1.6 0 1 0 0.01 0 M12 18a1.4 1.4 0 1 0 0.01 0 M18 16a1.3 1.3 0 1 0 0.01 0`,
+        url:"/components",
+        componentName:"Particles Vanishing Input",
+        about:""
+    },
+    {
+        componentIconPathD:"M 1 9 L 5 9 L 5 15 L 1 15 Z M 13 18 L 19 18 L 19 16 L 24 20 L 19 24 L 19 22 L 13 22 L 13 18 M 12 6 L 6 6 L 6 8 L 1 4 L 6 0 L 6 2 L 12 2 L 12 6 M 7 9 L 7 15 L 11 15 L 11 9 L 7 9 M 13 9 L 13 15 L 17 15 L 17 9 L 13 9 M 20 9 L 20 15 L 24 15 L 24 9 L 20 9",
+        url:"/components#dia_scroller_navbar",
+        componentName:"Dia Scroller Navbar",
+        about:""
+    },
+    {
+        componentIconPathD:"M 2 10 C 3 -2 19 -2 20 10 L 20 17 C 20 19 17 19 17 17 L 17 13 C 17 11 15 11 15 13 L 15 14 C 15 16 12 16 12 14 C 12 12 10 12 10 14 L 10 15 C 10 18 7 18 7 15 L 7 14 C 7 12 5 12 5 14 C 5 16 2 16 2 14 L 2 10",
+        url:"/components#gooey_navbar",
+        componentName:"Gooey Navbar",
+        about:""
+    },
+    {
+        componentIconPathD:"M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z",
+        url:"/components#",
+        componentName:"Staggered String",
+        about:""
+    },
+    {
+        componentIconPathD:"M 3 10 L 8 10 C 11 7 14 7 17 10 L 22 10 L 22 14 L 17 14 M 17 14 C 14 17 11 17 8 14 L 3 14 L 3 10 M 13 18 L 19 18 L 19 16 L 24 20 L 19 24 L 19 22 L 13 22 L 13 18 M 12 6 L 6 6 L 6 8 L 1 4 L 6 0 L 6 2 L 12 2 L 12 6",
+        url:"/components#fluid_navbar",
+        componentName:"Fluid Navbar",
+        about:""
+    },
+    {
+        componentIconPathD:"M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 0 1 1.06 0Z",
+        url:"/components#popup_navabr",
+        componentName:"Popup Navabr",
+        about:""
+    },
+];
+
+export const TILE_BG = [
+    "bg-gray-50",
+    "bg-green-200",
+    "bg-green-400",
+    "bg-green-600",
+    "bg-green-800"
+];
+export const TILE_BG_Dark = [
+    "dark:bg-gray-900",
+    "dark:bg-green-700",
+    "dark:bg-green-500",
+    "dark:bg-green-300",
+    "dark:bg-green-100"
+];
+
 export const INPUT1_CODE = `
     <div className="relative">
         <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
