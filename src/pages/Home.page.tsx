@@ -1,6 +1,6 @@
 import { useEffect, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
 import "../index.css";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { COMPONENT_LINKS, DATA, TILE_BG, TILE_BG_Dark } from "../utils/constants";
 import useTheme from "../hooks/useTheme";
 import TypingGame from "../components/games/TypingGame.component";
