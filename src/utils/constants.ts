@@ -1840,8 +1840,8 @@ export const DATA = {
 export const COMPONENT_LINKS = [
     {
         componentIconPathD:`M6 7a1.5 1.5 0 1 0 0.01 0 M12 5a1.3 1.3 0 1 0 0.01 0 M18 8a1.6 1.6 0 1 0 0.01 0 M9 12a1.4 1.4 0 1 0 0.01 0 M15 13a1.5 1.5 0 1 0 0.01 0 M6 16a1.6 1.6 0 1 0 0.01 0 M12 18a1.4 1.4 0 1 0 0.01 0 M18 16a1.3 1.3 0 1 0 0.01 0`,
-        url:"/components",
-        componentName:"Particles Vanishing Input",
+        url:"/components#particle_vanishing_input",
+        componentName:"Particle Vanishing Input",
         about:""
     },
     {

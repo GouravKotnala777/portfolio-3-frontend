@@ -1,6 +1,6 @@
 import { useEffect, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
 import "../index.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { COMPONENT_LINKS, DATA, TILE_BG, TILE_BG_Dark } from "../utils/constants";
 import useTheme from "../hooks/useTheme";
 import TypingGame from "../components/games/TypingGame.component";
@@ -176,6 +176,7 @@ export function transformData(data:{total:{[key:string]:number}; contributions:{
 
 let sunGlassesTimer = 0;
 function Home({screenWidth}:{screenWidth:number;}) {
+    const {hash} = useLocation();
     const {theme} = useTheme();
     const [isDPHovering, setIsDPHovering] = useState<boolean>(false);
     const [isHighLightActive, setIsHighLightActive] = useState<boolean>(false);
@@ -237,6 +238,17 @@ function Home({screenWidth}:{screenWidth:number;}) {
             }
         });
     }, []);
+    useEffect(() => {
+        if (!hash) return;
+        
+        const section = document.querySelector(hash);
+        
+        if (!section) return;
+
+        const y = section.getBoundingClientRect().top+window.screenY-50;
+
+        window.scrollTo({top:y, behavior:"smooth"});        
+    }, [hash]);
 
     return(
         <section className="flex mx-2 flex-col gap-10 relative min-h-screen font-roboto selection:bg-neutral-300 dark:selection:bg-neutral-600">
@@ -601,7 +613,7 @@ function SocialLinks({logoURL, id, url, platform}:{logoURL:ReactNode; id:string;
 
 function ComponentLinks({componentIconPathD, url, componentName, about, isNew}:{componentIconPathD:string; url:string; componentName:string; about?:string; isNew?:boolean;}) {
     return(
-        <Link to={url} className="group border-x border-neutral-100 dark:border-neutral-800 flex justify-start items-center flex-1 gap-4 hover:bg-neutral-100 dark:hover:bg-neutral-900 z-1 px-3 py-2">
+        <NavLink to={url} className="group border-x border-neutral-100 dark:border-neutral-800 flex justify-start items-center flex-1 gap-4 hover:bg-neutral-100 dark:hover:bg-neutral-900 z-1 px-3 py-2">
             <div className="[box-shadow:0px_0px_1px_0px_var(--color-neutral-200)_inset] dark:[box-shadow:0px_0px_1px_0px_var(--color-neutral-700)_inset] rounded-[10px] relative size-7">
                 <div className="text-neutral-500 dark:text-neutral-200 [box-shadow:0px_0px_1px_0px_var(--color-neutral-400)] dark:[box-shadow:0px_0px_1px_0px_var(--color-neutral-500)] bg-neutral-100 dark:bg-neutral-800 rounded-lg absolute -translate-x-[50%] -translate-y-[50%] left-[50%] top-[50%] p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="size-4 filter-[drop-shadow(0_0_0.5px_currentColor)]">
@@ -620,7 +632,7 @@ function ComponentLinks({componentIconPathD, url, componentName, about, isNew}:{
                         <div className="rounded-full absolute top-0 left-0 bg-sky-500 animate-pulse inset-0"></div>
                     </div>
             }
-        </Link>
+        </NavLink>
     )
 };
 

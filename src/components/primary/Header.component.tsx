@@ -79,7 +79,7 @@ function Header({screenWidth}:{screenWidth:number}) {
                         <div className="h-[76%] overflow-y-scroll thin_scrollbar px-3 relative">
                             <div className="sticky bg-linear-180 from-neutral-50 dark:from-neutral-800 from-15% to-transparent to-100% top-0 -left-10 h-10"></div>
 
-
+                            {/* Menu */}
                             <div className="text-neutral-700 dark:text-neutral-300 text-sm flex flex-col">
                                 <div className="text-xs text-neutral-600 dark:text-neutral-400 mt-4 font-medium">Menu</div>
                                 <NavLink to={"/"} className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg">
@@ -114,17 +114,18 @@ function Header({screenWidth}:{screenWidth:number}) {
                                 </NavLink>
                             </div>
 
+                            {/* Portfolio */}
                             <div className="text-neutral-700 dark:text-neutral-300 text-sm flex flex-col gap-1">
                                 <div className="text-xs text-neutral-600 dark:text-neutral-400 mt-4 font-medium">Portfolio</div>
-                                <button className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg" onClick={() => {
-                                    window.location.href = "/#about";
+                                <NavLink to="/#about" className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg" onClick={() => {
+                                    //window.location.href = "/#about";
                                     closeSettingHandler();
                                 }}>
                                     <span className=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5h6"></path><path d="M15 12h6"></path><path d="M3 19h18"></path><path d="m3 12 3.553-7.724a.5.5 0 0 1 .894 0L11 12"></path><path d="M3.92 10h6.16"></path></svg></span>
                                     <span>About</span>
-                                </button>
-                                <button className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg" onClick={() => {
-                                    window.location.href = "/#guthub_contributions";
+                                </NavLink>
+                                <NavLink to="/#guthub_contributions" className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg" onClick={() => {
+                                    //window.location.href = "/#guthub_contributions";
                                     closeSettingHandler();
                                 }}>
                                     <span className="">
@@ -136,9 +137,9 @@ function Header({screenWidth}:{screenWidth:number}) {
                                         </svg>
                                     </span>
                                     <span>GitHub Contributions</span>
-                                </button>
-                                <button className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg" onClick={() => {
-                                    window.location.href = "/#recent_commits";
+                                </NavLink>
+                                <NavLink to="/#recent_commits" className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg" onClick={() => {
+                                    //window.location.href = "/#recent_commits";
                                     closeSettingHandler();
                                 }}>
                                     <span className="">
@@ -147,40 +148,58 @@ function Header({screenWidth}:{screenWidth:number}) {
                                         </svg>
                                     </span>
                                     <span>Recent Commits</span>
-                                </button>
-                                <button className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg" onClick={() => {
-                                    window.location.href = "/#tech_stack";
+                                </NavLink>
+                                <NavLink to="/#tech_stack" className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg" onClick={() => {
+                                    //window.location.href = "/#tech_stack";
                                     closeSettingHandler();
                                 }}>
                                     <span className=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg></span>
                                     <span>Tech Stack</span>
-                                </button>
-                                <button className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg" onClick={() => {
-                                    window.location.href = "/#experience";
+                                </NavLink>
+                                <NavLink to="/#experience" className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg" onClick={() => {
+                                    //window.location.href = "/#experience";
                                     closeSettingHandler();
                                 }}>
                                     <span className=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12h.01"></path><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path><path d="M22 13a18.15 18.15 0 0 1-20 0"></path><rect width="20" height="14" x="2" y="6" rx="2"></rect></svg></span>
                                     <span>Experience</span>
-                                </button>
-                                <button className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg" onClick={() => {}}>
+                                </NavLink>
+                                <a className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg"
+                                    href="gourav_kotnala_resume.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <span className="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 17v-5h1.5a1.5 1.5 0 1 1 0 3H5m12 2v-5h2m-2 3h2M5 10V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1v6M5 19v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1M10 3v4a1 1 0 0 1-1 1H5m6 4v5h1.375A1.627 1.627 0 0 0 14 15.375v-1.75A1.627 1.627 0 0 0 12.375 12H11Z"/>
+                                        </svg>
+
+
+                                    </span>
+                                    <span>View Resume</span>
+                                </a>
+                                <a className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg"
+                                    href="gourav_kotnala_resume.pdf"
+                                    download
+                                >
                                     <span className=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg></span>
                                     <span>Download Resume</span>
-                                </button>
+                                </a>
                             </div>
 
+                            {/* Projects */}
                             <div className="text-neutral-700 dark:text-neutral-300 text-sm flex flex-col gap-1">
-                                <div className="text-xs text-neutral-600 dark:text-neutral-400 mt-4 font-medium">Menu</div>
-                                <NavLink to={"/aaaaaaaaa"} className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg">
+                                <div className="text-xs text-neutral-600 dark:text-neutral-400 mt-4 font-medium">Projects</div>
+                                <NavLink to={"https://ecommerce-1-frontend.vercel.app/"} target="_blank" className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg">
                                     <span className=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4"><path d="M12 2.182a1.636 1.636 0 1 0 0 3.273 1.636 1.636 0 0 0 0-3.273ZM8.182 3.818a3.818 3.818 0 1 1 2.002 3.36l-3.006 3.006c.125.23.226.474.3.725h9.044A3.82 3.82 0 0 1 24 12a3.818 3.818 0 0 1-7.478 1.092H7.478c-.098.33-.241.647-.425.939l2.917 2.917a3.818 3.818 0 1 1-1.442 1.644L5.41 15.47a3.818 3.818 0 1 1 .225-6.831l3.007-3.005a3.801 3.801 0 0 1-.46-1.817ZM18.546 12v.004a1.636 1.636 0 1 0 0-.008V12ZM3.818 10.364a1.636 1.636 0 1 0 0 3.272 1.636 1.636 0 0 0 0-3.272Zm6.546 9.818a1.636 1.636 0 1 1 3.272 0 1.636 1.636 0 0 1-3.272 0Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span>
-                                    <span>Project1</span>
+                                    <span>Ecommerce Web App</span>
                                 </NavLink>
-                                <NavLink to={"/aaaaaaaaa"} className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg">
-                                    <span className=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg></span>
-                                    <span>Project2</span>
+                                <NavLink to={"https://acre-mate-frontend.vercel.app/"} target="_blank" className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg">
+                                    <span className=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4"><path d="M12 2.182a1.636 1.636 0 1 0 0 3.273 1.636 1.636 0 0 0 0-3.273ZM8.182 3.818a3.818 3.818 0 1 1 2.002 3.36l-3.006 3.006c.125.23.226.474.3.725h9.044A3.82 3.82 0 0 1 24 12a3.818 3.818 0 0 1-7.478 1.092H7.478c-.098.33-.241.647-.425.939l2.917 2.917a3.818 3.818 0 1 1-1.442 1.644L5.41 15.47a3.818 3.818 0 1 1 .225-6.831l3.007-3.005a3.801 3.801 0 0 1-.46-1.817ZM18.546 12v.004a1.636 1.636 0 1 0 0-.008V12ZM3.818 10.364a1.636 1.636 0 1 0 0 3.272 1.636 1.636 0 0 0 0-3.272Zm6.546 9.818a1.636 1.636 0 1 1 3.272 0 1.636 1.636 0 0 1-3.272 0Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span>
+                                    <span>Real-Estate Management</span>
                                 </NavLink>
-                                <NavLink to={"/aaaaaaaaa"} className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg">
-                                    <span className=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="w-4 h-4"><path d="M237.66,133.66l-96,96A8,8,0,0,1,128,224V184H48a16,16,0,0,1-16-16V88A16,16,0,0,1,48,72h80V32a8,8,0,0,1,13.66-5.66l96,96A8,8,0,0,1,237.66,133.66Z" fill="currentColor"></path></svg></span>
-                                    <span>Project3</span>
+                                <NavLink to={"https://razorpay-landing-page-xi.vercel.app/"} target="_blank" className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg">
+                                    <span className=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4"><path d="M12 2.182a1.636 1.636 0 1 0 0 3.273 1.636 1.636 0 0 0 0-3.273ZM8.182 3.818a3.818 3.818 0 1 1 2.002 3.36l-3.006 3.006c.125.23.226.474.3.725h9.044A3.82 3.82 0 0 1 24 12a3.818 3.818 0 0 1-7.478 1.092H7.478c-.098.33-.241.647-.425.939l2.917 2.917a3.818 3.818 0 1 1-1.442 1.644L5.41 15.47a3.818 3.818 0 1 1 .225-6.831l3.007-3.005a3.801 3.801 0 0 1-.46-1.817ZM18.546 12v.004a1.636 1.636 0 1 0 0-.008V12ZM3.818 10.364a1.636 1.636 0 1 0 0 3.272 1.636 1.636 0 0 0 0-3.272Zm6.546 9.818a1.636 1.636 0 1 1 3.272 0 1.636 1.636 0 0 1-3.272 0Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span>
+                                    <span>Razorpay Landing Page Clone</span>
                                 </NavLink>
                             </div>
 
