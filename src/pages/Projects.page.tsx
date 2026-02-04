@@ -255,14 +255,14 @@ function Projects() {
                                 [background:radial-gradient(circle_at_0%_100%,var(--color-neutral-600)_30%,white_80%)]
                                 dark:[background:radial-gradient(circle_at_100%_0%,var(--color-neutral-300)_20%,var(--color-neutral-900)_50%)]
                             ">
-                                <img src="acremate.png" alt="acremate.png"
+                                <img src="razorpay_landing_page_clone.png" alt="razorpay_landing_page_clone.png"
                                     className="w-full"
                                 />
                             </div>
                         </div>
                         <div className="border-x w-[60%] border-neutral-100 dark:border-neutral-800 flex flex-col">
                             <div className="border-y border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 font-medium text-3xl px-3">Razorpay Landing Page Clone</div>
-                            <p className="border-y border-neutral-100 dark:border-neutral-800 text-neutral-600 dark:text-neutral-200 font-sans tracking-wider leading-relaxed [font-size:var(--text-md)] px-3 py-2 min-h-30">Manage your real estate sales and payments smoothly.</p>
+                            <p className="border-y border-neutral-100 dark:border-neutral-800 text-neutral-600 dark:text-neutral-200 font-sans tracking-wider leading-relaxed [font-size:var(--text-md)] px-3 py-2 min-h-30">Responsive razorpay landing page clone.</p>
                             <div className="border-y border-neutral-100 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 flex px-3 py-2 gap-6">
                                 <NavLink to={`https://github.com/GouravKotnala777/Razorpay_Frontend`} className="relative w-10 h-10 m-3 [box-shadow:0px_0px_1px_0px_var(--color-neutral-200)_inset] dark:[box-shadow:0px_0px_1px_0px_var(--color-neutral-700)_inset] rounded-lg hover:[box-shadow:0px_0px_1px_0.1px_var(--color-sky-300)_inset] transition-all ease-in-out duration-300">
                                     <div className="absolute top-[50%] left-[50%] p-0.5 -translate-x-[50%] -translate-y-[50%] w-[90%] h-[90%] [box-shadow:0px_0px_1px_0px_var(--color-neutral-400)] dark:[box-shadow:0px_0px_1px_0px_var(--color-neutral-500)] rounded-md hover:[box-shadow:0px_0px_1px_0.1px_var(--color-sky-300)] transition-all ease-in-out duration-300">
