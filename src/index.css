@@ -19,7 +19,7 @@
   --name-weight: 700;
 
   --dp-size:160px;
-  --flag-w:52px;
+  --flag-w:36px;
   --flag-h:36px;
   --leaky-text-display:block;
   --responsive-flex:row;
@@ -58,7 +58,7 @@
     --name-size: 36px;
     --name-weight: 700;
     --dp-size:160px;
-    --flag-w:42px;
+    --flag-w:26px;
     --flag-h:26px;
     --leaky-text-display:block;
     --responsive-flex:row;
@@ -77,7 +77,7 @@
     --name-size: 30px;
     --name-weight: 700;
     --dp-size:150px;
-    --flag-w:32px;
+    --flag-w:16px;
     --flag-h:16px;
     --leaky-text-display:none;
     --responsive-flex:column;
@@ -96,7 +96,7 @@
     --name-size: 24px;
     --name-weight: 600;
     --dp-size:100px;
-    --flag-w:30px;
+    --flag-w:14px;
     --flag-h:14px;
     --leaky-text-display:none;
     --responsive-flex:column;

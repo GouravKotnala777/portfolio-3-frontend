@@ -283,25 +283,29 @@ function Home({screenWidth}:{screenWidth:number;}) {
             {/* Profile Section */}
             <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800">
                 <div className="max-w-3xl mx-auto flex relative">
-                    <div className="w-(--dp-size) h-(--dp-size) [box-shadow:0px_0px_1px_0px_#00000020_inset] dark:[box-shadow:0px_0px_1px_0px_#ffffff20_inset] bg-a rounded-full overflow-hidden p-0.75 relative"
-                        onMouseEnter={activeSunGlassesPower}
-                        onMouseLeave={disableSunGlassesPower}
-                    >
-                        <div className="z-1 absolute top-0 left-0 h-full w-full text-white text-center content-center blur-md">
-                            <div className="w-full h-full"
-                                style={{
-                                    background:`conic-gradient(from 90deg, ${theme==="light"?"var(--color-sky-600)":"var(--color-sky-400)"} var(--dp-bg-angle), ${theme==="light"?"#262626":"#f5f5f5"} 0%)`,
-                                    ...(isDPHovering&&{animation:"circular-motion 2s ease-out"}),
-                                }}
-                            ></div>
-                        </div>
+                    <div className="w-(--dp-size) h-(--dp-size) relative">
+                        <div className="w-full h-full [box-shadow:0px_0px_1px_0px_#00000020_inset] dark:[box-shadow:0px_0px_1px_0px_#ffffff20_inset] bg-a rounded-full p-0.75 relative overflow-hidden"
+                            onMouseEnter={activeSunGlassesPower}
+                            onMouseLeave={disableSunGlassesPower}
+                        >
+                            <div className="z-1 absolute top-0 left-0 h-full w-full text-white text-center content-center blur-md">
+                                <div className="w-full h-full"
+                                    style={{
+                                        background:`conic-gradient(from 90deg, ${theme==="light"?"var(--color-sky-600)":"var(--color-sky-400)"} var(--dp-bg-angle), ${theme==="light"?"#262626":"#f5f5f5"} 0%)`,
+                                        ...(isDPHovering&&{animation:"circular-motion 2s ease-out"}),
+                                    }}
+                                ></div>
+                            </div>
 
-                        <img src="download.png" alt="download.png" className={`z-3 absolute top-[43%] left-[52.1%] -translate-x-[50%] -translate-y-[50%] w-11 h-5 ${isHighLightActive?"opacity-100":"opacity-0"} transition-all ease-in-out duration-300`} />
-                        <img src="gourav-kotnala1.png" alt="gourav-kotnala1.png" className="z-2 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] h-[95%] w-[95%] [box-shadow:0px_0px_1px_0px_#00000050] dark:[box-shadow:0px_0px_1px_0px_#ffffff50] rounded-full bg-linear-0 from-neutral-500 to-white dark:from-neutral-50 dark:to-neutral-500" />
+                            <img src="sunglasses.png" alt="sunglasses.png" className={`z-3 absolute top-[43%] left-[52.1%] -translate-x-[50%] -translate-y-[50%] w-11 h-5 ${isHighLightActive?"opacity-100":"opacity-0"} transition-all ease-in-out duration-300`} />
+                            <img src="gourav-kotnala1.png" alt="gourav-kotnala1.png" className="z-2 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] h-[95%] w-[95%] [box-shadow:0px_0px_1px_0px_#00000050] dark:[box-shadow:0px_0px_1px_0px_#ffffff50] rounded-full bg-linear-0 from-neutral-500 to-white dark:from-neutral-50 dark:to-neutral-500" />
+                        </div>
+                        <div className="w-(--flag-w) h-(--flag-h) border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 absolute z-4 right-0 bottom-0 grid place-items-center rounded-md">
+                            <div className="w-2 h-2 bg-sky-500 rounded-full animate-ping"></div>                        
+                            <div className="w-2 h-2 bg-sky-500 rounded-full animate-pulse absolute"></div>                        
+                        </div>
                     </div>
-                    <a href="https://en.wikipedia.org/wiki/India" className="w-(--flag-w) h-(--flag-h) absolute z-4">
-                        <img src="indian-flag2.webp" alt="indian-flag2.webp" />
-                    </a>
+                    
 
                     <div className="border-x border-neutral-100 dark:border-neutral-800 content-end">
                         <div className="border border-neutral-100 dark:border-neutral-800 [font-size:var(--text-sm)] text-neutral-200 dark:text-neutral-750 font-mono px-3 py-0 [display:var(--leaky-text-display)]">{theme === "light"?"text-3xl text-neutral-950 font-mono":"text-3xl text-neutral-800 font-medium"}</div>
@@ -335,24 +339,21 @@ function Home({screenWidth}:{screenWidth:number;}) {
                             para="4 years of hands on practice on MERN projects"
                         />
                     </div>
-                    <div className={`grid ${screenWidth > 720?"grid-cols-2":"grid-cols-1"}`}>
+                    <div>
                         <IconSpan
                             iconPathDArray={["M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"]}
                             circles={[{cx:12, cy:10, r:3}]}
                             para="Old Faridabad, Haryana, India"
                         />
+                    </div>
+                    <div className={`grid ${screenWidth > 720?"grid-cols-2":"grid-cols-1"}`}>
                         <IconSpan
                             iconPathDArray={["M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"]}
                             para="+91 8882732859"
                         />
                         <IconSpan
                             iconPathDArray={["M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71", "M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"]}
-                            para="gouravkotnala777.github.io/portfolio-1"
-                        />
-                        <IconSpan
-                            iconPathDArray={["M12 6v6l2-4"]}
-                            circles={[{cx:12, cy:12, r:10}]}
-                            para="18:19"
+                            para="https://gouravkotnala.vercel.app"
                         />
                         <IconSpan
                             iconPathDArray={["m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"]}
@@ -428,7 +429,7 @@ function Home({screenWidth}:{screenWidth:number;}) {
                 <GithubContributionChart totalContributions={totalContributions} gitHubChartData={gitHubChartData} gitHubYear={gitHubYear} setGitHubYear={setGitHubYear} />
             </div>
 
-            {/* Github Commit Details */}
+            {/* Github Recent Commit Details */}
             <div id="recent_commits" className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 z-1 scroll-mt-25">
                 <div className="border-x border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto flex justify-between">
                     <div className="border-r border-neutral-100 dark:border-neutral-800 w-[70%] p-3 mr-1">
@@ -462,7 +463,7 @@ function Home({screenWidth}:{screenWidth:number;}) {
                                 ))
                             }
                         </div>
-                        <div className="text-neutral-600 dark:text-neutral-300 font-sans text-xs font-light my-1">000000</div>
+                        <div className="text-neutral-600 dark:text-neutral-300 font-sans text-xs font-light my-1"></div>
                     </div>
                 </div>
             </div>
