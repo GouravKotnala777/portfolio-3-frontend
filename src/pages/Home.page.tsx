@@ -257,7 +257,14 @@ function Home({screenWidth}:{screenWidth:number;}) {
             <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 h-70 mt-15">
               <div className="max-w-3xl mx-auto h-full flex justify-center items-center bg-[radial-gradient(var(--color-neutral-100)_1.5px,transparent_1.5px)] bg-size-[8px_8px] dark:bg-[radial-gradient(var(--color-neutral-750)_1.5px,transparent_1.5px)]">
 
-                <div className="flex w-30 h-30">
+                <div className="flex relative justify-center items-center w-25 h-25">
+                    <div className="w-30 h-30 absolute flex mix-blend-lighten dark:mix-blend-darken flex-wrap top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] rounded-full overflow-hidden">
+                        <div className="bg-gray-300 w-[50%] h-[50%] blur-sm"></div>
+                        <div className="bg-gray-500 w-[50%] h-[50%] blur-sm"></div>
+                        <div className="bg-gray-600 w-[50%] h-[50%] blur-sm"></div>
+                        <div className="bg-gray-400 w-[50%] h-[50%] blur-sm"></div>
+                    </div>
+                    
                     <svg
                         width="30"
                         height="35"
@@ -273,8 +280,6 @@ function Home({screenWidth}:{screenWidth:number;}) {
 
                         <polygon points="65,0 60,0 40,15 40,0 35,0 35,35 40,35 40,20 60,35 65,35" className="fill-neutral-800 dark:fill-neutral-100" />
                     </svg>
-
-
                 </div>
 
               </div>
@@ -541,6 +546,14 @@ function Home({screenWidth}:{screenWidth:number;}) {
                         }
                         100%{
                             --dp-bg-angle:100%;
+                        }
+                    }
+                    @keyframes spini {
+                        0%{
+                            transform:rotate(0deg);
+                            }
+                        100%{
+                            transform:rotate(360deg);
                         }
                     }
                 `}
