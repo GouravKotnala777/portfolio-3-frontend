@@ -1,12 +1,15 @@
-import { useEffect, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
 import "../index.css";
+import { useEffect, useRef, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { COMPONENT_LINKS, DATA, TILE_BG, TILE_BG_Dark } from "../utils/constants";
 import useTheme from "../hooks/useTheme";
 import TypingGame from "../components/games/TypingGame.component";
 import type { CommitDetails, CommitSummary, Contribution, GitHubYearTypes, MonthMap } from "../utils/types";
 
-
+const ROWS = 80;
+const COLS = 40;
+const DOT_SIZE = 0.6;
+const GAP = 10;
 const gitHubYears:GitHubYearTypes[] = ["2031", "2030", "2029", "2028", "2027", "2026", "2025", "2024", "2023", "2022", "2021", "2020", "2019"];
 const connections = [
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.8 -1 26 26" strokeWidth="1" stroke-linecap="round" stroke-linejoin="round" className="fill-none">
@@ -195,6 +198,10 @@ function Home({screenWidth}:{screenWidth:number;}) {
         "sha3":{additions:2,deletions:1, files:[{additions:2,deletions:1,filename:"sadasdasd"}],total:3},
         "sha4":{additions:2,deletions:4, files:[{additions:2,deletions:4,filename:"sadasdasd"}],total:6},
     });
+    const canvasRef = useRef<HTMLCanvasElement|null>(null);
+    const [cursor, setCursor] = useState<{x:number; y:number;}|null>(null);
+    const [dots, setDots] = useState<{x:number; y:number; size:number; color:string; targetSize:number; delta:number;}[]>([]);
+    
 
 
 
@@ -250,36 +257,145 @@ function Home({screenWidth}:{screenWidth:number;}) {
         window.scrollTo({top:y, behavior:"smooth"});        
     }, [hash]);
 
+
+    // create dots state
+    useEffect(() => {
+        const dotsArray:{x:number; y:number; size:number; color:string; targetSize:number; delta:number;}[] = [];
+        for (let c = 0; c < COLS; c++) {
+            for (let r = 0; r < ROWS; r++) {
+                dotsArray.push({x:(10*r*DOT_SIZE)+(DOT_SIZE*20)+(r*GAP), y:(10*c*DOT_SIZE)+(DOT_SIZE*20)+(c*GAP), size:DOT_SIZE, color:"#99a1af", targetSize:10, delta:10});
+            }            
+        }
+        setDots(dotsArray);
+    }, []);
+
+    // animate dots
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const animate = () => {
+            for (let dot of dots) {
+                if (!cursor) {                    
+                    ctx.beginPath();
+                    ctx.fillStyle = dot.color;
+                    ctx.arc(dot.x, dot.y, DOT_SIZE, 0, 2*Math.PI, false);
+                    ctx.fill();
+                    continue;
+                }
+                
+                const dx = cursor.x - dot.x;
+                const dy = cursor.y - dot.y;
+                const distance = Math.sqrt(dx*dx + dy*dy);                
+                
+                let isNear = (gap:number) => (
+                    distance < 6*gap*2
+                );
+                
+                
+                if (isNear(1)) {
+                    dot.size = 2;
+                }
+                else if (isNear(2)) {
+                    dot.size = 1.85;
+                }
+                else if (isNear(3)) {
+                    dot.size = 1.7;
+                }
+                else if (isNear(4)) {
+                    dot.size = 1.55;
+                }
+                else if (isNear(5)) {
+                    dot.size = 1.4;
+                }
+                else if (isNear(6)) {
+                    dot.size = 1.25;
+                }
+                else if (isNear(7)) {
+                    dot.size = 1.1;
+                }
+                else if (isNear(8)) {
+                    dot.size = 0.95;
+                }
+                else if (isNear(9)) {
+                    dot.size = 0.8;
+                }
+                else if (isNear(10)) {
+                    dot.size = 0.7;
+                }
+                else{
+                    dot.size = 0.6;
+                }
+                
+
+                ctx.beginPath();
+                ctx.fillStyle = dot.color;
+                ctx.arc(dot.x, dot.y, dot.size, 0, 2*Math.PI, false);
+                ctx.fill();
+            }
+        }
+
+        animate();
+    }, [dots, cursor]);
+
     return(
         <section className="flex mx-2 flex-col gap-10 relative min-h-screen font-roboto selection:bg-neutral-300 dark:selection:bg-neutral-600">
             <div className="absolute top-0 left-0 inset-0 border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto"></div>
             {/* Hero Section */}
             <div className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 h-70 mt-15">
-              <div className="max-w-3xl mx-auto h-full flex justify-center items-center bg-[radial-gradient(var(--color-neutral-100)_1.5px,transparent_1.5px)] bg-size-[8px_8px] dark:bg-[radial-gradient(var(--color-neutral-750)_1.5px,transparent_1.5px)]">
 
-                <div className="flex relative justify-center items-center w-25 h-25">
-                    <div className="w-30 h-30 absolute flex mix-blend-lighten dark:mix-blend-darken flex-wrap top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] rounded-full overflow-hidden">
-                        <div className="bg-gray-300 w-[50%] h-[50%] blur-sm"></div>
-                        <div className="bg-gray-500 w-[50%] h-[50%] blur-sm"></div>
-                        <div className="bg-gray-600 w-[50%] h-[50%] blur-sm"></div>
-                        <div className="bg-gray-400 w-[50%] h-[50%] blur-sm"></div>
+
+              <div className="max-w-3xl mx-auto h-full flex justify-center items-center">
+
+
+                <div className="flex relative justify-center items-center w-full h-full">
+                    <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+                        <canvas ref={canvasRef} className=""
+                            onMouseMove={(e) => {
+                                const {clientX, clientY} = e;
+                                const {left, top} = e.currentTarget.getBoundingClientRect();
+                                setCursor({x:clientX-left, y:clientY-top});
+                            }}
+                            onMouseLeave={() => {
+                                setCursor(null);
+                            }}
+                        ></canvas>
+                    </div>
+
+                    <div className="border border-gray-200 dark:border-gray-600 backdrop-blur-md overflow-hidden pointer-events-none bg-sky-100 dark:bg-sky-900 opacity-70 p-2 rounded-xl">
+                        <div className="w-30 h-30 absolute flex mix-blend-lighten dark:mix-blend-darken flex-wrap top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] rounded-full overflow-hidden"
+                            style={{
+                                animation:"hero_logo_spin_gradient 20s linear infinite"
+                            }}
+                        >
+                            <div className="bg-gray-300 dark:bg-gray-500 w-[50%] h-[50%] blur-sm"></div>
+                            <div className="bg-gray-500 dark:bg-gray-50 w-[50%] h-[50%] blur-sm"></div>
+                            <div className="bg-gray-600 dark:bg-white w-[50%] h-[50%] blur-sm"></div>
+                            <div className="bg-gray-400 dark:bg-gray-400 w-[50%] h-[50%] blur-sm"></div>
+                        </div>
+                        
+                        <svg
+                            width="30"
+                            height="35"
+                            viewBox="0 0 65 35"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-25 h-15 stroke-none"
+                        >
+                            <polygon points="30,0 5,0 5,5 30,5" className="fill-neutral-800 dark:fill-neutral-100" ></polygon>
+                            <polygon points="5,5 0,5 0,30 5,30" className="fill-neutral-800 dark:fill-neutral-100" ></polygon>
+                            <polygon points="5,30 5,35 25,35 25,30" className="fill-neutral-800 dark:fill-neutral-100" ></polygon>
+                            <polygon points="25,20 25,30 30,30 30,20" className="fill-neutral-800 dark:fill-neutral-100" ></polygon>
+                            <polygon points="15,15 15,20 25,20 25,15" className="fill-neutral-800 dark:fill-neutral-100" ></polygon>
+
+                            <polygon points="65,0 60,0 40,15 40,0 35,0 35,35 40,35 40,20 60,35 65,35" className="fill-neutral-800 dark:fill-neutral-100" />
+                        </svg>
                     </div>
                     
-                    <svg
-                        width="30"
-                        height="35"
-                        viewBox="0 0 65 35"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-full h-full stroke-none"
-                    >
-                        <polygon points="30,0 5,0 5,5 30,5" className="fill-neutral-800 dark:fill-neutral-100" ></polygon>
-                        <polygon points="5,5 0,5 0,30 5,30" className="fill-neutral-800 dark:fill-neutral-100" ></polygon>
-                        <polygon points="5,30 5,35 25,35 25,30" className="fill-neutral-800 dark:fill-neutral-100" ></polygon>
-                        <polygon points="25,20 25,30 30,30 30,20" className="fill-neutral-800 dark:fill-neutral-100" ></polygon>
-                        <polygon points="15,15 15,20 25,20 25,15" className="fill-neutral-800 dark:fill-neutral-100" ></polygon>
-
-                        <polygon points="65,0 60,0 40,15 40,0 35,0 35,35 40,35 40,20 60,35 65,35" className="fill-neutral-800 dark:fill-neutral-100" />
-                    </svg>
                 </div>
 
               </div>
@@ -378,7 +494,7 @@ function Home({screenWidth}:{screenWidth:number;}) {
             {/* Social Media Links Section */}
             <div className="bg-white dark:bg-neutral-900 flex flex-col">
                 <div className="">
-                <div className="border border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 px-3 py-0 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)] max-w-3xl mx-auto">Connections</div>
+                <div className="border border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 px-3 py-0 [font-size:var(--text-xl)] font-(--heading-weight) max-w-3xl mx-auto">Connections</div>
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
                         <div className={`max-w-3xl mx-auto flex ${screenWidth > 520?"flex-row justify-between items-center":"flex-col w-full"} gap-4`}>
                             <SocialLinks url="https://github.com/gouravkotnala777" id="gouravkotnala777" logoURL={connections[0]} platform="GitHub" />
@@ -406,7 +522,7 @@ function Home({screenWidth}:{screenWidth:number;}) {
             {/* About Section */}
             <div id="about" className="border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1 scroll-mt-25">
                 <div className="border-x border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto">
-                    <div className="border border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 px-3 py-0 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)]">About</div>
+                    <div className="border border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 px-3 py-0 [font-size:var(--text-xl)] font-(--heading-weight)">About</div>
                     <ul className="text-neutral-800 dark:text-neutral-300 tracking-wider [font-size:var(--text-md)] leading-8 list-disc marker:text-neutral-300 px-8 py-4">
                         <li><Strong>Design Engineer</Strong> with 3+ years of hands-on experience, with for pixel-perfect execution and Strong attention to small details.</li>
                         <li>Skilled in <Strong>React</Strong>, <Strong>TypeScript</Strong>, <Strong>MongoDB</Strong>, <Strong>ExpressJS</Strong> and micro interactions building high-quality, user-centric web applications.</li>
@@ -430,7 +546,7 @@ function Home({screenWidth}:{screenWidth:number;}) {
 
             {/* Github Contribution Chart Section */}
             <div id="guthub_contributions" className="bg-white dark:bg-neutral-900 border-y border-neutral-100 dark:border-neutral-800 relative scroll-mt-25">
-                <div className="border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto text-neutral-950 dark:text-neutral-50 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)] px-3 py-0">GitHub Contributions</div>
+                <div className="border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto text-neutral-950 dark:text-neutral-50 [font-size:var(--text-xl)] font-(--heading-weight) px-3 py-0">GitHub Contributions</div>
                 <GithubContributionChart totalContributions={totalContributions} gitHubChartData={gitHubChartData} gitHubYear={gitHubYear} setGitHubYear={setGitHubYear} />
             </div>
 
@@ -477,7 +593,7 @@ function Home({screenWidth}:{screenWidth:number;}) {
             {/* Stack Section */}
             <div id="tech_stack" className="border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 scroll-mt-25">
                 <div className="max-w-3xl mx-auto">
-                  <div className="border border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)] px-3 py-0">Stack</div>
+                  <div className="border border-neutral-100 dark:border-neutral-800 text-neutral-950 dark:text-neutral-50 [font-size:var(--text-xl)] font-(--heading-weight) px-3 py-0">Stack</div>
                   <div className="flex justify-start items-center flex-wrap">
                       {
                           StackLogo.map((logo) => (
@@ -495,7 +611,7 @@ function Home({screenWidth}:{screenWidth:number;}) {
 
             {/* Components Section */}
             <div className="border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
-                <div className="border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto text-neutral-950 dark:text-neutral-50 [font-size:var(--text-xl)] [font-weight:var(--heading-weight)] px-3 py-0">Components</div>
+                <div className="border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto text-neutral-950 dark:text-neutral-50 [font-size:var(--text-xl)] font-(--heading-weight) px-3 py-0">Components</div>
                 <div className="flex flex-col">
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
                         <div className={`max-w-3xl mx-auto flex ${screenWidth > 520 ? "flex-row justify-between items-center":"flex-col"} gap-4`}>
@@ -548,7 +664,7 @@ function Home({screenWidth}:{screenWidth:number;}) {
                             --dp-bg-angle:100%;
                         }
                     }
-                    @keyframes spini {
+                    @keyframes hero_logo_spin_gradient {
                         0%{
                             transform:rotate(0deg);
                             }
@@ -683,7 +799,7 @@ function GithubContributionChart({totalContributions, gitHubChartData, gitHubYea
                                     <div className="mt-7">
                                         {
                                             arr.map((day) => (
-                                                <div data-tooltip={`${day.count} contributions on ${day.date}`} className={`[width:var(--size-git-tile)] [height:var(--size-git-tile)] p-1 m-0.5 rounded-xs [box-shadow:0px_0px_1px_1px_#00000020_inset] dark:[box-shadow:0px_0px_1px_1px_#ffffff20_inset]
+                                                <div data-tooltip={`${day.count} contributions on ${day.date}`} className={`w-(--size-git-tile) h-(--size-git-tile) p-1 m-0.5 rounded-xs [box-shadow:0px_0px_1px_1px_#00000020_inset] dark:[box-shadow:0px_0px_1px_1px_#ffffff20_inset]
                                                     ${TILE_BG[day.level]
                                                     }
                                                     ${TILE_BG_Dark[day.level]
@@ -705,7 +821,7 @@ function GithubContributionChart({totalContributions, gitHubChartData, gitHubYea
                             <div className="flex gap-1">
                                 {
                                     [0,1,2,3,4].map((level) => (
-                                        <span className={`[width:var(--size-git-tile)] [height:var(--size-git-tile)] p-1 m-0.5 rounded-xs [box-shadow:0px_0px_1px_1px_#00000020_inset] dark:[box-shadow:0px_0px_1px_1px_#ffffff20_inset]
+                                        <span className={`w-(--size-git-tile) h-(--size-git-tile) p-1 m-0.5 rounded-xs [box-shadow:0px_0px_1px_1px_#00000020_inset] dark:[box-shadow:0px_0px_1px_1px_#ffffff20_inset]
                                                 ${TILE_BG[level]}
                                                 ${TILE_BG_Dark[level]}
                                             `}></span>
@@ -722,7 +838,7 @@ function GithubContributionChart({totalContributions, gitHubChartData, gitHubYea
                     <div className="flex flex-col py-4 z-0">
                         {
                             gitHubYears.map((year) => (
-                                <div className={`w-full text-center mx-auto py-1 ${gitHubYear === year ? "bg-neutral-200 dark:bg-neutral-700 scale-120":"bg-white dark:bg-neutral-950 scale-100"} cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-transform ease-in-out duration-300`} onClick={() => {setGitHubYear(year)}}>{year}</div>
+                                <div key={year} className={`w-full text-center mx-auto py-1 ${gitHubYear === year ? "bg-neutral-200 dark:bg-neutral-700 scale-120":"bg-white dark:bg-neutral-950 scale-100"} cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-transform ease-in-out duration-300`} onClick={() => {setGitHubYear(year)}}>{year}</div>
                             ))
                         }
                     </div>
