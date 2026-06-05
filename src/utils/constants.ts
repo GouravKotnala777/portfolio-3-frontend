@@ -1874,6 +1874,18 @@ export const COMPONENT_LINKS = [
         componentName:"Popup Navabr",
         about:""
     },
+    {
+        componentIconPathD:"M22.601 4.961l1.399 1.414-3.264 3.278c-1.551 1.551-2.536 4.262-2.801 6.44-.53 4.378-4.259 7.907-8.935 7.907-4.971 0-9-4.029-9-9 0-4.668 3.523-8.405 7.906-8.937 2.184-.265 4.889-1.245 6.444-2.801l3.278-3.262 1.414 1.399-3.277 3.277c-1.857 1.858-5.004 3.056-7.618 3.372-3.504.426-6.147 3.414-6.147 6.952 0 3.86 3.14 7 7 7 1.922 0 3.682-.78 4.956-2.055 3.192-3.192.865-7.206 5.366-11.707l3.279-3.277zm1.399-3.547l-1.414-1.414-9.458 9.461 1.414 1.414 9.458-9.461zm-9.5 13.586c0 3.038-2.463 5.5-5.5 5.5-3.038 0-5.5-2.462-5.5-5.5s2.462-5.5 5.5-5.5c3.037 0 5.5 2.462 5.5 5.5zm-7.25-.5c0-.414-.336-.75-.75-.75s-.75.336-.75.75.336.75.75.75.75-.336.75-.75zm2.75 2.5c0-.552-.448-1-1-1s-1 .448-1 1 .448 1 1 1 1-.448 1-1zm2-3.5c0-.829-.671-1.5-1.5-1.5s-1.5.671-1.5 1.5.671 1.5 1.5 1.5 1.5-.671 1.5-1.5z",
+        url:"/components#meteor_mash",
+        componentName:"Meteor Mash",
+        about:""
+    },
+    {
+        componentIconPathD:"m30.344 1.594l-3.907 2.562l-6.25 4.094l.375-.656l1.625-2.938L19.22 6.22s-2.727 1.46-5.938 3.375c-3.21 1.914-6.867 4.23-8.875 6.187c-3.265 3.266-3.273 8.535 0 11.719h.032c3.269 3.25 8.48 3.27 11.656 0v-.031c1.703-1.707 3.808-4.813 5.531-7.563a120 120 0 0 0 3.031-5.125l1.407-2.469l-2.625 1.063l-.813.313l5.219-8.157zm-6.719 6.812L19.25 15.25l-1.688 2.656l2.907-1.187l.937-.375c-.539.922-.656 1.152-1.5 2.5c-1.699 2.715-3.824 5.855-5.218 7.25c-2.418 2.508-6.348 2.527-8.876 0h-.03c-2.509-2.418-2.497-6.348.03-8.875c1.692-1.645 5.336-4.02 8.5-5.907a77 77 0 0 1 2.813-1.624l-.594 1.124l-1.937 3.532l3.344-2.219zM10 18c-2.21 0-4 1.79-4 4s1.79 4 4 4s4-1.79 4-4s-1.79-4-4-4m0 2c1.191 0 2 .809 2 2s-.809 2-2 2s-2-.809-2-2s.809-2 2-2",
+        url:"/components#popup_navabr",
+        componentName:"Comet",
+        about:""
+    },
 ];
 
 export const TILE_BG = [
@@ -1938,5 +1950,26 @@ export const TEXT_STAGGERED = `
             <TextStaggered text="Staggered Text" fontWeight="bold" />
         </div>
         <p className="text-center text-gray-500 dark:text-gray-400">Hover me</p>
+    </>
+`;
+
+export const METEOR_MASH = `
+    <>
+      <div className="relative">
+        <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-sky-100 dark:bg-sky-900 blur-2xl"></div>
+        <div className="absolute w-full h-full text-center content-center">
+            <div className="text-gray-200 dark:text-gray-700 text-5xl font-semibold">Hover Me</div>
+            <p className="mx-auto mt-4 w-[70%] text-gray-500 dark:text-gray-400 text-sm">Not every shooting star is meteor, some are astronaut poop returning with unnecessary drama 💩</p>
+        </div>
+        <div className="h-80 w-full mx-auto flex justify-center items-center"
+            onMouseEnter={() => setIsMeteorMashHovering(true)} // these events are not necessary. i only added them to prevent the animation from running infinitely.
+            onMouseLeave={() => setIsMeteorMashHovering(false)}
+        >
+            <MeteorMash
+                theme={theme === "light"?"dark":"light"}
+                animateUntill={isMeteorMashHovering} // by default it is true and run autometically for infinite
+            />
+        </div>
+      </div>
     </>
 `;

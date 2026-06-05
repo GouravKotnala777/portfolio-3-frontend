@@ -6,7 +6,7 @@
 import { useEffect, useState } from "react";
 import Input from "../components/reusable/Input.component";
 import Tab from "../components/reusable/Tab.component";
-import { INPUT1_CODE, NAVBAR1_CODE, NAVBAR2_CODE, NAVBAR3_CODE, NAVBAR4_CODE } from "../utils/constants";
+import { INPUT1_CODE, METEOR_MASH, NAVBAR1_CODE, NAVBAR2_CODE, NAVBAR3_CODE, NAVBAR4_CODE } from "../utils/constants";
 import useTheme from "../hooks/useTheme";
 import CodeBlock from "../components/reusable/CodeBlock.component";
 import Navbar1 from "../components/reusable/Navbar1.component";
@@ -14,6 +14,7 @@ import Navbar2 from "../components/reusable/Navbar2.component";
 import Navbar3 from "../components/reusable/Navbar3.component";
 import Navbar4 from "../components/reusable/Navbar4.component";
 import { useLocation } from "react-router-dom";
+import MeteorMash from "../components/reusable/MeteorMash.component";
 
 
 const CODE_ICON = () => {
@@ -51,6 +52,7 @@ function Components() {
     const {theme} = useTheme();
     const [_, setData] = useState("");
     const {hash} = useLocation();
+    const [isMeteorMashHovering, setIsMeteorMashHovering] = useState<boolean>(false);
 
 
     useEffect(() => {
@@ -219,6 +221,46 @@ function Components() {
                 </div>
             </div>
 
+
+
+           {/* Meteor Mash */}
+            <div id="meteor_mash" className="border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1">
+                <div className="w-full bg-white dark:bg-neutral-800 max-w-3xl mx-auto">
+                    <Tab
+                        panels={[
+                            {
+                                tabIconPath:PREVIEW_ICON(),
+                                tabName:"Preview",
+                                content:(
+                                    <div className="relative">
+                                        <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-sky-100 dark:bg-sky-900 blur-2xl"></div>
+                                        <div className="absolute w-full h-full text-center content-center">
+                                            <div className="text-gray-200 dark:text-gray-700 text-5xl font-semibold">Hover Me</div>
+                                            <p className="mx-auto mt-4 w-[70%] text-gray-500 dark:text-gray-400 text-sm">Not every shooting star is meteor, some are astronaut poop returning with unnecessary drama 💩</p>
+                                        </div>
+                                        <div className="h-80 w-full mx-auto flex justify-center items-center"
+                                            onMouseEnter={() => setIsMeteorMashHovering(true)} // these events are not necessary. i only added them to prevent the animation from running infinitely.
+                                            onMouseLeave={() => setIsMeteorMashHovering(false)}
+                                        >
+                                            <MeteorMash
+                                                theme={theme === "light"?"dark":"light"}
+                                                animateUntill={isMeteorMashHovering} // by default it is true and run autometically for infinite
+                                            />
+                                        </div>
+                                    </div>
+                                ),
+                                code:""
+                            },
+                            {
+                                tabIconPath:CODE_ICON(),
+                                tabName:"Code",
+                                content:<CodeBlock code={METEOR_MASH} language="jsx" />,
+                                code:METEOR_MASH
+                            }
+                        ]}
+                    />
+                </div>
+            </div>
 
 
         </section>

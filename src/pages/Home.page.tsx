@@ -529,9 +529,9 @@ function Home({screenWidth}:{screenWidth:number;}) {
                         <li>Passionate about exploring new technologies and turning ideas into reality through polished, thoughtfully crafted personal projects.</li>
                         <li>Creator of many cool animated react components-</li>
                         <ul className="list-disc marker:text-neutral-300 px-8">
-                            <li>A creative React <NavLink to="#######"><Strong hasUnderLine>Input</Strong></NavLink> component with cool vanishing content on pressing enter.</li>
-                            <li><NavLink to="#######"><Strong hasUnderLine>Navbar</Strong></NavLink> with scroll-synced hover indicator.</li>
-                            <li>A visually engaging <NavLink to="#######"><Strong hasUnderLine>Navbar</Strong></NavLink> with a fluid hover indicator.</li>
+                            <li>A creative React <NavLink to="/components#particle_vanishing_input"><Strong hasUnderLine>Input</Strong></NavLink> component with cool vanishing content on pressing enter.</li>
+                            <li><NavLink to="/components#dia_scroller_navbar"><Strong hasUnderLine>Navbar</Strong></NavLink> with scroll-synced hover indicator.</li>
+                            <li>A visually engaging <NavLink to="/components#fluid_navbar"><Strong hasUnderLine>Navbar</Strong></NavLink> with a fluid hover indicator.</li>
                         </ul>
                     </ul>
                 </div>
@@ -613,12 +613,14 @@ function Home({screenWidth}:{screenWidth:number;}) {
             <div className="border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
                 <div className="border border-neutral-100 dark:border-neutral-800 max-w-3xl mx-auto text-neutral-950 dark:text-neutral-50 [font-size:var(--text-xl)] font-(--heading-weight) px-3 py-0">Components</div>
                 <div className="flex flex-col">
+
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
                         <div className={`max-w-3xl mx-auto flex ${screenWidth > 520 ? "flex-row justify-between items-center":"flex-col"} gap-4`}>
-                            <ComponentLinks url={COMPONENT_LINKS[0].url} componentIconPathD={COMPONENT_LINKS[0].componentIconPathD} componentName={COMPONENT_LINKS[0].componentName} about={COMPONENT_LINKS[0].about} isNew={true} />
+                            <ComponentLinks url={COMPONENT_LINKS[0].url} componentIconPathD={COMPONENT_LINKS[0].componentIconPathD} componentName={COMPONENT_LINKS[0].componentName} about={COMPONENT_LINKS[0].about} />
                             <ComponentLinks url={COMPONENT_LINKS[1].url} componentIconPathD={COMPONENT_LINKS[1].componentIconPathD} componentName={COMPONENT_LINKS[1].componentName} about={COMPONENT_LINKS[1].about} />
                         </div>
                     </div>
+
                     <div className="">
                         <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
                             <div className="border-x border-neutral-100 dark:border-neutral-800 h-4 w-full"></div>
@@ -628,9 +630,10 @@ function Home({screenWidth}:{screenWidth:number;}) {
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
                         <div className={`max-w-3xl mx-auto flex ${screenWidth > 520 ? "flex-row justify-between items-center":"flex-col"} gap-4`}>
                             <ComponentLinks url={COMPONENT_LINKS[2].url} componentIconPathD={COMPONENT_LINKS[2].componentIconPathD} componentName={COMPONENT_LINKS[2].componentName} about={COMPONENT_LINKS[2].about} />
-                            <ComponentLinks url={COMPONENT_LINKS[3].url} componentIconPathD={COMPONENT_LINKS[3].componentIconPathD} componentName={COMPONENT_LINKS[3].componentName} about={COMPONENT_LINKS[3].about} isNew={true} />
+                            <ComponentLinks url={COMPONENT_LINKS[3].url} componentIconPathD={COMPONENT_LINKS[3].componentIconPathD} componentName={COMPONENT_LINKS[3].componentName} about={COMPONENT_LINKS[3].about} />
                         </div>
                     </div>
+
                     <div className="">
                         <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
                             <div className="border-x border-neutral-100 dark:border-neutral-800 h-4 w-full"></div>
@@ -643,6 +646,21 @@ function Home({screenWidth}:{screenWidth:number;}) {
                             <ComponentLinks url={COMPONENT_LINKS[5].url} componentIconPathD={COMPONENT_LINKS[5].componentIconPathD} componentName={COMPONENT_LINKS[5].componentName} about={COMPONENT_LINKS[5].about} />
                         </div>
                     </div>
+
+
+                    <div className="">
+                        <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
+                            <div className="border-x border-neutral-100 dark:border-neutral-800 h-4 w-full"></div>
+                            <div className="border-x border-neutral-100 dark:border-neutral-800 h-4 w-full"></div>
+                        </div>
+                    </div>
+                    <div className="border-y border-neutral-100 dark:border-neutral-800">
+                        <div className={`max-w-3xl mx-auto flex ${screenWidth > 520 ? "flex-row justify-between items-center":"flex-col"} gap-4`}>
+                            <ComponentLinks isNew url={COMPONENT_LINKS[6].url} componentIconPathD={COMPONENT_LINKS[6].componentIconPathD} componentName={COMPONENT_LINKS[6].componentName} about={COMPONENT_LINKS[6].about} />
+                            {/*<ComponentLinks url={COMPONENT_LINKS[7].url} componentIconPathD={COMPONENT_LINKS[7].componentIconPathD} componentName={COMPONENT_LINKS[7].componentName} about={COMPONENT_LINKS[7].about} />*/}
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
