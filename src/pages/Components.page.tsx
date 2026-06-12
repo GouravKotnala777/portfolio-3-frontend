@@ -6,7 +6,7 @@
 import { useEffect, useState } from "react";
 import Input from "../components/reusable/Input.component";
 import Tab from "../components/reusable/Tab.component";
-import { INPUT1_CODE, METEOR_MASH, NAVBAR1_CODE, NAVBAR2_CODE, NAVBAR3_CODE, NAVBAR4_CODE } from "../utils/constants";
+import { INPUT1_CODE, METEOR_MASH, NAVBAR1_CODE, NAVBAR2_CODE, NAVBAR3_CODE, NAVBAR4_CODE, TEXT_SLASH_INPUT } from "../utils/constants";
 import useTheme from "../hooks/useTheme";
 import CodeBlock from "../components/reusable/CodeBlock.component";
 import Navbar1 from "../components/reusable/Navbar1.component";
@@ -15,6 +15,7 @@ import Navbar3 from "../components/reusable/Navbar3.component";
 import Navbar4 from "../components/reusable/Navbar4.component";
 import { useLocation } from "react-router-dom";
 import MeteorMash from "../components/reusable/MeteorMash.component";
+import TextSlashInput from "../components/reusable/TextSlashInput.component";
 
 
 const CODE_ICON = () => {
@@ -263,6 +264,33 @@ function Components() {
             </div>
 
 
+           {/* Text Slash Input */}
+            <div id="text_slash_input" className="border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1">
+                <div className="w-full bg-white dark:bg-neutral-800 max-w-3xl mx-auto">
+                    <Tab
+                        panels={[
+                            {
+                                tabIconPath:PREVIEW_ICON(),
+                                tabName:"Preview",
+                                content:(
+                                    <div className="w-full h-80 flex justify-center items-center">
+                                        <div className="w-full max-w-80">
+                                            <TextSlashInput placeHolder="Type anything and press enter" />
+                                        </div>
+                                    </div>
+                                ),
+                                code:""
+                            },
+                            {
+                                tabIconPath:CODE_ICON(),
+                                tabName:"Code",
+                                content:<CodeBlock code={TEXT_SLASH_INPUT} language="jsx" />,
+                                code:TEXT_SLASH_INPUT
+                            }
+                        ]}
+                    />
+                </div>
+            </div>
         </section>
     )
 };
