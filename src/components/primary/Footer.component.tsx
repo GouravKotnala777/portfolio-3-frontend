@@ -10,11 +10,11 @@ function Footer() {
             <div className="h-50 w-min mx-auto">
                 <div className="flex">
                     {
-                        ["G","O","U","R","A","V"," ","K","O","T","N","A","L","A"].map((s) => (
+                        ["G","O","U","R","A","V"," ","K","O","T","N","A","L","A"].map((s, i) => (
                             s.trim() === "" ?
-                            <div className="text-9xl inline-block">&nbsp;</div>
+                            <div key={i} className="text-9xl inline-block">&nbsp;</div>
                             :
-                            <div className="text-neutral-100 dark:text-neutral-800 group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-all ease-in-out duration-1000 text-[12rem] h-20 w-20 font-londrina-outline relative">
+                            <div key={i} className="text-neutral-100 dark:text-neutral-800 group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-all ease-in-out duration-1000 text-[12rem] h-20 w-20 font-londrina-outline relative">
                                 <div className="absolute -top-20 left-0 h-full w-full">{s}</div>
                             </div>
                         ))
@@ -36,9 +36,9 @@ function Footer() {
                 {
                     Array.from({length:100}).map((_, a) => (
                         a%2 === 0 ?
-                        <div className="h-0.5 bg-white dark:bg-neutral-900"></div>
+                        <div key={a} className="h-0.5 bg-white dark:bg-neutral-900"></div>
                         :
-                        <div className="h-0.5"></div>
+                        <div key={a} className="h-0.5"></div>
                     ))
                 }
             </div>
