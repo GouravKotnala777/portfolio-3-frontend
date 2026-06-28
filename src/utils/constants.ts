@@ -1886,6 +1886,13 @@ export const COMPONENT_LINKS = [
         componentName:"Text Slash Input",
         about:""
     },
+    {
+        componentIconPathD:
+        "M3 14V9.5C3 8.67157 3.67157 8 4.5 8C5.32843 8 6 8.67157 6 9.5V16.5C6 17.3284 6.67157 18 7.5 18C8.32843 18 9 17.3284 9 16.5V4.5C9 3.67157 9.67157 3 10.5 3C11.3284 3 12 3.67157 12 4.5V19.5C12 20.3284 12.6716 21 13.5 21C14.3284 21 15 20.3284 15 19.5V8.5C15 7.67157 15.6716 7 16.5 7C17.3284 7 18 7.67157 18 8.5V15.5C18 16.3284 18.6716 17 19.5 17C20.3284 17 21 16.3284 21 15.5V12",
+        url:"/components#slither_input",
+        componentName:"Slither Input",
+        about:""
+    }
 ];
 
 export const TILE_BG = [
@@ -1903,64 +1910,93 @@ export const TILE_BG_Dark = [
     "dark:bg-green-100"
 ];
 
-export const INPUT1_CODE = `
-    <div className="relative">
-        <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
-        <div className="h-80 w-60 mx-auto flex justify-center items-center">
-            <Input theme={theme} setData={setData} />
-        </div>
-    </div>
-`;
+export const PARTICLE_VANISHING_INPUT_CODE = `
+  import { ParticleVanishingInput } from "kotnala_ui";
+  
+  function HomePage(){
+    const [text, setText] = useState("");
 
-export const NAVBAR1_CODE = `
-    <div className="relative">
-        <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
-        <div className="h-80 w-60 mx-auto flex justify-center items-center">
-            <Navbar1 navItems={NAVITEMS} padding="6px 12px" fontSize="18px" borderRadius="10px" previewGap="-60px" />
-        </div>
-    </div>
-`;
-export const NAVBAR2_CODE = `
-    <div className="relative">
-        <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
-        <div className="h-80 w-60 mx-auto flex justify-center items-center">
-            <Navbar2 navItems={NAVITEMS} />
-        </div>
-    </div>
-`;
-export const NAVBAR3_CODE = `
-    <div className="relative">
-        <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
-        <div className="h-80 w-60 mx-auto flex justify-center items-center">
-            <Navbar3 navItems={NAVITEMS} blobTop="20px" />
-        </div>
-    </div>
-`;
-export const NAVBAR4_CODE = `
-    <div className="relative">
-        <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
-        <div className="h-80 w-60 mx-auto flex justify-center items-center">
-            <Navbar4 navItems={NAVITEMS} marginTop="300px" />
-        </div>
-    </div>
-`;
-export const TEXT_STAGGERED = `
-    <>
-        <div className="h-80 flex flex-col justify-around items-center">
-            <TextStaggered text="Staggered Text" fontWeight="bold" />
-        </div>
-        <p className="text-center text-gray-500 dark:text-gray-400">Hover me</p>
-    </>
-`;
-
-export const METEOR_MASH = `
-    <>
+    return(
       <div className="relative">
-        <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-sky-100 dark:bg-sky-900 blur-2xl"></div>
-        <div className="absolute w-full h-full text-center content-center">
-            <div className="text-gray-200 dark:text-gray-700 text-5xl font-semibold">Hover Me</div>
-            <p className="mx-auto mt-4 w-[70%] text-gray-500 dark:text-gray-400 text-sm">Not every shooting star is meteor, some are astronaut poop returning with unnecessary drama 💩</p>
-        </div>
+          <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
+          <div className="h-80 w-60 mx-auto flex justify-center items-center">
+              <ParticleVanishingInput theme={"light"} setData={setText} />
+          </div>
+      </div>
+    )
+  }
+`;
+export const DIA_SCROLLER_NAVBAR_CODE = `
+  import { DiaScrollerNavbar } from "kotnala_ui";
+
+  function HomePage(){
+    return(
+      <div className="relative">
+          <div className="h-80 w-60 mx-auto flex justify-center items-center">
+              <DiaScrollerNavbar navItems={NAVITEMS} padding="6px 12px" fontSize="18px" borderRadius="10px" previewGap="-60px" />
+          </div>
+      </div>
+    )
+  }
+`;
+export const POPUP_NAVBAR_CODE = `
+  import { PopupNavabr } from "kotnala_ui";
+
+  function HomePage(){
+    return(
+      <div className="relative">
+          <div className="h-80 w-60 mx-auto flex justify-center items-center">
+              <PopupNavabr navItems={NAVITEMS} />
+          </div>
+      </div>
+    )
+  }
+`;
+export const FLUID_NAVBAR_CODE = `
+  import { FluidNavbar } from "kotnala_ui";
+
+  function HomePage(){
+    return(
+      <div className="relative">
+          <div className="h-80 w-60 mx-auto flex justify-center items-center">
+              <FluidNavbar navItems={NAVITEMS} blobTop="20px" />
+          </div>
+      </div>
+    )
+  }
+`;
+export const GOOEY_NAVBAR_CODE = `
+  import { GooeyNavbar } from "kotnala_ui";
+
+  function HomePage(){
+    return(
+      <div className="relative">
+          <div className="h-80 w-60 mx-auto flex justify-center items-center">
+              <GooeyNavbar navItems={NAVITEMS} marginTop="300px" />
+          </div>
+      </div>
+    )
+  }
+`;
+export const TEXT_STAGGERED_CODE = `
+  import {  } from "kotnala_ui";
+
+  function HomePage(){
+    return(
+      <div className="h-80 flex flex-col justify-around items-center">
+            <TextStaggered text="Staggered Text" fontWeight="bold" />
+      </div>
+      <p className="text-center text-gray-500 dark:text-gray-400">Hover me</p>
+    )
+  }
+`;
+export const METEOR_MASH_CODE = `
+  import { MeteorMash } from "kotnala_ui";
+
+  function HomePage(){
+    const [date, setData] = useState<string>(""); // input content
+    return(
+      <div className="relative">
         <div className="h-80 w-full mx-auto flex justify-center items-center"
             onMouseEnter={() => setIsMeteorMashHovering(true)} // these events are not necessary. i only added them to prevent the animation from running infinitely.
             onMouseLeave={() => setIsMeteorMashHovering(false)}
@@ -1971,13 +2007,36 @@ export const METEOR_MASH = `
             />
         </div>
       </div>
-    </>
+    )
+  }
 `;
+export const TEXT_SLASH_INPUT_CODE = `
+  import { TextSlashInput } from "kotnala_ui";
 
-export const TEXT_SLASH_INPUT = `
-  <div className="w-full h-80 flex justify-center items-center">
-      <div className="w-full max-w-80">
-          <TextSlashInput placeHolder="Type anything and press enter" />
+  function HomePage(){
+    const [date, setData] = useState(""); // input content
+    return(
+      <div className="w-full h-80 flex justify-center items-center">
+          <div className="w-full max-w-80">
+              {// *wrap the component inside div to give desired margin/padding/size* //}
+              <TextSlashInput setTextState={setData} placeHolder="Enter Your Name" />
+          </div>
       </div>
-  </div>
+    )
+  }
+`;
+export const SLITHER_INPUT_CODE = `
+  import { SlitherInput } from "kotnala_ui";
+
+  function HomePage(){
+    const [date, setData] = useState(""); // input content
+    return(
+      <div className="w-full h-80 flex justify-center items-center">
+          <div className="w-full max-w-80">
+              {// *wrap the component inside div to give desired margin/padding/size* //}
+              <SlitherInput setText={setData} placeHolder="Enter Your Name" />
+          </div>
+      </div>
+    )
+  }
 `;
