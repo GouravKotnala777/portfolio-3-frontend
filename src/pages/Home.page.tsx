@@ -1,4 +1,4 @@
-import "../index.css";
+//import "../index.css";
 import { useEffect, useRef, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { COMPONENT_LINKS, DATA, TILE_BG, TILE_BG_Dark } from "../utils/constants";
@@ -656,8 +656,20 @@ function Home({screenWidth}:{screenWidth:number;}) {
                     </div>
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
                         <div className={`max-w-3xl mx-auto flex ${screenWidth > 520 ? "flex-row justify-between items-center":"flex-col"} gap-4`}>
-                            <ComponentLinks isNew url={COMPONENT_LINKS[6].url} componentIconPathD={COMPONENT_LINKS[6].componentIconPathD} componentName={COMPONENT_LINKS[6].componentName} about={COMPONENT_LINKS[6].about} />
-                            <ComponentLinks isNew url={COMPONENT_LINKS[7].url} componentIconPathD={COMPONENT_LINKS[7].componentIconPathD} componentName={COMPONENT_LINKS[7].componentName} about={COMPONENT_LINKS[7].about} />
+                            <ComponentLinks url={COMPONENT_LINKS[6].url} componentIconPathD={COMPONENT_LINKS[6].componentIconPathD} componentName={COMPONENT_LINKS[6].componentName} about={COMPONENT_LINKS[6].about} />
+                            <ComponentLinks url={COMPONENT_LINKS[7].url} componentIconPathD={COMPONENT_LINKS[7].componentIconPathD} componentName={COMPONENT_LINKS[7].componentName} about={COMPONENT_LINKS[7].about} />
+                        </div>
+                    </div>
+
+                    <div className="">
+                        <div className="max-w-3xl mx-auto flex justify-between items-center gap-4">
+                            <div className="border-x border-neutral-100 dark:border-neutral-800 h-4 w-full"></div>
+                            <div className="border-x border-neutral-100 dark:border-neutral-800 h-4 w-full"></div>
+                        </div>
+                    </div>
+                    <div className="border-y border-neutral-100 dark:border-neutral-800">
+                        <div className={`max-w-3xl mx-auto flex ${screenWidth > 520 ? "flex-row justify-between items-center":"flex-col"} gap-4`}>
+                            <ComponentLinks isNew url={COMPONENT_LINKS[8].url} componentIconPathD={COMPONENT_LINKS[8].componentIconPathD} componentName={COMPONENT_LINKS[8].componentName} about={COMPONENT_LINKS[8].about} />
                         </div>
                     </div>
 
