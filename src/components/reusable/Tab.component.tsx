@@ -53,10 +53,11 @@ function Tab({panels}:TabPropTypes) {
                     }
                 </div>
                 {
-                    activeTab === 1 &&
+                    activeTab !== 0 &&
+                    // copy/paste button
                     <div className="">
                         <button className="[font-size:var(--text-sm)] text-neutral-700 dark:text-neutral-200 hover:bg-neutral-300 dark:hover:bg-neutral-700 px-3 py-2 rounded-sm cursor-pointer relative transition-colors ease-in-out duration-300"
-                            onClick={(e) => CopyButtonHandler(e, panels[1].code)}
+                            onClick={(e) => CopyButtonHandler(e, panels[activeTab].code)}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             className="size-4 transition-all ease-in-out duration-600">
