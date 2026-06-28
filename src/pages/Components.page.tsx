@@ -1,22 +1,10 @@
-
-
-//interface ComponentsPropTypes{
-//};
-
+import {TextSlashInput, SlitherInput, MeteorMash, GooeyNavbar, FluidNavbar, PopupNavabr, DiaScrollerNavbar, ParticleVanishingInput} from "kotnala_ui";
 import { useEffect, useState } from "react";
-import Input from "../components/reusable/Input.component";
 import Tab from "../components/reusable/Tab.component";
-import { INPUT1_CODE, METEOR_MASH, NAVBAR1_CODE, NAVBAR2_CODE, NAVBAR3_CODE, NAVBAR4_CODE, TEXT_SLASH_INPUT } from "../utils/constants";
+import { DIA_SCROLLER_NAVBAR_CODE, FLUID_NAVBAR_CODE, GOOEY_NAVBAR_CODE, METEOR_MASH_CODE, PARTICLE_VANISHING_INPUT_CODE, POPUP_NAVBAR_CODE, SLITHER_INPUT_CODE, TEXT_SLASH_INPUT_CODE } from "../utils/constants";
 import useTheme from "../hooks/useTheme";
 import CodeBlock from "../components/reusable/CodeBlock.component";
-import Navbar1 from "../components/reusable/Navbar1.component";
-import Navbar2 from "../components/reusable/Navbar2.component";
-import Navbar3 from "../components/reusable/Navbar3.component";
-import Navbar4 from "../components/reusable/Navbar4.component";
 import { useLocation } from "react-router-dom";
-import MeteorMash from "../components/reusable/MeteorMash.component";
-import TextSlashInput from "../components/reusable/TextSlashInput.component";
-
 
 const CODE_ICON = () => {
     return(
@@ -28,6 +16,19 @@ const CODE_ICON = () => {
     )
 }
 const PREVIEW_ICON = () => {
+    return (
+        <>
+            <path d="M3 7V5a2 2 0 0 1 2-2h2"/>
+            <path d="M17 3h2a2 2 0 0 1 2 2v2"/>
+            <path d="M21 17v2a2 2 0 0 1-2 2h-2"/>
+            <path d="M7 21H5a2 2 0 0 1-2-2v-2"/>
+            <circle cx="12" cy="12" r="1"/>
+            <path d="M18.944 12.33a1 1 0 0 0 0-.66 7.5 7.5 0 0 0-13.888 0 1 1 0 0 0 0 .66 7.5 7.5 0 0 0 13.888 0"/>
+            
+        </>        
+    )
+}
+const COMMAND_ICON = () => {
     return (
         <>
             <path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path>
@@ -85,17 +86,33 @@ function Components() {
                                     <div className="relative">
                                         <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
                                         <div className="h-80 w-60 mx-auto flex justify-center items-center">
-                                            <Input theme={theme} setData={setData} />
+                                            <ParticleVanishingInput theme={theme} setData={setData} />
                                         </div>
                                     </div>
                                 ),
                                 code:""
                             },
                             {
+                                tabIconPath:COMMAND_ICON(),
+                                tabName:"Command",
+                                content:(
+                                    <div className="p-4">
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg">Installation</div>
+                                        <div className="text-neutral-500 dark:text-neutral-400 font-mono m-2">
+                                            npm i kotnala_ui
+                                        </div>
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">Prerequisite</div>
+                                        <div className="text-neutral-400 dark:text-neutral-600 text-sm m-2">You should have Tailwind CSS installed before using this component.</div>
+                                        <a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite" className="text-gray-400 dark:text-gray-600 text-sm m-2">Tailwind Installation</a>
+                                    </div>
+                                ),
+                                code:"npm i kotnala_ui"
+                            },
+                            {
                                 tabIconPath:CODE_ICON(),
                                 tabName:"Code",
-                                content:<CodeBlock code={INPUT1_CODE} language="jsx" />,
-                                code:INPUT1_CODE
+                                content:<CodeBlock code={PARTICLE_VANISHING_INPUT_CODE} language="jsx" />,
+                                code:PARTICLE_VANISHING_INPUT_CODE
                             }
                         ]}
                     />
@@ -115,17 +132,32 @@ function Components() {
                                     <div className="relative">
                                         <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
                                         <div className="h-80 w-60 mx-auto flex justify-center items-center">
-                                            <Navbar1 navItems={NAVITEMS} padding="6px 12px" fontSize="18px" borderRadius="10px" previewGap="-60px" />
+                                            <DiaScrollerNavbar navItems={NAVITEMS} padding="6px 12px" fontSize="18px" borderRadius="10px" previewGap="-60px" />
                                         </div>
                                     </div>
                                 ),
                                 code:""
+                            },{
+                                tabIconPath:COMMAND_ICON(),
+                                tabName:"Command",
+                                content:(
+                                    <div className="p-4">
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg">Installation</div>
+                                        <div className="text-neutral-500 dark:text-neutral-400 font-mono m-2">
+                                            npm i kotnala_ui
+                                        </div>
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">Prerequisite</div>
+                                        <div className="text-neutral-400 dark:text-neutral-600 text-sm m-2">You should have Tailwind CSS installed before using this component.</div>
+                                        <a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite" className="text-gray-400 dark:text-gray-600 text-sm m-2">Tailwind Installation</a>
+                                    </div>
+                                ),
+                                code:"npm i kotnala_ui"
                             },
                             {
                                 tabIconPath:CODE_ICON(),
                                 tabName:"Code",
-                                content:<CodeBlock code={NAVBAR1_CODE} language="jsx" />,
-                                code:NAVBAR1_CODE
+                                content:<CodeBlock code={DIA_SCROLLER_NAVBAR_CODE} language="jsx" />,
+                                code:DIA_SCROLLER_NAVBAR_CODE
                             }
                         ]}
                     />
@@ -145,17 +177,32 @@ function Components() {
                                     <div className="relative">
                                         <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
                                         <div className="h-80 w-60 mx-auto flex justify-center items-center">
-                                            <Navbar2 navItems={NAVITEMS} />
+                                            <PopupNavabr navItems={NAVITEMS} />
                                         </div>
                                     </div>
                                 ),
                                 code:""
+                            },{
+                                tabIconPath:COMMAND_ICON(),
+                                tabName:"Command",
+                                content:(
+                                    <div className="p-4">
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg">Installation</div>
+                                        <div className="text-neutral-500 dark:text-neutral-400 font-mono m-2">
+                                            npm i kotnala_ui
+                                        </div>
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">Prerequisite</div>
+                                        <div className="text-neutral-400 dark:text-neutral-600 text-sm m-2">You should have Tailwind CSS installed before using this component.</div>
+                                        <a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite" className="text-gray-400 dark:text-gray-600 text-sm m-2">Tailwind Installation</a>
+                                    </div>
+                                ),
+                                code:"npm i kotnala_ui"
                             },
                             {
                                 tabIconPath:CODE_ICON(),
                                 tabName:"Code",
-                                content:<CodeBlock code={NAVBAR2_CODE} language="jsx" />,
-                                code:NAVBAR2_CODE
+                                content:<CodeBlock code={POPUP_NAVBAR_CODE} language="jsx" />,
+                                code:POPUP_NAVBAR_CODE
                             }
                         ]}
                     />
@@ -175,17 +222,32 @@ function Components() {
                                     <div className="relative">
                                         <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
                                         <div className="h-80 w-60 mx-auto flex justify-center items-center">
-                                            <Navbar3 navItems={NAVITEMS} blobTop="20px" />
+                                            <FluidNavbar navItems={NAVITEMS} blobTop="20px" />
                                         </div>
                                     </div>
                                 ),
                                 code:""
+                            },{
+                                tabIconPath:COMMAND_ICON(),
+                                tabName:"Command",
+                                content:(
+                                    <div className="p-4">
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg">Installation</div>
+                                        <div className="text-neutral-500 dark:text-neutral-400 font-mono m-2">
+                                            npm i kotnala_ui
+                                        </div>
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">Prerequisite</div>
+                                        <div className="text-neutral-400 dark:text-neutral-600 text-sm m-2">You should have Tailwind CSS installed before using this component.</div>
+                                        <a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite" className="text-gray-400 dark:text-gray-600 text-sm m-2">Tailwind Installation</a>
+                                    </div>
+                                ),
+                                code:"npm i kotnala_ui"
                             },
                             {
                                 tabIconPath:CODE_ICON(),
                                 tabName:"Code",
-                                content:<CodeBlock code={NAVBAR3_CODE} language="jsx" />,
-                                code:NAVBAR3_CODE
+                                content:<CodeBlock code={FLUID_NAVBAR_CODE} language="jsx" />,
+                                code:FLUID_NAVBAR_CODE
                             }
                         ]}
                     />
@@ -205,17 +267,32 @@ function Components() {
                                     <div className="relative">
                                         <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
                                         <div className="h-80 w-60 mx-auto flex justify-center items-center">
-                                            <Navbar4 navItems={NAVITEMS} marginTop="300px" />
+                                            <GooeyNavbar navItems={NAVITEMS} marginTop="300px" />
                                         </div>
                                     </div>
                                 ),
                                 code:""
+                            },{
+                                tabIconPath:COMMAND_ICON(),
+                                tabName:"Command",
+                                content:(
+                                    <div className="p-4">
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg">Installation</div>
+                                        <div className="text-neutral-500 dark:text-neutral-400 font-mono m-2">
+                                            npm i kotnala_ui
+                                        </div>
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">Prerequisite</div>
+                                        <div className="text-neutral-400 dark:text-neutral-600 text-sm m-2">You should have Tailwind CSS & React Router Dom installed before using this component.</div>
+                                        <a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite" className="text-gray-400 dark:text-gray-600 text-sm m-2">Tailwind Installation</a>
+                                    </div>
+                                ),
+                                code:"npm i kotnala_ui"
                             },
                             {
                                 tabIconPath:CODE_ICON(),
                                 tabName:"Code",
-                                content:<CodeBlock code={NAVBAR4_CODE} language="jsx" />,
-                                code:NAVBAR4_CODE
+                                content:<CodeBlock code={GOOEY_NAVBAR_CODE} language="jsx" />,
+                                code:GOOEY_NAVBAR_CODE
                             }
                         ]}
                     />
@@ -251,12 +328,27 @@ function Components() {
                                     </div>
                                 ),
                                 code:""
+                            },{
+                                tabIconPath:COMMAND_ICON(),
+                                tabName:"Command",
+                                content:(
+                                    <div className="p-4">
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg">Installation</div>
+                                        <div className="text-neutral-500 dark:text-neutral-400 font-mono m-2">
+                                            npm i kotnala_ui
+                                        </div>
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">Prerequisite</div>
+                                        <div className="text-neutral-400 dark:text-neutral-600 text-sm m-2">You should have Tailwind CSS installed before using this component.</div>
+                                        <a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite" className="text-gray-400 dark:text-gray-600 text-sm m-2">Tailwind Installation</a>
+                                    </div>
+                                ),
+                                code:"npm i kotnala_ui"
                             },
                             {
                                 tabIconPath:CODE_ICON(),
                                 tabName:"Code",
-                                content:<CodeBlock code={METEOR_MASH} language="jsx" />,
-                                code:METEOR_MASH
+                                content:<CodeBlock code={METEOR_MASH_CODE} language="jsx" />,
+                                code:METEOR_MASH_CODE
                             }
                         ]}
                     />
@@ -275,22 +367,82 @@ function Components() {
                                 content:(
                                     <div className="w-full h-80 flex justify-center items-center">
                                         <div className="w-full max-w-80">
-                                            <TextSlashInput placeHolder="Type anything and press enter" />
+                                            <TextSlashInput setTextState={setData} placeHolder="Enter Your Name" />
                                         </div>
                                     </div>
                                 ),
                                 code:""
+                            },{
+                                tabIconPath:COMMAND_ICON(),
+                                tabName:"Command",
+                                content:(
+                                    <div className="p-4">
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg">Installation</div>
+                                        <div className="text-neutral-500 dark:text-neutral-400 font-mono m-2">
+                                            npm i kotnala_ui
+                                        </div>
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">Prerequisite</div>
+                                        <div className="text-neutral-400 dark:text-neutral-600 text-sm m-2">You should have Tailwind CSS installed before using this component.</div>
+                                        <a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite" className="text-gray-400 dark:text-gray-600 text-sm m-2">Tailwind Installation</a>
+                                    </div>
+                                ),
+                                code:"npm i kotnala_ui"
                             },
                             {
                                 tabIconPath:CODE_ICON(),
                                 tabName:"Code",
-                                content:<CodeBlock code={TEXT_SLASH_INPUT} language="jsx" />,
-                                code:TEXT_SLASH_INPUT
+                                content:<CodeBlock code={TEXT_SLASH_INPUT_CODE} language="jsx" />,
+                                code:TEXT_SLASH_INPUT_CODE
                             }
                         ]}
                     />
                 </div>
             </div>
+
+           {/* Slither Input */}
+            <div id="slither_input" className="border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1">
+                <div className="w-full bg-white dark:bg-neutral-800 max-w-3xl mx-auto">
+                    <Tab
+                        panels={[
+                            {
+                                tabIconPath:PREVIEW_ICON(),
+                                tabName:"Preview",
+                                content:(
+                                    <div className="w-full h-80 flex justify-center items-center">
+                                        <div className="w-full max-w-80">
+                                            <SlitherInput setText={setData} theme="light" placeHolder="Enter Your Name" />
+                                        </div>
+                                    </div>
+                                ),
+                                code:""
+                            },{
+                                tabIconPath:COMMAND_ICON(),
+                                tabName:"Command",
+                                content:(
+                                    <div className="p-4">
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg">Installation</div>
+                                        <div className="text-neutral-500 dark:text-neutral-400 font-mono m-2">
+                                            npm i kotnala_ui
+                                        </div>
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">Prerequisite</div>
+                                        <div className="text-neutral-400 dark:text-neutral-600 text-sm m-2">You should have Tailwind CSS installed before using this component.</div>
+                                        <a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite" className="text-gray-400 dark:text-gray-600 text-sm m-2">Tailwind Installation</a>
+                                    </div>
+                                ),
+                                code:"npm i kotnala_ui"
+                            },
+                            {
+                                tabIconPath:CODE_ICON(),
+                                tabName:"Code",
+                                content:<CodeBlock code={SLITHER_INPUT_CODE} language="jsx" />,
+                                code:SLITHER_INPUT_CODE
+                            }
+                        ]}
+                    />
+                </div>
+            </div>
+
+
         </section>
     )
 };
