@@ -107,6 +107,11 @@ function Components() {
                                         <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">Prerequisite</div>
                                         <div className="text-neutral-400 dark:text-neutral-600 text-sm m-2">You should have Tailwind CSS installed before using this component.</div>
                                         <a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite" className="text-gray-400 dark:text-gray-600 text-sm m-2">Tailwind Installation</a>
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">index.css :-</div>
+                                        <div className="text-neutral-500 dark:text-neutral-400 font-mono m-2">
+                                            @source "../node_modules/kotnala_ui"; <br/>
+                                            <span className="text-sm">add this to css file in which you have imported tailwindcss</span>
+                                        </div>
                                     </div>
                                 ),
                                 code:"npm i kotnala_ui"
@@ -152,6 +157,11 @@ function Components() {
                                         <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">Prerequisite</div>
                                         <div className="text-neutral-400 dark:text-neutral-600 text-sm m-2">You should have Tailwind CSS installed before using this component.</div>
                                         <a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite" className="text-gray-400 dark:text-gray-600 text-sm m-2">Tailwind Installation</a>
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">index.css :-</div>
+                                        <div className="text-neutral-500 dark:text-neutral-400 font-mono m-2">
+                                            @source "../node_modules/kotnala_ui"; <br/>
+                                            <span className="text-sm">add this to css file in which you have imported tailwindcss</span>
+                                        </div>
                                     </div>
                                 ),
                                 code:"npm i kotnala_ui"
@@ -197,6 +207,11 @@ function Components() {
                                         <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">Prerequisite</div>
                                         <div className="text-neutral-400 dark:text-neutral-600 text-sm m-2">You should have Tailwind CSS installed before using this component.</div>
                                         <a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite" className="text-gray-400 dark:text-gray-600 text-sm m-2">Tailwind Installation</a>
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">index.css :-</div>
+                                        <div className="text-neutral-500 dark:text-neutral-400 font-mono m-2">
+                                            @source "../node_modules/kotnala_ui"; <br/>
+                                            <span className="text-sm">add this to css file in which you have imported tailwindcss</span>
+                                        </div>
                                     </div>
                                 ),
                                 code:"npm i kotnala_ui"
@@ -242,6 +257,11 @@ function Components() {
                                         <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">Prerequisite</div>
                                         <div className="text-neutral-400 dark:text-neutral-600 text-sm m-2">You should have Tailwind CSS installed before using this component.</div>
                                         <a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite" className="text-gray-400 dark:text-gray-600 text-sm m-2">Tailwind Installation</a>
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">index.css :-</div>
+                                        <div className="text-neutral-500 dark:text-neutral-400 font-mono m-2">
+                                            @source "../node_modules/kotnala_ui"; <br/>
+                                            <span className="text-sm">add this to css file in which you have imported tailwindcss</span>
+                                        </div>
                                     </div>
                                 ),
                                 code:"npm i kotnala_ui"
@@ -287,6 +307,11 @@ function Components() {
                                         <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">Prerequisite</div>
                                         <div className="text-neutral-400 dark:text-neutral-600 text-sm m-2">You should have Tailwind CSS & React Router Dom installed before using this component.</div>
                                         <a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite" className="text-gray-400 dark:text-gray-600 text-sm m-2">Tailwind Installation</a>
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">index.css :-</div>
+                                        <div className="text-neutral-500 dark:text-neutral-400 font-mono m-2">
+                                            @source "../node_modules/kotnala_ui"; <br/>
+                                            <span className="text-sm">add this to css file in which you have imported tailwindcss</span>
+                                        </div>
                                     </div>
                                 ),
                                 code:"npm i kotnala_ui"
@@ -343,6 +368,11 @@ function Components() {
                                         <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">Prerequisite</div>
                                         <div className="text-neutral-400 dark:text-neutral-600 text-sm m-2">You should have Tailwind CSS installed before using this component.</div>
                                         <a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite" className="text-gray-400 dark:text-gray-600 text-sm m-2">Tailwind Installation</a>
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">index.css :-</div>
+                                        <div className="text-neutral-500 dark:text-neutral-400 font-mono m-2">
+                                            @source "../node_modules/kotnala_ui"; <br/>
+                                            <span className="text-sm">add this to css file in which you have imported tailwindcss</span>
+                                        </div>
                                     </div>
                                 ),
                                 code:"npm i kotnala_ui"
@@ -387,6 +417,11 @@ function Components() {
                                         <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">Prerequisite</div>
                                         <div className="text-neutral-400 dark:text-neutral-600 text-sm m-2">You should have Tailwind CSS installed before using this component.</div>
                                         <a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite" className="text-gray-400 dark:text-gray-600 text-sm m-2">Tailwind Installation</a>
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">index.css :-</div>
+                                        <div className="text-neutral-500 dark:text-neutral-400 font-mono m-2">
+                                            @source "../node_modules/kotnala_ui"; <br/>
+                                            <span className="text-sm">add this to css file in which you have imported tailwindcss</span>
+                                        </div>
                                     </div>
                                 ),
                                 code:"npm i kotnala_ui"
@@ -526,6 +561,11 @@ function Components() {
                                         <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">Prerequisite</div>
                                         <div className="text-neutral-400 dark:text-neutral-600 text-sm m-2">You should have Tailwind CSS installed before using this component.</div>
                                         <a target="_blank" href="https://tailwindcss.com/docs/installation/using-vite" className="text-gray-400 dark:text-gray-600 text-sm m-2">Tailwind Installation</a>
+                                        <div className="text-neutral-700 dark:text-neutral-300 text-lg mt-10">index.css :-</div>
+                                        <div className="text-neutral-500 dark:text-neutral-400 font-mono m-2">
+                                            @source "../node_modules/kotnala_ui"; <br/>
+                                            <span className="text-sm">add this to css file in which you have imported tailwindcss</span>
+                                        </div>
                                     </div>
                                 ),
                                 code:"npm i kotnala_ui"
