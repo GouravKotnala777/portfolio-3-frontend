@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
-    "kotnala_ui": "^1.0.13",
+    "kotnala_ui": "^1.0.15",
     "prismjs": "^1.30.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
