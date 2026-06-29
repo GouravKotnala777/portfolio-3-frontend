@@ -5,6 +5,7 @@ import { DIA_SCROLLER_NAVBAR_CODE, FLUID_NAVBAR_CODE, GOOEY_NAVBAR_CODE, METEOR_
 import useTheme from "../hooks/useTheme";
 import CodeBlock from "../components/reusable/CodeBlock.component";
 import { useLocation } from "react-router-dom";
+import type { SlitherAnimationTypes } from "../components/hidden/SlitherInput";
 
 const CODE_ICON = () => {
     return(
@@ -55,6 +56,8 @@ function Components() {
     const [_, setData] = useState("");
     const {hash} = useLocation();
     const [isMeteorMashHovering, setIsMeteorMashHovering] = useState<boolean>(false);
+    const [isAnimationRunning, setIsAnimationRunning] = useState<boolean>(false);
+    const [slitherAnimationOptions, setSlitherAnimationOptions] = useState<SlitherAnimationTypes>({amplitude:1, smoothness:1, waveLength:"xs", waveThickness:1, blurEffect:true, shrinkEffect:true});
 
 
     useEffect(() => {
@@ -408,9 +411,105 @@ function Components() {
                                 tabIconPath:PREVIEW_ICON(),
                                 tabName:"Preview",
                                 content:(
-                                    <div className="w-full h-80 flex justify-center items-center">
+                                    <div className="w-full h-80 flex justify-center items-center flex-col gap-4">
+                                        
+                                        {/* control box */}
+                                        <div className={`w-45 border border-gray-300 dark:border-gray-700 text-gray-400 dark:text-gray-400 text-[12px] py-2 px-3 rounded-sm font-mono font-semibold bg-gray-100 dark:bg-gray-800 ${isAnimationRunning?"opacity-50":"opacity-100"} transition-opacity ease-in-out duration-300`}>
+                                            <div className="flex justify-between">
+                                                <label htmlFor="amplitude">Amplitude</label>
+                                                <select id="amplitude" name="amplitude" disabled={isAnimationRunning} onChange={(e) => setSlitherAnimationOptions({...slitherAnimationOptions, [e.target.name]:e.target.value})}>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                </select>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <label htmlFor="smoothness">Smoothness</label>
+                                                <select id="smoothness" name="smoothness" disabled={isAnimationRunning} onChange={(e) => setSlitherAnimationOptions({...slitherAnimationOptions, [e.target.name]:e.target.value})}>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                </select>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <label htmlFor="waveLength">WaveLength</label>
+                                                <select id="waveLength" name="waveLength" disabled={isAnimationRunning} onChange={(e) => setSlitherAnimationOptions({...slitherAnimationOptions, [e.target.name]:e.target.value})}>
+                                                    <option>xs</option>
+                                                    <option>sm</option>
+                                                    <option>md</option>
+                                                    <option>lg</option>
+                                                    <option>xl</option>
+                                                    <option>xxl</option>
+                                                </select>                                                
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <label htmlFor="waveThickness">WaveThickness</label>
+                                                <select id="waveThickness" name="waveThickness" disabled={isAnimationRunning} onChange={(e) => setSlitherAnimationOptions({...slitherAnimationOptions, [e.target.name]:e.target.value})}>
+                                                    <option>1</option>
+                                                    <option>1.1</option>
+                                                    <option>1.2</option>
+                                                    <option>1.3</option>
+                                                    <option>1.4</option>
+                                                    <option>1.5</option>
+                                                    <option>1.6</option>
+                                                    <option>1.7</option>
+                                                    <option>1.8</option>
+                                                    <option>1.9</option>
+                                                    <option>2</option>
+                                                    <option>2.1</option>
+                                                    <option>2.2</option>
+                                                    <option>2.3</option>
+                                                    <option>2.4</option>
+                                                    <option>2.5</option>
+                                                    <option>2.6</option>
+                                                    <option>2.7</option>
+                                                    <option>2.8</option>
+                                                    <option>2.9</option>
+                                                    <option>3</option>
+                                                    <option>3.2</option>
+                                                    <option>3.3</option>
+                                                    <option>3.5</option>
+                                                    <option>3.7</option>
+                                                    <option>3.9</option>
+                                                    <option>4</option>
+                                                    <option>4.5</option>
+                                                    <option>4.9</option>
+                                                    <option>5</option>
+                                                    <option>5.3</option>
+                                                    <option>5.5</option>
+                                                    <option>5.7</option>
+                                                </select>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <label htmlFor="blurEffect">BlurEffect</label>
+                                                <select id="blurEffect" name="blurEffect" disabled={isAnimationRunning} onChange={(e) => setSlitherAnimationOptions({...slitherAnimationOptions, [e.target.name]:(e.target.value==="true"?true:false)})}>
+                                                    <option>false</option>
+                                                    <option>true</option>
+                                                </select>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <label htmlFor="shrinkEffect">shrinkEffect</label>
+                                                <select id="shrinkEffect" name="shrinkEffect" disabled={isAnimationRunning} onChange={(e) => setSlitherAnimationOptions({...slitherAnimationOptions, [e.target.name]:(e.target.value==="true"?true:false)})}>
+                                                    <option>false</option>
+                                                    <option>true</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
                                         <div className="w-full max-w-80">
-                                            <SlitherInput setText={setData} theme="light" placeHolder="Enter Your Name" />
+                                            <SlitherInput  setText={setData} theme="light" placeHolder="Enter Your Name" amplitude={slitherAnimationOptions.amplitude} shrinkEffect={slitherAnimationOptions.shrinkEffect} blurEffect={slitherAnimationOptions.blurEffect} smoothness={slitherAnimationOptions.smoothness} waveLength={slitherAnimationOptions.waveLength} waveThickness={slitherAnimationOptions.waveThickness} setIsAnimationRunning={setIsAnimationRunning} />
                                         </div>
                                     </div>
                                 ),
