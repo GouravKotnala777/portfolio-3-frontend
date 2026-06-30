@@ -6,6 +6,7 @@ import Components from "./pages/Components.page";
 import Projects from "./pages/Projects.page";
 import Footer from "./components/primary/Footer.component";
 import { useEffect, useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [screenWidth, setScreenWidth] = useState<number>(0);
@@ -40,6 +41,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <Analytics />
     </BrowserRouter>
   )
 }
