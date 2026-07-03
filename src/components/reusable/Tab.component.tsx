@@ -40,7 +40,7 @@ function Tab({panels}:TabPropTypes) {
                     {
                         panels.map(({tabIconPath, tabName}, index) => (
                             <button key={index}
-                                className={` ${index === activeTab?"bg-neutral-300 text-neutral-800 dark:bg-neutral-700 dark:text-neutral-300":"bg-neutral-200 text-neutral-500 dark:bg-neutral-800 dark:text-neutral-500"} flex justify-center items-center px-3 py-2 rounded-sm cursor-pointer`}
+                                className={`${index === activeTab?"bg-neutral-300 text-neutral-800 dark:bg-neutral-700 dark:text-neutral-300":"bg-neutral-200 text-neutral-500 dark:bg-neutral-800 dark:text-neutral-500"} flex justify-center items-center px-3 py-2 rounded-sm cursor-pointer gap-0.5`}
                                 onClick={() => setActiveTab(index)}
                             >
                                 {/*<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-4">*/}
@@ -53,7 +53,7 @@ function Tab({panels}:TabPropTypes) {
                     }
                 </div>
                 {
-                    activeTab !== 0 &&
+                    activeTab === 2 &&
                     // copy/paste button
                     <div className="">
                         <button className="[font-size:var(--text-sm)] text-neutral-700 dark:text-neutral-200 hover:bg-neutral-300 dark:hover:bg-neutral-700 px-3 py-2 rounded-sm cursor-pointer relative transition-colors ease-in-out duration-300"
@@ -73,8 +73,7 @@ function Tab({panels}:TabPropTypes) {
                     </div>
                 }
             </div>
-            <div className={`border border-neutral-200 dark:border-none bg-white dark:bg-neutral-950 rounded-bl-md rounded-br-md
-                `}>
+            <div className={`border border-neutral-200 dark:border-none bg-white dark:bg-neutral-950 rounded-bl-md rounded-br-md`}>
                 {
                     panels.map(({content}, index) => (
                         <>
