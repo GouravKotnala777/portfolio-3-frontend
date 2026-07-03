@@ -1,3 +1,4 @@
+import type { InputTypes } from "../components/reusable/ContolBox.component";
 
 
 export function getScreenWidth() {
@@ -2040,3 +2041,26 @@ export const SLITHER_INPUT_CODE = `
     )
   }
 `;
+
+
+// Component Controller Fields
+export const METEOR_MASH_CONTROL_PROPS:InputTypes[] = [
+    {name:"numOfMeteors", type:"select", options:[10,30,60,90]},
+    {name:"trailLength", type:"select", options:["xs","sm","md","lg","xl","xxl"]},
+    {name:"trailLengthShrinkable", type:"select", options:["xs","sm","md","lg","xl","xxl"]},
+    {name:"trailThickness", type:"select", options:["1","2","3","4","5","6","7","8","9"]},
+    {name:"trailColor", type:"color", options:["255,255,0", "255,0,255", "0,255,255", "12,124,241"]},
+    {name:"meteorCoreSize", type:"select", options:[0.5,1,1.5,2,2.5,3,3.5,4,4.5,5]},
+    {name:"meteorCoreColor", type:"color", options:[""]},
+    {name:"collisionDebriSize", type:"select", options:[0.5,1,1.5,2,2.5,3,3.5,4,4.5,5]},
+    {name:"collisionDebriColor", type:"color", options:["true"]},
+    {name:"luminosity", type:"select", options:["1","2","3","4","5","6","7"]},
+];
+export const SLITHER_INPUT_CONTROL_PROPS:InputTypes[] = [
+    {name:"amplitude", type:"select", options:["1","2","3","4","5","6","7","8","9"]},
+    {name:"smoothness", type:"select", options:["1","2","3","4","5","6","7","8","9"]},
+    {name:"waveLength", type:"select", options:["xs","sm","md","lg","xl","xxl"]},
+    {name:"waveThickness", type:"select", options:["1","1.1","1.2","1.3","1.4","1.5","1.6","1.7","1.8","1.9","2","2.1","2.2","2.3","2.4","2.5","2.6","2.7","2.8","2.9","3","3.2","3.3","3.5","3.7","3.9","4","4.5","4.9","5","5.3","5.5","5.7"]},
+    {name:"blurEffect", type:"select", options:["true", "false"]},
+    {name:"shrinkEffect", type:"select", options:["true", "false"]},
+];
