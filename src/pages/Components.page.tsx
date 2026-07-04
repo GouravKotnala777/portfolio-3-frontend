@@ -1,20 +1,15 @@
-import {TextSlashInput, SlitherInput, MeteorMash, GooeyNavbar, FluidNavbar, PopupNavabr, DiaScrollerNavbar, ParticleVanishingInput} from "kotnala_ui";
+import {MeteorMash, SlitherInput, TextSlashInput, GooeyNavbar, FluidNavbar, PopupNavabr, DiaScrollerNavbar, ParticleVanishingInput} from "kotnala_ui";
 import { useEffect, useState } from "react";
 import Tab from "../components/reusable/Tab.component";
-import { DIA_SCROLLER_NAVBAR_CODE, FLUID_NAVBAR_CODE, GOOEY_NAVBAR_CODE, METEOR_MASH_CODE, PARTICLE_VANISHING_INPUT_CODE, POPUP_NAVBAR_CODE, SLITHER_INPUT_CODE, TEXT_SLASH_INPUT_CODE } from "../utils/constants";
+import { DIA_SCROLLER_NAVBAR_CODE, FLUID_NAVBAR_CODE, GOOEY_NAVBAR_CODE, METEOR_MASH_CODE, METEOR_MASH_CONTROL_PROPS, PARTICLE_VANISHING_INPUT_CODE, POPUP_NAVBAR_CODE, SLITHER_INPUT_CODE, SLITHER_INPUT_CONTROL_PROPS, TEXT_SLASH_INPUT_CODE } from "../utils/constants";
 import useTheme from "../hooks/useTheme";
 import CodeBlock from "../components/reusable/CodeBlock.component";
 import { useLocation } from "react-router-dom";
+import type { MeteorMashOptionTypes, SlitherAnimationTypes } from "../utils/types";
+//import SlitherInput from "../components/hidden/SlitherInput";
+//import MeteorMash from "../components/hidden/MeteorMash.component";
+import ControlBox from "../components/reusable/ContolBox.component";
 
-type ThicknessPropTypes = 1|1.1|1.2|1.3|1.4|1.5|1.6|1.7|1.8|1.9|2|2.1|2.2|2.3|2.4|2.5|2.6|2.7|2.8|2.9|3|3.2|3.3|3.5|3.7|3.9|4|4.5|4.9|5|5.3|5.5|5.7;
-interface SlitherAnimationTypes{
-    waveLength?:"xs"|"sm"|"md"|"lg"|"xl"|"xxl";
-    amplitude?:1|2|3|4|5|6|7|8|9;
-    smoothness?:1|2|3|4|5|6|7|8|9;
-    waveThickness?:ThicknessPropTypes;
-    blurEffect?:boolean;
-    shrinkEffect?:boolean;
-};
 
 const CODE_ICON = () => {
     return(
@@ -47,6 +42,21 @@ const COMMAND_ICON = () => {
         </>        
     )
 }
+const CONTROL_ICON = () => {
+    return (
+        <>
+            <path d="M10 5H3"/>
+            <path d="M12 19H3"/>
+            <path d="M14 3v4"/>
+            <path d="M16 17v4"/>
+            <path d="M21 12h-9"/>
+            <path d="M21 19h-5"/>
+            <path d="M21 5h-7"/>
+            <path d="M8 10v4"/>
+            <path d="M8 12H3"/>
+        </>        
+    )
+}
 const NAVITEMS:{
     iconPath: string;
     text: string;
@@ -66,8 +76,9 @@ function Components() {
     const {hash} = useLocation();
     const [isMeteorMashHovering, setIsMeteorMashHovering] = useState<boolean>(false);
     const [isAnimationRunning, setIsAnimationRunning] = useState<boolean>(false);
-    const [slitherAnimationOptions, setSlitherAnimationOptions] = useState<SlitherAnimationTypes>({amplitude:1, smoothness:1, waveLength:"xs", waveThickness:1, blurEffect:true, shrinkEffect:true});
-
+    //const [isAnimationRunning2, setIsAnimationRunning2] = useState<boolean>(false);
+    const [slitherAnimationOptions, setSlitherAnimationOptions] = useState<SlitherAnimationTypes>({amplitude:3, smoothness:3, waveLength:"md", waveThickness:1.5, blurEffect:true, shrinkEffect:true});
+    const [meteorMashAnimationOptions, setMeteorMashAnimationOptions] = useState<MeteorMashOptionTypes>({numOfMeteors:10, trailLength:"md", trailLengthShrinkable:"md", trailThickness:3, trailColor:"10,100,200", meteorCoreColor:"10,100,200", collisionDebriColor:"10,100,200", luminosity:3, meteorCoreSize:2, collisionDebriSize:2});    
 
     useEffect(() => {
         if (!hash) return;
@@ -130,6 +141,12 @@ function Components() {
                                 tabName:"Code",
                                 content:<CodeBlock code={PARTICLE_VANISHING_INPUT_CODE} language="jsx" />,
                                 code:PARTICLE_VANISHING_INPUT_CODE
+                            },
+                            {
+                                tabIconPath:CONTROL_ICON(),
+                                tabName:"Contols",
+                                content:"",
+                                code:PARTICLE_VANISHING_INPUT_CODE
                             }
                         ]}
                     />
@@ -180,6 +197,12 @@ function Components() {
                                 tabName:"Code",
                                 content:<CodeBlock code={DIA_SCROLLER_NAVBAR_CODE} language="jsx" />,
                                 code:DIA_SCROLLER_NAVBAR_CODE
+                            },
+                            {
+                                tabIconPath:CONTROL_ICON(),
+                                tabName:"Contols",
+                                content:"",
+                                code:PARTICLE_VANISHING_INPUT_CODE
                             }
                         ]}
                     />
@@ -230,6 +253,12 @@ function Components() {
                                 tabName:"Code",
                                 content:<CodeBlock code={POPUP_NAVBAR_CODE} language="jsx" />,
                                 code:POPUP_NAVBAR_CODE
+                            },
+                            {
+                                tabIconPath:CONTROL_ICON(),
+                                tabName:"Contols",
+                                content:"",
+                                code:PARTICLE_VANISHING_INPUT_CODE
                             }
                         ]}
                     />
@@ -280,6 +309,12 @@ function Components() {
                                 tabName:"Code",
                                 content:<CodeBlock code={FLUID_NAVBAR_CODE} language="jsx" />,
                                 code:FLUID_NAVBAR_CODE
+                            },
+                            {
+                                tabIconPath:CONTROL_ICON(),
+                                tabName:"Contols",
+                                content:"",
+                                code:PARTICLE_VANISHING_INPUT_CODE
                             }
                         ]}
                     />
@@ -330,6 +365,12 @@ function Components() {
                                 tabName:"Code",
                                 content:<CodeBlock code={GOOEY_NAVBAR_CODE} language="jsx" />,
                                 code:GOOEY_NAVBAR_CODE
+                            },
+                            {
+                                tabIconPath:CONTROL_ICON(),
+                                tabName:"Contols",
+                                content:"",
+                                code:PARTICLE_VANISHING_INPUT_CODE
                             }
                         ]}
                     />
@@ -391,6 +432,41 @@ function Components() {
                                 tabName:"Code",
                                 content:<CodeBlock code={METEOR_MASH_CODE} language="jsx" />,
                                 code:METEOR_MASH_CODE
+                            },
+                            {
+                                tabIconPath:CONTROL_ICON(),
+                                tabName:"Contols",
+                                content:(
+                                    <div className="relative">
+                                        {/*<div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-sky-100 dark:bg-sky-900 blur-2xl"></div>*/}
+                                        {/*<pre className="text-[5px] text-gray-400">{JSON.stringify(meteorMashAnimationOptions, null, `\t`)}</pre>*/}
+                                        <div className="relative h-80 w-full mx-auto flex justify-center items-center"
+                                            onMouseEnter={() => setIsMeteorMashHovering(true)} // these events are not necessary. i only added them to prevent the animation from running infinitely.
+                                            onMouseLeave={() => setIsMeteorMashHovering(false)}
+                                        >
+                                            <ControlBox
+                                                inputs={METEOR_MASH_CONTROL_PROPS}
+                                                controlState={meteorMashAnimationOptions}
+                                                setControlState={setMeteorMashAnimationOptions}
+                                                isAnimationRunning={false}
+                                            />
+                                            <MeteorMash
+                                                theme={theme === "light"?"dark":"light"}
+                                                trailLength={meteorMashAnimationOptions.trailLength}
+                                                trailLengthShrinkable={meteorMashAnimationOptions.trailLengthShrinkable}
+                                                trailThickness={meteorMashAnimationOptions.trailThickness}
+                                                trailColor={{light:meteorMashAnimationOptions.trailColor, dark:meteorMashAnimationOptions.trailColor}}
+                                                meteorCoreSize={meteorMashAnimationOptions.meteorCoreSize}
+                                                meteorCoreColor={{light:meteorMashAnimationOptions.meteorCoreColor, dark:meteorMashAnimationOptions.meteorCoreColor}}
+                                                collisionDebriSize={meteorMashAnimationOptions.collisionDebriSize}
+                                                collisionDebriColor={{light:meteorMashAnimationOptions.collisionDebriColor, dark:meteorMashAnimationOptions.collisionDebriColor}}
+                                                luminosity={meteorMashAnimationOptions.luminosity}
+                                                animateUntill={isMeteorMashHovering} // by default it is true and run autometically for infinite
+                                            />
+                                        </div>
+                                    </div>
+                                ),
+                                code:PARTICLE_VANISHING_INPUT_CODE
                             }
                         ]}
                     />
@@ -440,6 +516,12 @@ function Components() {
                                 tabName:"Code",
                                 content:<CodeBlock code={TEXT_SLASH_INPUT_CODE} language="jsx" />,
                                 code:TEXT_SLASH_INPUT_CODE
+                            },
+                            {
+                                tabIconPath:CONTROL_ICON(),
+                                tabName:"Contols",
+                                content:"",
+                                code:PARTICLE_VANISHING_INPUT_CODE
                             }
                         ]}
                     />
@@ -456,102 +538,6 @@ function Components() {
                                 tabName:"Preview",
                                 content:(
                                     <div className="w-full h-80 flex justify-center items-center flex-col gap-4">
-                                        
-                                        {/* control box */}
-                                        <div className={`w-45 border border-gray-300 dark:border-gray-700 text-gray-400 dark:text-gray-400 text-[12px] py-2 px-3 rounded-sm font-mono font-semibold bg-gray-100 dark:bg-gray-800 ${isAnimationRunning?"opacity-50":"opacity-100"} transition-opacity ease-in-out duration-300`}>
-                                            <div className="flex justify-between">
-                                                <label htmlFor="amplitude">Amplitude</label>
-                                                <select id="amplitude" name="amplitude" disabled={isAnimationRunning} onChange={(e) => setSlitherAnimationOptions({...slitherAnimationOptions, [e.target.name]:e.target.value})}>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                    <option>7</option>
-                                                    <option>8</option>
-                                                    <option>9</option>
-                                                </select>
-                                            </div>
-                                            <div className="flex justify-between">
-                                                <label htmlFor="smoothness">Smoothness</label>
-                                                <select id="smoothness" name="smoothness" disabled={isAnimationRunning} onChange={(e) => setSlitherAnimationOptions({...slitherAnimationOptions, [e.target.name]:e.target.value})}>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                    <option>7</option>
-                                                    <option>8</option>
-                                                    <option>9</option>
-                                                </select>
-                                            </div>
-                                            <div className="flex justify-between">
-                                                <label htmlFor="waveLength">WaveLength</label>
-                                                <select id="waveLength" name="waveLength" disabled={isAnimationRunning} onChange={(e) => setSlitherAnimationOptions({...slitherAnimationOptions, [e.target.name]:e.target.value})}>
-                                                    <option>xs</option>
-                                                    <option>sm</option>
-                                                    <option>md</option>
-                                                    <option>lg</option>
-                                                    <option>xl</option>
-                                                    <option>xxl</option>
-                                                </select>                                                
-                                            </div>
-                                            <div className="flex justify-between">
-                                                <label htmlFor="waveThickness">WaveThickness</label>
-                                                <select id="waveThickness" name="waveThickness" disabled={isAnimationRunning} onChange={(e) => setSlitherAnimationOptions({...slitherAnimationOptions, [e.target.name]:e.target.value})}>
-                                                    <option>1</option>
-                                                    <option>1.1</option>
-                                                    <option>1.2</option>
-                                                    <option>1.3</option>
-                                                    <option>1.4</option>
-                                                    <option>1.5</option>
-                                                    <option>1.6</option>
-                                                    <option>1.7</option>
-                                                    <option>1.8</option>
-                                                    <option>1.9</option>
-                                                    <option>2</option>
-                                                    <option>2.1</option>
-                                                    <option>2.2</option>
-                                                    <option>2.3</option>
-                                                    <option>2.4</option>
-                                                    <option>2.5</option>
-                                                    <option>2.6</option>
-                                                    <option>2.7</option>
-                                                    <option>2.8</option>
-                                                    <option>2.9</option>
-                                                    <option>3</option>
-                                                    <option>3.2</option>
-                                                    <option>3.3</option>
-                                                    <option>3.5</option>
-                                                    <option>3.7</option>
-                                                    <option>3.9</option>
-                                                    <option>4</option>
-                                                    <option>4.5</option>
-                                                    <option>4.9</option>
-                                                    <option>5</option>
-                                                    <option>5.3</option>
-                                                    <option>5.5</option>
-                                                    <option>5.7</option>
-                                                </select>
-                                            </div>
-                                            <div className="flex justify-between">
-                                                <label htmlFor="blurEffect">BlurEffect</label>
-                                                <select id="blurEffect" name="blurEffect" disabled={isAnimationRunning} onChange={(e) => setSlitherAnimationOptions({...slitherAnimationOptions, [e.target.name]:(e.target.value==="true"?true:false)})}>
-                                                    <option>false</option>
-                                                    <option>true</option>
-                                                </select>
-                                            </div>
-                                            <div className="flex justify-between">
-                                                <label htmlFor="shrinkEffect">shrinkEffect</label>
-                                                <select id="shrinkEffect" name="shrinkEffect" disabled={isAnimationRunning} onChange={(e) => setSlitherAnimationOptions({...slitherAnimationOptions, [e.target.name]:(e.target.value==="true"?true:false)})}>
-                                                    <option>false</option>
-                                                    <option>true</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
                                         <div className="w-full max-w-80">
                                             <SlitherInput  setText={setData} theme="light" placeHolder="Enter Your Name" amplitude={slitherAnimationOptions.amplitude} shrinkEffect={slitherAnimationOptions.shrinkEffect} blurEffect={slitherAnimationOptions.blurEffect} smoothness={slitherAnimationOptions.smoothness} waveLength={slitherAnimationOptions.waveLength} waveThickness={slitherAnimationOptions.waveThickness} setIsAnimationRunning={setIsAnimationRunning} />
                                         </div>
@@ -584,6 +570,36 @@ function Components() {
                                 tabName:"Code",
                                 content:<CodeBlock code={SLITHER_INPUT_CODE} language="jsx" />,
                                 code:SLITHER_INPUT_CODE
+                            },
+                            {
+                                tabIconPath:CONTROL_ICON(),
+                                tabName:"Contols",
+                                content:(
+                                    <div className="w-full h-80 flex justify-center items-center flex-col gap-4">
+                                        {/* control box */}
+                                        <ControlBox
+                                            inputs={SLITHER_INPUT_CONTROL_PROPS}
+                                            controlState={slitherAnimationOptions}
+                                            setControlState={setSlitherAnimationOptions}
+                                            isAnimationRunning={isAnimationRunning}
+                                        />
+                                        <div className="w-full max-w-80">
+                                            <SlitherInput
+                                                setText={setData}
+                                                theme="light"
+                                                placeHolder="Enter Your Name"
+                                                amplitude={slitherAnimationOptions.amplitude}
+                                                shrinkEffect={slitherAnimationOptions.shrinkEffect}
+                                                blurEffect={slitherAnimationOptions.blurEffect}
+                                                smoothness={slitherAnimationOptions.smoothness}
+                                                waveLength={slitherAnimationOptions.waveLength}
+                                                waveThickness={slitherAnimationOptions.waveThickness}
+                                                setIsAnimationRunning={setIsAnimationRunning}
+                                            />
+                                        </div>
+                                    </div>
+                                ),
+                                code:PARTICLE_VANISHING_INPUT_CODE
                             }
                         ]}
                     />
