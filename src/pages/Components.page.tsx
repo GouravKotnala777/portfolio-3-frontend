@@ -1,4 +1,4 @@
-import {MeteorMash, SlitherInput, TextSlashInput, GooeyNavbar, FluidNavbar, PopupNavabr, DiaScrollerNavbar, ParticleVanishingInput} from "kotnala_ui";
+import {MeteorMash, SlitherInput, TextSlashInput, GooeyNavbar, FluidNavbar, PopupNavbar, DiaScrollerNavbar, ParticleVanishingInput} from "kotnala_ui";
 import { useEffect, useState } from "react";
 import Tab from "../components/reusable/Tab.component";
 import { DIA_SCROLLER_NAVBAR_CODE, FLUID_NAVBAR_CODE, GOOEY_NAVBAR_CODE, METEOR_MASH_CODE, METEOR_MASH_CONTROL_PROPS, PARTICLE_VANISHING_INPUT_CODE, POPUP_NAVBAR_CODE, SLITHER_INPUT_CODE, SLITHER_INPUT_CONTROL_PROPS, TEXT_SLASH_INPUT_CODE } from "../utils/constants";
@@ -146,7 +146,7 @@ function Components() {
                                 tabIconPath:CONTROL_ICON(),
                                 tabName:"Contols",
                                 content:"",
-                                code:PARTICLE_VANISHING_INPUT_CODE
+                                code:""
                             }
                         ]}
                     />
@@ -202,7 +202,7 @@ function Components() {
                                 tabIconPath:CONTROL_ICON(),
                                 tabName:"Contols",
                                 content:"",
-                                code:PARTICLE_VANISHING_INPUT_CODE
+                                code:""
                             }
                         ]}
                     />
@@ -210,7 +210,7 @@ function Components() {
             </div>
 
 
-           {/* Popup Navabr */}
+           {/* Popup Navbar */}
             <div id="popup_navabr" className="border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 z-1">
                 <div className="w-full bg-white dark:bg-neutral-800 max-w-3xl mx-auto">
                     <Tab
@@ -222,7 +222,7 @@ function Components() {
                                     <div className="relative">
                                         <div className="w-[40%] h-[20%] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] dark:bg-neutral-800 blur-2xl"></div>
                                         <div className="h-80 w-60 mx-auto flex justify-center items-center">
-                                            <PopupNavabr navItems={NAVITEMS} />
+                                            <PopupNavbar navItems={NAVITEMS} />
                                         </div>
                                     </div>
                                 ),
@@ -258,7 +258,7 @@ function Components() {
                                 tabIconPath:CONTROL_ICON(),
                                 tabName:"Contols",
                                 content:"",
-                                code:PARTICLE_VANISHING_INPUT_CODE
+                                code:""
                             }
                         ]}
                     />
@@ -314,7 +314,7 @@ function Components() {
                                 tabIconPath:CONTROL_ICON(),
                                 tabName:"Contols",
                                 content:"",
-                                code:PARTICLE_VANISHING_INPUT_CODE
+                                code:""
                             }
                         ]}
                     />
@@ -370,7 +370,7 @@ function Components() {
                                 tabIconPath:CONTROL_ICON(),
                                 tabName:"Contols",
                                 content:"",
-                                code:PARTICLE_VANISHING_INPUT_CODE
+                                code:""
                             }
                         ]}
                     />
@@ -466,7 +466,7 @@ function Components() {
                                         </div>
                                     </div>
                                 ),
-                                code:PARTICLE_VANISHING_INPUT_CODE
+                                code:""
                             }
                         ]}
                     />
@@ -521,7 +521,7 @@ function Components() {
                                 tabIconPath:CONTROL_ICON(),
                                 tabName:"Contols",
                                 content:"",
-                                code:PARTICLE_VANISHING_INPUT_CODE
+                                code:""
                             }
                         ]}
                     />
@@ -599,7 +599,7 @@ function Components() {
                                         </div>
                                     </div>
                                 ),
-                                code:PARTICLE_VANISHING_INPUT_CODE
+                                code:""
                             }
                         ]}
                     />
