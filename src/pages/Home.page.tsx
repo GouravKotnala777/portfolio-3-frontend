@@ -669,7 +669,8 @@ function Home({screenWidth}:{screenWidth:number;}) {
                     </div>
                     <div className="border-y border-neutral-100 dark:border-neutral-800">
                         <div className={`max-w-3xl mx-auto flex ${screenWidth > 520 ? "flex-row justify-between items-center":"flex-col"} gap-4`}>
-                            <ComponentLinks isNew url={COMPONENT_LINKS[8].url} componentIconPathD={COMPONENT_LINKS[8].componentIconPathD} componentName={COMPONENT_LINKS[8].componentName} about={COMPONENT_LINKS[8].about} />
+                            <ComponentLinks url={COMPONENT_LINKS[8].url} componentIconPathD={COMPONENT_LINKS[8].componentIconPathD} componentName={COMPONENT_LINKS[8].componentName} about={COMPONENT_LINKS[8].about} />
+                            <ComponentLinks isNew url={COMPONENT_LINKS[9].url} componentIconPathD={COMPONENT_LINKS[9].componentIconPathD} componentName={COMPONENT_LINKS[9].componentName} about={COMPONENT_LINKS[9].about} />
                         </div>
                     </div>
 
