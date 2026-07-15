@@ -27,11 +27,20 @@ function ControlBox<ControllerStateType>({inputs, controlState, setControlState,
         <div className={`w-55 border border-gray-300 dark:border-gray-700 text-gray-400 dark:text-gray-400 text-[12px] py-2 px-3 rounded-sm font-mono font-semibold bg-gray-100 dark:bg-gray-800 ${isAnimationRunning?"opacity-50":"opacity-100"} transition-opacity ease-in-out duration-300 z-1`}>
             {
                 inputs.map((input, index) => {
-                    if (input.type === "text" || input.type === "number") {
+                    if (input.type === "text") {
                         return(
                             <div key={index} className="flex justify-between">
                                 <label htmlFor={input.name}>{input.name}</label>
-                                <input id={input.name} type={input.type} name={input.name} disabled={isAnimationRunning} onChange={(e) => setControlState({...controlState, [e.target.name]:e.target.value})} />
+                                <input id={input.name} type={input.type} name={input.name} placeholder={controlState[input.name as keyof ControllerStateType] as string} disabled={isAnimationRunning} className="border border-dotted w-10 text-right" onChange={(e) => setControlState({...controlState, [e.target.name]:e.target.value})} />
+                            </div>
+                        )
+                        
+                    }
+                    else if (input.type === "number") {
+                        return(
+                            <div key={index} className="flex justify-between">
+                                <label htmlFor={input.name}>{input.name}</label>
+                                <input id={input.name} type={input.type} name={input.name} placeholder={controlState[input.name as keyof ControllerStateType] as string} disabled={isAnimationRunning} className="border border-dotted w-10 text-right" onChange={(e) => setControlState({...controlState, [e.target.name]:Number(e.target.value)})} />
                             </div>
                         )
                         
@@ -49,10 +58,10 @@ function ControlBox<ControllerStateType>({inputs, controlState, setControlState,
                         return(
                             <div key={index} className="flex justify-between">
                                 <label htmlFor={input.name}>{input.name}</label>
-                                <select id={input.name} defaultValue={JSON.stringify(controlState[input.name as keyof ControllerStateType])} name={input.name} disabled={isAnimationRunning} onChange={(e) => setControlState({...controlState, [e.target.name]:e.target.value})}>
+                                <select id={input.name} defaultValue={JSON.stringify(controlState[input.name as keyof ControllerStateType])} name={input.name} disabled={isAnimationRunning} className="w-10" onChange={(e) => setControlState({...controlState, [e.target.name]:e.target.value})}>
                                     {
                                         input.options.map((opt, optInd) => (
-                                            <option key={`${opt}-${optInd}`}>{opt}</option>
+                                            <option key={`${opt}-${optInd}`} className="">{opt}</option>
                                         ))
                                     }
                                 </select>
