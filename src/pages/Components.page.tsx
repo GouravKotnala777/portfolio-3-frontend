@@ -5,7 +5,7 @@ import { DIA_SCROLLER_NAVBAR_CODE, FLUID_NAVBAR_CODE, GOOEY_NAVBAR_CODE, METEOR_
 import useTheme from "../hooks/useTheme";
 import CodeBlock from "../components/reusable/CodeBlock.component";
 import { useLocation } from "react-router-dom";
-import type { MeteorMashOptionTypes, ShatterImageAnimationTypes, ShatterImagePropTypes, SlitherAnimationTypes } from "../utils/types";
+import type { MeteorMashOptionTypes, ShatterImageAnimationTypes, SlitherAnimationTypes } from "../utils/types";
 //import SlitherInput from "../components/hidden/SlitherInput";
 //import MeteorMash from "../components/hidden/MeteorMash.component";
 import ControlBox from "../components/reusable/ContolBox.component";
