@@ -187,7 +187,9 @@ function Header({screenWidth}:{screenWidth:number}) {
                                     href="gourav_kotnala_resume.pdf"
                                     download
                                 >
-                                    <span className=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg></span>
+                                    <span className="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
+                                    </span>
                                     <span>Download Resume</span>
                                 </a>
                             </div>
@@ -209,7 +211,7 @@ function Header({screenWidth}:{screenWidth:number}) {
                                 </NavLink>
                             </div>
 
-
+                            {/* Social Links */}
                             <div className="text-neutral-700 dark:text-neutral-300 text-sm flex flex-col gap-1">
                                 <div className="text-xs text-neutral-600 dark:text-neutral-400 mt-4 font-medium">Social Links</div>
 
@@ -231,14 +233,14 @@ function Header({screenWidth}:{screenWidth:number}) {
                                     </span>
                                     <span>LinkedIn</span>
                                 </NavLink>
-                                <NavLink to={"https://vercel.com/gouravkotnala777s-projects"} target="_blank" className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg">
+                                {/*<NavLink to={"https://vercel.com/gouravkotnala777s-projects"} target="_blank" className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg">
                                     <span className="">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 fill-none" viewBox="-150 -200 1455 1300" strokeWidth="90" strokeLinecap="round" strokeLinejoin="round">
                                             <path className="stroke-neutral-800 dark:stroke-neutral-200" d="M577.344 0L1154.69 1000H0L577.344 0Z"></path>
                                         </svg>
                                     </span>
                                     <span>Vercel</span>
-                                </NavLink>
+                                </NavLink>*/}
                                 <NavLink to={"https://dribbble.com/gourav-kotnala"} target="_blank" className="flex items-center gap-2 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 py-2 px-3 rounded-lg">
                                     <span className="">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="-295 253 300 300" strokeWidth="none" strokeLinecap="round" strokeLinejoin="round">
