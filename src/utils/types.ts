@@ -78,3 +78,11 @@ export interface ShatterImagePropTypes extends ShatterImageAnimationTypes {
   isAnimating?:boolean;
   tailwindStyles?:string;
 };
+export interface ShatterTextPropTypes extends ShatterImageAnimationTypes {
+  text:string;
+  fontSize?:number;
+  fontFamily?:string;
+  fontWeight?:100|200|300|400|500|600|700|800|900;
+  strokeColor?:string;
+  textColor?:string|{amount:0|0.1|0.2|0.3|0.4|0.5|0.6|0.7|0.8|0.9|1; fill:string;}[];
+};
